@@ -25,7 +25,6 @@ export const techStack = [
   { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
   { name: "Docker", icon: "/tech/docker.svg" },
   { name: "MySQL", icon: "/tech/mysql.svg" },
-  { name: "PostgreSQL", icon: "/tech/mysql.svg" }, // Using MySQL icon as placeholder or generic DB icon if postgres not found, but user list said Postgres
   { name: "MongoDB", icon: "/tech/mongo.svg" },
   { name: "Oracle DB", icon: "/tech/oracle.svg" },
   { name: "Git", icon: "/tech/git.svg" },

@@ -9,7 +9,13 @@ import {
 
 // Tech category configuration
 // Tech badge component
-function TechBadge({ tech, index }: { tech: { name: string; icon: string }; index: number }) {
+function TechBadge({
+  tech,
+  index,
+}: {
+  tech: { name: string; icon: string };
+  index: number;
+}) {
   return (
     <motion.div
       variants={fadeInUp}
@@ -19,7 +25,11 @@ function TechBadge({ tech, index }: { tech: { name: string; icon: string }; inde
       className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-default"
     >
       <div className="w-6 h-6 flex items-center justify-center shrink-0">
-        <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />
+        <img
+          src={tech.icon}
+          alt={tech.name}
+          className="w-full h-full object-contain"
+        />
       </div>
       <span className="text-sm font-medium text-gray-700">{tech.name}</span>
     </motion.div>
@@ -62,76 +72,95 @@ function ContactItem({
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-gray-50/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
-          variants={staggerContainer}
-        >
-          {/* Section Header */}
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <motion.h2
-              className="text-3xl sm:text-4xl font-bold text-dark mb-4"
-              whileInView={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-            >
-              About <span className="gradient-text">Me</span>
-            </motion.h2>
-            <motion.p
-              className="text-gray-600 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              {profileData.bio}
-            </motion.p>
-          </motion.div>
+    <section id="about" className="py-20 bg-gray-50/50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          {/* Left Column: Content */}
+          <motion.div
+            className="w-full lg:w-1/2 order-2 lg:order-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+            variants={staggerContainer}
+          >
+            {/* Section Header */}
+            <motion.div variants={fadeInUp} className="mb-8 text-left">
+              <motion.h2
+                className="text-3xl sm:text-4xl font-bold text-dark mb-6"
+                whileInView={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 5, repeat: Infinity }}
+              >
+                About <span className="gradient-text">Me</span>
+              </motion.h2>
+              <motion.p
+                className="text-gray-600 text-lg leading-relaxed mb-8"
+                variants={fadeInUp}
+              >
+                {profileData.bio}
+              </motion.p>
+            </motion.div>
 
-          {/* Tech Stack */}
-          <motion.div variants={fadeInUp} className="mb-16">
-            <motion.h3
-              className="text-2xl font-bold text-dark mb-2 text-center"
-              variants={fadeInUp}
-            >
-              Technologies I use.
-            </motion.h3>
-            <motion.p 
-              className="text-gray-600 text-center mb-8 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              Over the years, I have worked with a variety of technologies. Here are some of the technologies I have experience with:
-            </motion.p>
-            
-            <motion.div 
-              className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
-              variants={staggerContainer}
-            >
-              {techStack.map((tech, index) => (
-                <TechBadge key={tech.name} tech={tech} index={index} />
-              ))}
+            {/* Tech Stack */}
+            <motion.div variants={fadeInUp} className="mb-10">
+              <motion.h3
+                className="text-xl font-bold text-dark mb-4"
+                variants={fadeInUp}
+              >
+                Technologies I use
+              </motion.h3>
+              <motion.p className="text-gray-600 mb-6" variants={fadeInUp}>
+                Over the years, I have worked with a variety of technologies.
+                Here are some of the technologies I have experience with:
+              </motion.p>
+
+              <motion.div
+                className="flex flex-wrap gap-2 justify-start"
+                variants={staggerContainer}
+              >
+                {techStack.map((tech, index) => (
+                  <TechBadge key={tech.name} tech={tech} index={index} />
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Location & Contact Info */}
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
+              <ContactItem icon={MapPin} text={profileData.location} />
+              <ContactItem
+                icon={Mail}
+                text={profileData.email}
+                href={`mailto:${profileData.email}`}
+              />
+              <ContactItem
+                icon={Phone}
+                text={profileData.phone}
+                href={`tel:${profileData.phone}`}
+              />
             </motion.div>
           </motion.div>
 
-          {/* Location & Contact Info */}
+          {/* Right Column: Image */}
           <motion.div
-            variants={fadeInUp}
-            className="mt-12 flex flex-wrap justify-center gap-6"
+            className="w-full lg:w-5/12 order-1 lg:order-2 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={viewportSettings}
           >
-            <ContactItem icon={MapPin} text={profileData.location} />
-            <ContactItem
-              icon={Mail}
-              text={profileData.email}
-              href={`mailto:${profileData.email}`}
-            />
-            <ContactItem
-              icon={Phone}
-              text={profileData.phone}
-              href={`tel:${profileData.phone}`}
-            />
+            <div className="relative w-full max-w-md lg:max-w-full">
+              {/* Decorative elements could be added here */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-2">
+                <img
+                  src="/profile.webp"
+                  alt="Noureddine Laktab"
+                  className="w-full h-auto rounded-2xl object-cover transform hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

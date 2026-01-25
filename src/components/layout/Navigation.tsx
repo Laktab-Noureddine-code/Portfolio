@@ -25,8 +25,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="gradient-text">{profileData.firstName}</span>
-            <span className="text-gray-500">.dev</span>
+            <img src="/logo.svg" alt="portfolio logo" className="w-20 h-16"/>
           </motion.a>
 
           {/* Desktop Navigation */}
