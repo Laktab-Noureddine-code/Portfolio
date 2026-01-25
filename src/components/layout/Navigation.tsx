@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { profileData, navLinks } from "../../data/portfolio-data";
-import { slideInFromTop, staggerContainerFast, fadeInUp } from "../../lib/animations";
+import { navLinks } from "../../data/portfolio-data";
+import {
+  slideInFromTop,
+  staggerContainerFast,
+  fadeInUp,
+} from "../../lib/animations";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +29,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img src="/logo.svg" alt="portfolio logo" className="w-20 h-16"/>
+            <img src="/logo.svg" alt="portfolio logo" className="w-20 h-16" />
           </motion.a>
 
           {/* Desktop Navigation */}
