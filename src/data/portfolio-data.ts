@@ -13,41 +13,23 @@ export const profileData = {
   bio: "I am a Computer Science student passionate about building scalable applications and automating their deployment. I focus on the intersection of Software Engineering and DevOps.",
 };
 
-export const techStack = {
-  backend: [
-    { name: "Java (Spring Boot)", icon: "🍃" },
-    { name: "PHP (Laravel)", icon: "🔴" },
-  ],
-  frontend: [
-    { name: "Angular", icon: "🅰️" },
-    { name: "React", icon: "⚛️" },
-  ],
-  devops: [
-    { name: "Docker", icon: "🐳" },
-    { name: "Ansible", icon: "🔧" },
-    { name: "OpenShift", icon: "🔴" },
-    { name: "VMware", icon: "💻" },
-  ],
-  database: [
-    { name: "Oracle DB", icon: "🔶" },
-    { name: "MySQL", icon: "🐬" },
-    { name: "MongoDB", icon: "🍃" },
-  ],
-};
-
-export const allTechForMarquee = [
-  "Spring Boot",
-  "Angular",
-  "React",
-  "Docker",
-  "Laravel",
-  "Oracle DB",
-  "Ansible",
-  "OpenShift",
-  "VMware",
-  "MongoDB",
-  "MySQL",
-  "Git",
+export const techStack = [
+  { name: "Java", icon: "/tech/java.svg" },
+  { name: "Spring Boot", icon: "/tech/spring.svg" },
+  { name: "PHP", icon: "/tech/php.svg" },
+  { name: "Laravel", icon: "/tech/laravel.svg" },
+  { name: "Javascript", icon: "/tech/js.svg" },
+  { name: "Typescript", icon: "/tech/typescript.svg" },
+  { name: "Angular", icon: "/tech/angular.svg" },
+  { name: "React", icon: "/tech/react.svg" },
+  { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
+  { name: "Docker", icon: "/tech/docker.svg" },
+  { name: "MySQL", icon: "/tech/mysql.svg" },
+  { name: "PostgreSQL", icon: "/tech/mysql.svg" }, // Using MySQL icon as placeholder or generic DB icon if postgres not found, but user list said Postgres
+  { name: "MongoDB", icon: "/tech/mongo.svg" },
+  { name: "Oracle DB", icon: "/tech/oracle.svg" },
+  { name: "Git", icon: "/tech/git.svg" },
+  { name: "Vercel", icon: "/tech/vercel.svg" },
 ];
 
 export const experience = [
@@ -159,12 +141,7 @@ export const education = [
   },
 ];
 
-export const interests = [
-  { name: "UI/UX Design", icon: "🎨" },
-  { name: "Bodybuilding", icon: "💪" },
-  { name: "Surf", icon: "🏄" },
-  { name: "Football", icon: "⚽" },
-];
+
 
 export const navLinks = [
   { name: "Home", href: "#home" },

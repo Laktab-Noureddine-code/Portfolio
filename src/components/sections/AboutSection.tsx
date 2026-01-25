@@ -1,74 +1,33 @@
 import { motion } from "framer-motion";
-import { Code2, Server, Database, Cloud, MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { profileData, techStack } from "../../data/portfolio-data";
 import {
   fadeInUp,
   staggerContainer,
-  scaleUp,
   viewportSettings,
 } from "../../lib/animations";
 
 // Tech category configuration
-const categories = [
-  { key: "backend", label: "Backend", icon: Server, color: "emerald" },
-  { key: "frontend", label: "Frontend", icon: Code2, color: "blue" },
-  { key: "devops", label: "DevOps", icon: Cloud, color: "purple" },
-  { key: "database", label: "Database", icon: Database, color: "orange" },
-] as const;
-
-// Tech card component
-function TechCard({
-  category,
-  index,
-}: {
-  category: (typeof categories)[number];
-  index: number;
-}) {
-  const { key, label, icon: Icon } = category;
-  const techs = techStack[key as keyof typeof techStack] || [];
-
+// Tech badge component
+function TechBadge({ tech, index }: { tech: { name: string; icon: string }; index: number }) {
   return (
     <motion.div
       variants={fadeInUp}
       custom={index}
-      whileHover={{ scale: 1.02, y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow"
+      whileHover={{ scale: 1.05, y: -5 }}
+      whileTap={{ scale: 0.95 }}
+      className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-default"
     >
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <motion.div
-            className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center"
-            whileHover={{ rotate: 10, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Icon size={20} className="text-emerald-600" />
-          </motion.div>
-          <h4 className="font-semibold text-dark">{label}</h4>
-        </div>
-        <motion.div
-          className="flex flex-wrap gap-2"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {techs.map((tech, techIndex) => (
-            <motion.span
-              key={tech.name}
-              variants={scaleUp}
-              custom={techIndex}
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="px-3 py-1.5 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-full border border-emerald-100 cursor-default"
-            >
-              {tech.name}
-            </motion.span>
-          ))}
-        </motion.div>
+      <div className="w-6 h-6 flex items-center justify-center shrink-0">
+        <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />
       </div>
+      <span className="text-sm font-medium text-gray-700">{tech.name}</span>
     </motion.div>
   );
 }
+
+// ... inside AboutSection
+// replaced categories and TechCard definitions with TechBadge above
 
 // Contact info item
 function ContactItem({
@@ -103,7 +62,7 @@ function ContactItem({
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-light">
+    <section id="about" className="py-20 bg-gray-50/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -131,18 +90,28 @@ export default function AboutSection() {
           </motion.div>
 
           {/* Tech Stack */}
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUp} className="mb-16">
             <motion.h3
-              className="text-xl font-semibold text-dark mb-8 text-center"
+              className="text-2xl font-bold text-dark mb-2 text-center"
               variants={fadeInUp}
             >
-              Tech Stack
+              Technologies I use.
             </motion.h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {categories.map((category, index) => (
-                <TechCard key={category.key} category={category} index={index} />
+            <motion.p 
+              className="text-gray-600 text-center mb-8 max-w-2xl mx-auto"
+              variants={fadeInUp}
+            >
+              Over the years, I have worked with a variety of technologies. Here are some of the technologies I have experience with:
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
+              variants={staggerContainer}
+            >
+              {techStack.map((tech, index) => (
+                <TechBadge key={tech.name} tech={tech} index={index} />
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Location & Contact Info */}
