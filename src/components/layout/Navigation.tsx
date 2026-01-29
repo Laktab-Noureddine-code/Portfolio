@@ -15,10 +15,7 @@ export default function Navigation() {
         className="text-lg font-black text-neutral-800 duration-300 motion-reduce:transition-none dark:text-white mr-6"
         href="#home"
       >
-        NL
-        <span className="bg-gradient-to-r from-[#6310ff] to-[#1491ff] bg-clip-text text-transparent dark:from-[#a2facf] dark:to-[#64acff]">
-          .
-        </span>
+        <img src="/logo.svg" className="w-16" />
       </a>
 
       {/* Desktop Navigation */}
@@ -29,7 +26,7 @@ export default function Navigation() {
             .map((link) => (
               <a
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-black/10 hover:text-neutral-800 dark:hover:bg-white/10 dark:hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-700 dark:text-neutral-400"
+                className="relative rounded-md px-2 py-1 transition-all hover:bg-black/10 hover:text-black dark:hover:bg-white/10 dark:hover:text-neutral-200 sm:px-3 sm:py-2 text-black dark:text-neutral-400"
                 href={link.href}
               >
                 {link.name}
@@ -40,7 +37,7 @@ export default function Navigation() {
             .map((link) => (
               <a
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-black/10 hover:text-neutral-800 dark:hover:bg-white/10 dark:hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-700 dark:text-neutral-400"
+                className="relative rounded-md px-2 py-1 transition-all hover:bg-black/10 hover:text-black dark:hover:bg-white/10 dark:hover:text-neutral-200 sm:px-3 sm:py-2 text-black dark:text-neutral-400"
                 href={link.href}
                 download
               >
@@ -70,7 +67,7 @@ export default function Navigation() {
           {theme === "dark" ? (
             <Sun className="h-5 w-5 shrink-0 text-neutral-200 duration-200 group-hover:rotate-12 group-hover:transform motion-reduce:transition-none" />
           ) : (
-            <Moon className="h-5 w-5 shrink-0 text-neutral-800 duration-200 group-hover:-rotate-12 group-hover:transform motion-reduce:transition-none" />
+            <Moon className="h-5 w-5 shrink-0 text-neutral-900 duration-200 group-hover:-rotate-12 group-hover:transform motion-reduce:transition-none" />
           )}
         </button>
       </div>
@@ -98,7 +95,7 @@ export default function Navigation() {
             >
               <div className="flex items-center justify-between mb-8">
                 <a
-                  className="text-lg font-black text-neutral-800 dark:text-white"
+                  className="text-lg font-black text-neutral-900 dark:text-white"
                   href="#home"
                 >
                   NL
@@ -110,7 +107,7 @@ export default function Navigation() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-2 rounded-md hover:bg-neutral-200 dark:hover:bg-white/10"
                 >
-                  <X className="size-5 text-neutral-800 dark:text-white" />
+                  <X className="size-5 text-neutral-900 dark:text-white" />
                 </button>
               </div>
 
@@ -118,7 +115,7 @@ export default function Navigation() {
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
-                    className="px-4 py-3 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/10 transition-colors"
+                    className="px-4 py-3 rounded-md text-neutral-900 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/10 transition-colors"
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     {...(link.download ? { download: true } : {})}

@@ -2,15 +2,16 @@ export const profileData = {
   name: "Noureddine Laktab",
   firstName: "Noureddine",
   lastName: "Laktab",
-  role: "Full Stack Developer & DevOps Enthusiast",
-  tagline: "Bridging the gap between code and deployment. Specializing in Spring Boot, Angular, and Cloud Infrastructure.",
-  status: "Currently seeking a 2-month internship",
+  role: "Full Stack Web Developer - React / Laravel",
+  tagline:
+    "Specialized in React and Laravel. Passionate about designing and building complete business applications.",
+  status: "Seeking an internship to apply technical expertise",
   location: "Bouznika, Maroc",
   email: "noureddine.laktab15@gmail.com",
   linkedin: "https://linkedin.com/in/noureddine-laktab",
   phone: "+212 606271812",
-  github: "https://github.com/noureddine-laktab",
-  bio: "I am a Computer Science student passionate about building scalable applications and automating their deployment. I focus on the intersection of Software Engineering and DevOps.",
+  github: "https://github.com/Laktab-Noureddine-code",
+  bio: "I am a Full Stack Web Developer specialized in React and Laravel. I am passionate about designing complete business applications and am currently looking for an internship to contribute effectively to production-oriented projects.",
 };
 
 export const techStack = [
@@ -37,23 +38,17 @@ export const experience = [
     title: "Final Year Student",
     subtitle: "Preparing for Exams & Internship Search",
     period: "Jan 2026 - Present",
-    description: "Actively preparing for final exams while seeking a 2-month internship opportunity to apply my Full Stack and DevOps skills in a professional environment.",
+    description:
+      "Actively preparing for final exams while seeking a 2-month internship opportunity to apply my Full Stack and DevOps skills in a professional environment.",
     current: true,
   },
   {
     id: 2,
-    title: "Darek Kitchen - University Project",
-    subtitle: "Technical Study & Ansible Deployment",
-    period: "Dec 2025",
-    description: "Led the technical architecture study and implemented automated deployment pipelines using Ansible for a salad ordering platform.",
-    current: false,
-  },
-  {
-    id: 3,
     title: "DevOps & Cloud Self-Study",
     subtitle: "Docker, Kubernetes, Oracle Cloud",
     period: "Late 2025",
-    description: "Intensive self-study period focusing on containerization with Docker, orchestration with Kubernetes, and cloud infrastructure on Oracle Cloud.",
+    description:
+      "Intensive self-study period focusing on containerization with Docker, orchestration with Kubernetes, and cloud infrastructure on Oracle Cloud.",
     current: false,
   },
 ];
@@ -66,9 +61,16 @@ export const projects = [
     description:
       "A translation and text summarization tool leveraging AI APIs. Features intelligent language detection, multi-language support, and context-aware summarization capabilities.",
     tech: ["AI Integration", "API", "Full Stack"],
-    image: "/projects/3sila-ai.png",
-    github: "https://github.com/noureddine-laktab/3sila-ai",
-    live: "#",
+    image: "/projects/3ssila/3sila1.png",
+    images: [
+      "/projects/3ssila/3ssila1.png",
+      "/projects/3ssila/3ssila2.png",
+      "/projects/3ssila/3ssila3.png",
+      "/projects/3ssila/3ssila4.png",
+      "/projects/3ssila/3ssila5.png",
+    ],
+    github: "https://github.com/Laktab-Noureddine-code/3sila-ai",
+    live: "https://www.3ssila-ai.tech/",
     featured: true,
   },
   {
@@ -79,43 +81,37 @@ export const projects = [
       "A full-stack blogging platform featuring a decoupled architecture with Laravel backend and React frontend. Includes user authentication, post management, and social interactions.",
     tech: ["Laravel", "React", "Docker", "Git"],
     image: "/projects/social-blog.png",
-    github: "https://github.com/noureddine-laktab/social-blog",
+    images: [
+      "/projects/mn/mn1.jpg",
+      "/projects/mn/mn2.jpg",
+      "/projects/mn/mn3.jpg",
+      "/projects/mn/mn4.jpg",
+      "/projects/mn/mn5.jpg",
+      "/projects/mn/mn6.jpg",
+      "/projects/mn/mn7.jpg",
+      "/projects/mn/mn8.jpg",
+      "/projects/mn/mn9.jpg",
+      "/projects/mn/mn10.jpg",
+      "/projects/mn/mn11.jpg",
+    ],
+    github: "https://github.com/Laktab-Noureddine-code/social-blog",
     live: "#",
     featured: true,
   },
   {
     id: 3,
-    title: "Darek Kitchen",
-    subtitle: "Salad Ordering Platform",
-    description:
-      "A salad ordering platform featuring automated deployment pipelines. Built with the MERN stack and deployed using Ansible automation for consistent and reliable deployments.",
-    tech: ["MERN Stack", "Ansible", "Automation"],
-    image: "/projects/darek-kitchen.png",
-    github: "https://github.com/noureddine-laktab/darek-kitchen",
-    live: "#",
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "Professional Social Network",
-    subtitle: "PFF - Plateforme Finale de Formation",
-    description:
-      "A comprehensive social platform with profile management, groups, pages, and real-time messaging. Features a rich blog editor with social interactions (likes, comments).",
-    tech: ["Laravel 11", "React.js", "TailwindCSS"],
-    image: "/projects/social-network.png",
-    github: "#",
-    live: "#",
-    featured: false,
-  },
-  {
-    id: 5,
     title: "IT Material Management System",
     subtitle: "Jet Contractors - Internship Project",
     description:
       "An internship project handling full hardware inventory tracking with real-time monitoring, intelligent assignment systems, and PDF generation. Includes an analytical dashboard.",
     tech: ["Laravel 11", "MySQL", "TailwindCSS", "jQuery"],
     image: "/projects/material-management.png",
-    github: "#",
+    images: [
+      "/projects/material-management.png",
+      "/projects/material-management.png",
+      "/projects/material-management.png",
+    ],
+    github: "https://github.com/Laktab-Noureddine-code/material-management",
     live: "#",
     featured: false,
   },
@@ -127,7 +123,8 @@ export const education = [
     degree: "Licence in Systems Engineering & Web Technologies",
     institution: "EST Sidi Bennour",
     period: "2025 - 2026",
-    description: "Advanced studies in systems engineering and modern web technologies.",
+    description:
+      "Advanced studies in systems engineering and modern web technologies.",
     current: true,
   },
   {
@@ -135,12 +132,11 @@ export const education = [
     degree: "Specialized Technician in Web Development Full-Stack",
     institution: "ISTA Bouznika",
     period: "2023 - 2025",
-    description: "Comprehensive training in full-stack web development, covering both frontend and backend technologies.",
+    description:
+      "Comprehensive training in full-stack web development, covering both frontend and backend technologies.",
     current: false,
   },
 ];
-
-
 
 export const navLinks = [
   { name: "Home", href: "#home" },

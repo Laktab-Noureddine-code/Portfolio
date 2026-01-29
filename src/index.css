@@ -107,7 +107,7 @@
   }
 
   html:not(.dark) body {
-    @apply text-neutral-800;
+    @apply text-neutral-900;
   }
 
   html.dark body {
@@ -281,4 +281,38 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #262626;
+}
+
+/* Swiper custom styles */
+.swiper-pagination {
+  position: absolute;
+  bottom: 12px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: white;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.dark .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dark .swiper-pagination-bullet-active {
+  background: white;
+}
+
+/* Hide default swiper navigation */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
 }

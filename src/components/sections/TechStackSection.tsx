@@ -18,7 +18,7 @@ export default function TechStackSection() {
       </motion.h2>
 
       <motion.p
-        className="text-neutral-700 dark:text-neutral-300"
+        className="text-neutral-800 dark:text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -38,7 +38,7 @@ export default function TechStackSection() {
         {techStack.map((tech, index) => (
           <motion.div
             key={tech.name}
-            className="flex cursor-default items-center gap-2 rounded-md border border-neutral-200 bg-white px-2 py-1 font-mono font-medium text-neutral-600 duration-200 hover:bg-neutral-50 motion-reduce:transition-none dark:border-neutral-800 dark:bg-transparent dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-white/5"
+            className="flex cursor-default items-center gap-2 rounded-md border border-neutral-200 bg-white px-2 py-1 font-mono font-medium text-neutral-800 duration-200 hover:bg-neutral-50 motion-reduce:transition-none dark:border-neutral-800 dark:bg-transparent dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-white/5"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -59,7 +59,7 @@ export default function TechStackSection() {
       </motion.div>
 
       <motion.p
-        className="mt-4 text-center text-neutral-700 dark:text-neutral-400"
+        className="mt-4 text-center text-neutral-800 dark:text-neutral-400"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

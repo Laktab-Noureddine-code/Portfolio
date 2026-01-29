@@ -74,7 +74,7 @@ export default function AboutSection() {
         </a>
 
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-700 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-800 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
           href="#contact"
         >
           Contact me

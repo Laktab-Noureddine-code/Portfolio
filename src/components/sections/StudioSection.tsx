@@ -11,7 +11,7 @@ export default function StudioSection() {
     >
       <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#111111] backdrop-blur-sm text-neutral-800 dark:text-white border border-neutral-200 dark:border-[#333] shadow-sm dark:shadow-2xl flex flex-col h-full">
         {/* Header */}
-        <div className="text-neutral-700 dark:text-white uppercase tracking-wider flex gap-2 items-center text-sm sm:text-base">
+        <div className="text-neutral-800 dark:text-white uppercase tracking-wider flex gap-2 items-center text-sm sm:text-base">
           <span className="bg-[#FF3B00] p-1.5 rounded-md">
             <Code color="#FFFFFF" size={20} />
           </span>
@@ -31,7 +31,7 @@ export default function StudioSection() {
         <a
           href="/resume.pdf"
           download
-          className="text-sm mt-3 bg-neutral-100 dark:bg-[#1a1a1a] border border-neutral-200 dark:border-[#333] px-5 py-2 rounded-full hover:bg-neutral-200 dark:hover:bg-[#111111A0] transition-all duration-300 w-fit text-neutral-700 dark:text-white"
+          className="text-sm mt-3 bg-neutral-100 dark:bg-[#1a1a1a] border border-neutral-200 dark:border-[#333] px-5 py-2 rounded-full hover:bg-neutral-200 dark:hover:bg-[#111111A0] transition-all duration-300 w-fit text-neutral-800 dark:text-white"
         >
           Download CV
         </a>

@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
-import { Link, ArrowRight } from "lucide-react";
+import { Link, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects } from "../../data/portfolio-data";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function ProjectsSection() {
   const featuredProjects = projects.filter((p) => p.featured);
@@ -21,7 +26,7 @@ export default function ProjectsSection() {
       </motion.h2>
 
       <motion.p
-        className="text-neutral-700 dark:text-neutral-300"
+        className="text-neutral-800 dark:text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -52,24 +57,59 @@ export default function ProjectsSection() {
             </p>
 
             {/* Description */}
-            <p className="mb-4 mt-2 text-neutral-700 dark:text-neutral-400 md:w-3/4">
+            <p className="mb-4 mt-2 text-neutral-800 dark:text-neutral-400 md:w-3/4">
               {project.description}
             </p>
 
-            {/* Project Image */}
-            <div className="mb-6">
-              <div className="space-y-4">
-                <button className="block w-full text-left">
-                  <img
-                    alt={project.title}
-                    loading="lazy"
-                    width="1920"
-                    height="1080"
-                    className="aspect-video w-full cursor-zoom-in rounded-xl border border-black/10 object-cover duration-200 hover:opacity-80 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800"
-                    src={project.image}
-                  />
-                </button>
-              </div>
+            {/* Project Image Slider */}
+            <div className="mb-6 group relative">
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay]}
+                spaceBetween={0}
+                slidesPerView={1}
+                navigation={{
+                  prevEl: `.swiper-button-prev-${project.id}`,
+                  nextEl: `.swiper-button-next-${project.id}`,
+                }}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: true,
+                  pauseOnMouseEnter: true,
+                }}
+                loop={project.images && project.images.length > 1}
+                className="rounded-xl overflow-hidden border border-black/10 dark:border-neutral-800"
+              >
+                {(project.images || [project.image]).map((img, imgIndex) => (
+                  <SwiperSlide key={imgIndex}>
+                    <img
+                      alt={`${project.title} - Screenshot ${imgIndex + 1}`}
+                      loading="lazy"
+                      className="aspect-video w-full object-cover bg-neutral-100 dark:bg-neutral-800"
+                      src={img}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              {/* Custom Navigation Buttons */}
+              {project.images && project.images.length > 1 && (
+                <>
+                  <button
+                    className={`swiper-button-prev-${project.id} absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-700`}
+                  >
+                    <ChevronLeft className="w-5 h-5 text-neutral-700 dark:text-white" />
+                  </button>
+                  <button
+                    className={`swiper-button-next-${project.id} absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-700`}
+                  >
+                    <ChevronRight className="w-5 h-5 text-neutral-700 dark:text-white" />
+                  </button>
+                </>
+              )}
             </div>
 
             {/* Technology Badges */}
@@ -77,7 +117,7 @@ export default function ProjectsSection() {
               {project.tech.map((tech) => (
                 <div
                   key={tech}
-                  className="flex cursor-default items-center gap-2 rounded-md border border-neutral-200 bg-white px-2 py-1 font-mono text-sm font-medium text-neutral-600 duration-200 hover:bg-neutral-50 motion-reduce:transition-none dark:border-neutral-800 dark:bg-transparent dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-white/5"
+                  className="flex cursor-default items-center gap-2 rounded-md border border-neutral-200 bg-white px-2 py-1 font-mono text-sm font-medium text-neutral-800 duration-200 hover:bg-neutral-50 motion-reduce:transition-none dark:border-neutral-800 dark:bg-transparent dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-white/5"
                 >
                   {tech}
                 </div>
@@ -102,7 +142,7 @@ export default function ProjectsSection() {
               {project.github && project.github !== "#" && (
                 <a
                   rel="noopener noreferrer"
-                  className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-700 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+                  className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-800 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
                   href={project.github}
                   target="_blank"
                 >
@@ -136,11 +176,11 @@ export default function ProjectsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <p className="mb-2 text-neutral-700 dark:text-neutral-400">
+        <p className="mb-2 text-neutral-800 dark:text-neutral-400">
           Want to see more?
         </p>
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-700 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-800 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
           href={`https://github.com/noureddine-laktab`}
           target="_blank"
         >
