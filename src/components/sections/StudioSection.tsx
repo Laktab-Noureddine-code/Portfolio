@@ -29,7 +29,7 @@ export default function StudioSection() {
 
         {/* Download CV Button */}
         <a
-          href="/resume.pdf"
+          href="/CV_LAKTAB.pdf"
           download
           className="text-sm mt-3 bg-neutral-100 dark:bg-[#1a1a1a] border border-neutral-200 dark:border-[#333] px-5 py-2 rounded-full hover:bg-neutral-200 dark:hover:bg-[#111111A0] transition-all duration-300 w-fit text-neutral-800 dark:text-white"
         >

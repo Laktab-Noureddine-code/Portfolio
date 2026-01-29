@@ -16,7 +16,12 @@ export default function Footer() {
       { name: "LinkedIn", href: profileData.linkedin, external: true },
     ],
     Other: [
-      { name: "Resume", href: "/resume.pdf", external: false, download: true },
+      {
+        name: "Resume",
+        href: "/CV_LAKTAB.pdf",
+        external: false,
+        download: true,
+      },
       { name: "Contact", href: "#contact", external: false },
     ],
   };

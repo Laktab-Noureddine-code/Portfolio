@@ -81,14 +81,14 @@ export default function ProjectsSection() {
                   pauseOnMouseEnter: true,
                 }}
                 loop={project.images && project.images.length > 1}
-                className="rounded-xl overflow-hidden border border-black/10 dark:border-neutral-800"
+                className="rounded-xl overflow-hidden"
               >
                 {(project.images || [project.image]).map((img, imgIndex) => (
                   <SwiperSlide key={imgIndex}>
                     <img
                       alt={`${project.title} - Screenshot ${imgIndex + 1}`}
                       loading="lazy"
-                      className="aspect-video w-full object-cover bg-neutral-100 dark:bg-neutral-800"
+                      className="h-full object-contain bg-neutral-100 dark:bg-neutral-800"
                       src={img}
                     />
                   </SwiperSlide>
@@ -116,10 +116,11 @@ export default function ProjectsSection() {
             <div className="mt-4 flex flex-wrap gap-2">
               {project.tech.map((tech) => (
                 <div
-                  key={tech}
+                  key={tech.name}
                   className="flex cursor-default items-center gap-2 rounded-md border border-neutral-200 bg-white px-2 py-1 font-mono text-sm font-medium text-neutral-800 duration-200 hover:bg-neutral-50 motion-reduce:transition-none dark:border-neutral-800 dark:bg-transparent dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-white/5"
                 >
-                  {tech}
+                  <img src={tech.icon} alt={tech.name} className="w-5 h-5" />
+                  {tech.name}
                 </div>
               ))}
             </div>
@@ -181,7 +182,7 @@ export default function ProjectsSection() {
         </p>
         <a
           className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-800 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
-          href={`https://github.com/noureddine-laktab`}
+          href={`https://github.com/Laktab-Noureddine-code?tab=repositories`}
           target="_blank"
         >
           More Projects

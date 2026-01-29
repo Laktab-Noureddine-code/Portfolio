@@ -45,6 +45,11 @@
     box-sizing: border-box;
   }
 
+  /* Reset anchor color to inherit from parent */
+  a {
+    color: inherit;
+  }
+
   html {
     scroll-behavior: smooth;
   }

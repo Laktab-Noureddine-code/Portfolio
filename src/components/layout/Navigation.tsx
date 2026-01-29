@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AlignLeft, X, Sun, Moon } from "lucide-react";
-import { useTheme } from "../../context/ThemeContext";
+import { AlignLeft, X } from "lucide-react";
 import { navLinks } from "../../data/portfolio-data";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="z-50 mx-auto flex w-full max-w-screen-lg items-center pt-9 font-mono px-6">
@@ -56,19 +54,6 @@ export default function Navigation() {
           className="group flex items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none size-10 justify-center border-0 !bg-transparent !outline-none hover:!bg-neutral-300 dark:hover:!bg-white/15 lg:hidden"
         >
           <AlignLeft className="size-5 shrink-0 text-neutral-900 dark:text-neutral-100" />
-        </button>
-
-        {/* Theme Toggle */}
-        <button
-          aria-label="Toggle theme"
-          onClick={toggleTheme}
-          className="group rounded-md py-2 font-medium duration-200 motion-reduce:transition-none !bg-transparent hover:!bg-neutral-300 dark:hover:!bg-white/15 group ml-auto flex h-10 w-10 items-center justify-center px-2 !outline-none"
-        >
-          {theme === "dark" ? (
-            <Sun className="h-5 w-5 shrink-0 text-neutral-200 duration-200 group-hover:rotate-12 group-hover:transform motion-reduce:transition-none" />
-          ) : (
-            <Moon className="h-5 w-5 shrink-0 text-neutral-900 duration-200 group-hover:-rotate-12 group-hover:transform motion-reduce:transition-none" />
-          )}
         </button>
       </div>
 

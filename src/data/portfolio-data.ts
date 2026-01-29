@@ -6,7 +6,7 @@ export const profileData = {
   tagline:
     "Specialized in React and Laravel. Passionate about designing and building complete business applications.",
   status: "Seeking an internship to apply technical expertise",
-  location: "Bouznika, Maroc",
+  location: "Casablanca, Maroc",
   email: "noureddine.laktab15@gmail.com",
   linkedin: "https://linkedin.com/in/noureddine-laktab",
   phone: "+212 606271812",
@@ -27,30 +27,8 @@ export const techStack = [
   { name: "Docker", icon: "/tech/docker.svg" },
   { name: "MySQL", icon: "/tech/mysql.svg" },
   { name: "MongoDB", icon: "/tech/mongo.svg" },
-  { name: "Oracle DB", icon: "/tech/oracle.svg" },
   { name: "Git", icon: "/tech/git.svg" },
   { name: "Vercel", icon: "/tech/vercel.svg" },
-];
-
-export const experience = [
-  {
-    id: 1,
-    title: "Final Year Student",
-    subtitle: "Preparing for Exams & Internship Search",
-    period: "Jan 2026 - Present",
-    description:
-      "Actively preparing for final exams while seeking a 2-month internship opportunity to apply my Full Stack and DevOps skills in a professional environment.",
-    current: true,
-  },
-  {
-    id: 2,
-    title: "DevOps & Cloud Self-Study",
-    subtitle: "Docker, Kubernetes, Oracle Cloud",
-    period: "Late 2025",
-    description:
-      "Intensive self-study period focusing on containerization with Docker, orchestration with Kubernetes, and cloud infrastructure on Oracle Cloud.",
-    current: false,
-  },
 ];
 
 export const projects = [
@@ -60,8 +38,15 @@ export const projects = [
     subtitle: "AI-Powered Translation & Summarization",
     description:
       "A translation and text summarization tool leveraging AI APIs. Features intelligent language detection, multi-language support, and context-aware summarization capabilities.",
-    tech: ["AI Integration", "API", "Full Stack"],
-    image: "/projects/3ssila/3sila1.png",
+    tech: [
+      { name: "FastAPI", icon: "/tech/FastAPI.svg" },
+      { name: "Vue.js", icon: "/tech/vue.svg" },
+      { name: "SQLite", icon: "/tech/sqlite.svg" },
+      { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
+      { name: "Vercel", icon: "/tech/vercel.svg" },
+      { name: "docker", icon: "/tech/docker.svg" },
+    ],
+    image: "/projects/3ssila/3ssila1.png",
     images: [
       "/projects/3ssila/3ssila1.png",
       "/projects/3ssila/3ssila2.png",
@@ -79,7 +64,13 @@ export const projects = [
     subtitle: "Full-Stack Blogging Platform",
     description:
       "A full-stack blogging platform featuring a decoupled architecture with Laravel backend and React frontend. Includes user authentication, post management, and social interactions.",
-    tech: ["Laravel", "React", "Docker", "Git"],
+    tech: [
+      { name: "Laravel", icon: "/tech/laravel.svg" },
+      { name: "React", icon: "/tech/react.svg" },
+      { name: "Docker", icon: "/tech/docker.svg" },
+      { name: "Git", icon: "/tech/git.svg" },
+      { name: "MySQL", icon: "/tech/mysql.svg" },
+    ],
     image: "/projects/social-blog.png",
     images: [
       "/projects/mn/mn1.jpg",
@@ -104,16 +95,23 @@ export const projects = [
     subtitle: "Jet Contractors - Internship Project",
     description:
       "An internship project handling full hardware inventory tracking with real-time monitoring, intelligent assignment systems, and PDF generation. Includes an analytical dashboard.",
-    tech: ["Laravel 11", "MySQL", "TailwindCSS", "jQuery"],
+    tech: [
+      { name: "Laravel 11", icon: "/tech/laravel.svg" },
+      { name: "MySQL", icon: "/tech/mysql.svg" },
+      { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
+      { name: "jQuery", icon: "/tech/jquery.svg" },
+    ],
     image: "/projects/material-management.png",
     images: [
-      "/projects/material-management.png",
-      "/projects/material-management.png",
-      "/projects/material-management.png",
+      "/projects/it/it1.png",
+      "/projects/it/it2.png",
+      "/projects/it/it3.png",
+      "/projects/it/it4.png",
+      "/projects/it/it5.png",
     ],
-    github: "https://github.com/Laktab-Noureddine-code/material-management",
+    github: "https://github.com/Laktab-Noureddine-code/jet-contractors",
     live: "#",
-    featured: false,
+    featured: true,
   },
 ];
 
@@ -142,6 +140,6 @@ export const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
-  { name: "Resume", href: "/resume.pdf", download: true },
+  { name: "Resume", href: "/CV_LAKTAB.pdf", download: true },
   { name: "Contact", href: "#contact" },
 ];
