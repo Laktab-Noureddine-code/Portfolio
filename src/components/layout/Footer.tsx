@@ -1,46 +1,60 @@
-import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
-import { profileData } from "../../data/portfolio-data";
-import { fadeInUp, viewportSettings } from "../../lib/animations";
+import { profileData, navLinks } from "../../data/portfolio-data";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    "Important Links": navLinks
+      .filter((link) => !link.download)
+      .map((link) => ({
+        name: link.name,
+        href: link.href,
+        external: false,
+      })),
+    Social: [
+      { name: "Github", href: profileData.github, external: true },
+      { name: "LinkedIn", href: profileData.linkedin, external: true },
+    ],
+    Other: [
+      { name: "Resume", href: "/resume.pdf", external: false, download: true },
+      { name: "Contact", href: "#contact", external: false },
+    ],
+  };
+
   return (
-    <motion.footer
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportSettings}
-      variants={fadeInUp}
-      className="py-8 bg-dark-secondary text-gray-400 border-t border-gray-800"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <motion.p
-            className="text-sm"
-            whileHover={{ scale: 1.02 }}
+    <footer className="mx-auto w-full max-w-screen-md pb-12">
+      <hr className="mx-auto mb-5 w-full border border-neutral-200 dark:border-neutral-800" />
+
+      <p className="mb-4 text-sm text-neutral-700 opacity-50 dark:text-neutral-300">
+        Copyright © 2023 - {currentYear} {profileData.name}
+      </p>
+
+      <div className="flex justify-between gap-4">
+        {Object.entries(footerLinks).map(([category, links]) => (
+          <div
+            key={category}
+            className="text-neutral-700 dark:text-neutral-400"
           >
-            © {new Date().getFullYear()} {profileData.name}. All rights reserved.
-          </motion.p>
-          <motion.p
-            className="text-sm flex items-center gap-1"
-            whileHover={{ scale: 1.02 }}
-          >
-            Built with{" "}
-            <motion.span
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            >
-              <Heart size={14} className="text-emerald-500 fill-emerald-500" />
-            </motion.span>{" "}
-            using React & Tailwind CSS
-          </motion.p>
-        </div>
+            <p className="mb-2 mt-1 font-bold text-neutral-800 dark:text-white">
+              {category}
+            </p>
+            {links.map((link) => (
+              <a
+                key={link.name}
+                target={link.external ? "_blank" : "_self"}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className="mt-1 block duration-100 hover:text-neutral-700 hover:underline motion-reduce:transition-none dark:hover:text-neutral-300"
+                href={link.href}
+                {...("download" in link && link.download
+                  ? { download: true }
+                  : {})}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        ))}
       </div>
-    </motion.footer>
+    </footer>
   );
 }

@@ -1,338 +1,234 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Send, AtSign, ArrowRight } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
-import {
-  fadeInUp,
-  fadeInLeft,
-  fadeInRight,
-  staggerContainer,
-  buttonHover,
-  viewportSettings,
-} from "../../lib/animations";
-
-// Contact info item component
-function ContactInfoItem({
-  icon: Icon,
-  label,
-  value,
-  href,
-}: {
-  icon: typeof Mail;
-  label: string;
-  value: string;
-  href?: string;
-}) {
-  const content = (
-    <motion.div
-      className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors"
-      whileHover={{ x: 5 }}
-    >
-      <motion.div
-        className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center"
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <Icon size={20} className="text-emerald-400" />
-      </motion.div>
-      <div>
-        <p className="text-sm text-gray-500">{label}</p>
-        <p>{value}</p>
-      </div>
-    </motion.div>
-  );
-
-  if (href) {
-    return <a href={href}>{content}</a>;
-  }
-
-  return content;
-}
-
-// Social button component
-function SocialButton({
-  href,
-  icon: Icon,
-  label,
-}: {
-  href: string;
-  icon: typeof Github;
-  label: string;
-}) {
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-12 h-12 bg-gray-800 hover:bg-emerald-500 rounded-xl flex items-center justify-center transition-colors"
-      whileHover={{ scale: 1.1, y: -3 }}
-      whileTap={{ scale: 0.95 }}
-      aria-label={label}
-    >
-      <Icon size={20} />
-    </motion.a>
-  );
-}
-
-// Form input component
-function FormInput({
-  id,
-  label,
-  type = "text",
-  placeholder,
-  value,
-  onChange,
-  required = true,
-}: {
-  id: string;
-  label: string;
-  type?: string;
-  placeholder: string;
-  value: string;
-  onChange: (value: string) => void;
-  required?: boolean;
-}) {
-  return (
-    <motion.div variants={fadeInUp}>
-      <label htmlFor={id} className="block text-sm text-gray-400 mb-2">
-        {label}
-      </label>
-      <motion.input
-        type={type}
-        id={id}
-        required={required}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-emerald-500 transition-colors text-white placeholder-gray-500"
-        placeholder={placeholder}
-        whileFocus={{ scale: 1.01 }}
-      />
-    </motion.div>
-  );
-}
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create mailto link
-    const mailtoLink = `mailto:${profileData.email}?subject=${encodeURIComponent(
-      formData.subject
-    )}&body=${encodeURIComponent(
-      `From: ${formData.name} (${formData.email})\n\n${formData.message}`
-    )}`;
-    
+    // Handle form submission - could integrate with email service
+    const mailtoLink = `mailto:${profileData.email}?subject=Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
     window.location.href = mailtoLink;
-    
-    // Show success state briefly
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 2000);
   };
 
+  const characterCount = formData.message.length;
+  const maxCharacters = 500;
+
   return (
-    <section id="contact" className="py-20 bg-dark text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
-          variants={staggerContainer}
+    <section className="mb-12">
+      <motion.h2
+        id="contact"
+        className="mb-2 scroll-mt-20 text-[1.7rem] font-[750] motion-reduce:transition-none"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        Contact me
+        <span className="bg-gradient-to-r from-[#6310ff] to-[#1491ff] bg-clip-text text-transparent dark:from-[#a2facf] dark:to-[#64acff]">
+          .
+        </span>
+      </motion.h2>
+
+      <motion.p
+        className="text-neutral-700 dark:text-neutral-300"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.1 }}
+      >
+        I'm always eager to explore new opportunities and take on exciting
+        projects. If you have a project in mind, or just want to say hi, feel
+        free to send me a message.
+      </motion.p>
+
+      {/* Contact Form */}
+      <motion.div
+        className="my-6 flex w-full rounded-md border border-black/15 bg-white p-5 dark:border-neutral-800 dark:bg-[#161617]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+      >
+        <form
+          className="relative flex w-full flex-col items-center justify-center"
+          onSubmit={handleSubmit}
         >
-          {/* Section Header */}
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <motion.div
-              className="inline-flex items-center gap-2 mb-4"
-              animate={{
-                y: [0, -5, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+          <div className="block w-full items-center justify-center gap-4 text-left md:flex">
+            {/* Name Field */}
+            <label
+              htmlFor="name"
+              className="w-full text-left text-sm font-bold tracking-wide text-neutral-700 dark:text-neutral-300"
             >
-              <Mail size={32} className="text-emerald-400" />
-            </motion.div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Let's <span className="gradient-text">Connect</span>
-            </h2>
-            <p className="text-gray-400 max-w-xl mx-auto">
-              I'm currently looking for a 2-month internship opportunity. Feel free
-              to reach out if you have any questions or just want to say hi!
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <motion.div variants={fadeInLeft}>
-              <h3 className="text-xl font-semibold mb-6">Get in Touch</h3>
-
-              <motion.div
-                className="space-y-4 mb-8"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+              Name
+              <span
+                aria-hidden="true"
+                className="cursor-help text-red-500"
+                title="Required"
               >
-                <motion.div variants={fadeInUp}>
-                  <ContactInfoItem
-                    icon={Mail}
-                    label="Email"
-                    value={profileData.email}
-                    href={`mailto:${profileData.email}`}
-                  />
-                </motion.div>
+                *
+              </span>
+              <input
+                id="name"
+                className="border-neutral-300 text-neutral-800 focus:border-blue-600 dark:border-neutral-800 dark:text-white focus:dark:border-neutral-700 my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 dark:bg-transparent"
+                type="text"
+                placeholder="Your Name"
+                name="name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                required
+              />
+            </label>
 
-                <motion.div variants={fadeInUp}>
-                  <ContactInfoItem
-                    icon={Phone}
-                    label="Phone"
-                    value={profileData.phone}
-                    href={`tel:${profileData.phone}`}
-                  />
-                </motion.div>
-
-                <motion.div variants={fadeInUp}>
-                  <ContactInfoItem
-                    icon={MapPin}
-                    label="Location"
-                    value={profileData.location}
-                  />
-                </motion.div>
-              </motion.div>
-
-              {/* Social Links */}
-              <motion.div
-                className="flex gap-4"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+            {/* Email Field */}
+            <label
+              htmlFor="email"
+              className="w-full text-left text-sm font-bold tracking-wide text-neutral-700 dark:text-neutral-300"
+            >
+              Email
+              <span
+                aria-hidden="true"
+                className="cursor-help text-red-500"
+                title="Required"
               >
-                <motion.div variants={fadeInUp}>
-                  <SocialButton
-                    href={profileData.github}
-                    icon={Github}
-                    label="GitHub"
-                  />
-                </motion.div>
-                <motion.div variants={fadeInUp}>
-                  <SocialButton
-                    href={profileData.linkedin}
-                    icon={Linkedin}
-                    label="LinkedIn"
-                  />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div variants={fadeInRight}>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <motion.div
-                  className="grid grid-cols-2 gap-4"
-                  variants={staggerContainer}
-                >
-                  <FormInput
-                    id="name"
-                    label="Name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(value) =>
-                      setFormData({ ...formData, name: value })
-                    }
-                  />
-                  <FormInput
-                    id="email"
-                    label="Email"
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={(value) =>
-                      setFormData({ ...formData, email: value })
-                    }
-                  />
-                </motion.div>
-
-                <FormInput
-                  id="subject"
-                  label="Subject"
-                  placeholder="Internship Opportunity"
-                  value={formData.subject}
-                  onChange={(value) =>
-                    setFormData({ ...formData, subject: value })
-                  }
-                />
-
-                <motion.div variants={fadeInUp}>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm text-gray-400 mb-2"
-                  >
-                    Message
-                  </label>
-                  <motion.textarea
-                    id="message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-emerald-500 transition-colors text-white placeholder-gray-500 resize-none"
-                    placeholder="Tell me about the opportunity..."
-                    whileFocus={{ scale: 1.01 }}
-                  />
-                </motion.div>
-
-                <motion.button
-                  type="submit"
-                  className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
-                  variants={buttonHover}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  disabled={isSubmitted}
-                >
-                  {isSubmitted ? (
-                    <>
-                      <motion.span
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ type: "spring", stiffness: 500 }}
-                      >
-                        <CheckCircle size={18} />
-                      </motion.span>
-                      Message Sent!
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        <Send size={18} />
-                      </motion.span>
-                    </>
-                  )}
-                </motion.button>
-              </form>
-            </motion.div>
+                *
+              </span>
+              <input
+                id="email"
+                className="border-neutral-300 text-neutral-800 focus:border-blue-600 dark:border-neutral-800 dark:text-white focus:dark:border-neutral-700 my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 dark:bg-transparent"
+                type="email"
+                placeholder="john@doe.com"
+                name="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                required
+              />
+            </label>
           </div>
-        </motion.div>
-      </div>
+
+          {/* Message Field */}
+          <div className="mt-2 flex w-full flex-col items-center justify-center gap-1.5">
+            <label
+              htmlFor="message"
+              className="w-full text-left text-sm font-bold tracking-wide text-neutral-700 dark:text-neutral-300"
+            >
+              Message
+              <span
+                aria-hidden="true"
+                className="cursor-help text-red-500"
+                title="Required"
+              >
+                *
+              </span>
+              <textarea
+                name="message"
+                id="message"
+                className="border-neutral-300 text-neutral-800 focus:border-blue-600 dark:border-neutral-800 dark:text-white focus:dark:border-neutral-700 mt-2 max-h-40 min-h-24 w-full rounded-lg border p-2 font-normal outline-0 duration-200 dark:bg-transparent"
+                placeholder="Hello there, I would like to ask you about..."
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    message: e.target.value.slice(0, maxCharacters),
+                  })
+                }
+                required
+              />
+            </label>
+            <span className="text-neutral-700 dark:text-neutral-300 ml-auto text-xs opacity-50">
+              {characterCount}/{maxCharacters} characters
+            </span>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none bg-neutral-200 text-neutral-700 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 ml-auto mt-4"
+            type="submit"
+            disabled={!formData.name || !formData.email || !formData.message}
+          >
+            <Send className="mr-2 size-4" />
+            Send
+          </button>
+        </form>
+      </motion.div>
+
+      {/* Alternative Contact Methods */}
+      <motion.p
+        className="text-neutral-700 dark:text-neutral-300"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3 }}
+      >
+        Or contact me with...
+      </motion.p>
+
+      <motion.div
+        className="mt-4 flex flex-wrap gap-4"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+      >
+        {/* Email */}
+        <a
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-neutral-200 bg-white text-neutral-700 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-[#161617] dark:text-white dark:hover:border-neutral-700 dark:hover:bg-[#202021] gap-2"
+          href={`mailto:${profileData.email}`}
+        >
+          <AtSign className="size-5" />
+          Email
+          <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
+        </a>
+
+        {/* LinkedIn */}
+        <a
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-neutral-200 bg-white text-neutral-700 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-[#161617] dark:text-white dark:hover:border-neutral-700 dark:hover:bg-[#202021] gap-2"
+          href={profileData.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            className="size-5 fill-[#0A66C2]"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+          LinkedIn
+          <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
+        </a>
+
+        {/* GitHub */}
+        <a
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-neutral-200 bg-white text-neutral-700 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-[#161617] dark:text-white dark:hover:border-neutral-700 dark:hover:bg-[#202021] gap-2"
+          href={profileData.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            className="size-5 fill-black dark:fill-white"
+            viewBox="0 0 25 25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M12.5103 0C5.59245 0 0 5.72914 0 12.8169C0 18.4825 3.58327 23.2783 8.55422 24.9757C9.17572 25.1033 9.40337 24.6999 9.40337 24.3606C9.40337 24.0634 9.38289 23.045 9.38289 21.9838C5.90281 22.7478 5.17812 20.4559 5.17812 20.4559C4.61885 18.9705 3.79018 18.5887 3.79018 18.5887C2.65116 17.8036 3.87315 17.8036 3.87315 17.8036C5.13663 17.8885 5.79961 19.1192 5.79961 19.1192C6.9179 21.0713 8.7199 20.5197 9.44486 20.1801C9.54831 19.3525 9.87993 18.7796 10.232 18.4614C7.45642 18.1642 4.53613 17.0609 4.53613 12.1377C4.53613 10.7372 5.03292 9.59137 5.8201 8.70022C5.6959 8.382 5.26083 7.06612 5.94455 5.30493C5.94455 5.30493 7.00087 4.96534 9.38263 6.62055C10.4023 6.33999 11.454 6.19727 12.5103 6.19607C13.5667 6.19607 14.6435 6.34477 15.6378 6.62055C18.0198 4.96534 19.0761 5.30493 19.0761 5.30493C19.7599 7.06612 19.3245 8.382 19.2003 8.70022C20.0083 9.59137 20.4846 10.7372 20.4846 12.1377C20.4846 17.0609 17.5643 18.1429 14.7679 18.4614C15.2237 18.8645 15.6171 19.6283 15.6171 20.8379C15.6171 22.5567 15.5966 23.9361 15.5966 24.3603C15.5966 24.6999 15.8245 25.1033 16.4457 24.9759C21.4167 23.278 24.9999 18.4825 24.9999 12.8169C25.0204 5.72914 19.4075 0 12.5103 0Z"
+            />
+          </svg>
+          GitHub
+          <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
+        </a>
+      </motion.div>
     </section>
   );
 }
