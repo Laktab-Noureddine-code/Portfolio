@@ -1,8 +1,19 @@
 import { motion } from "framer-motion";
 import { Globe, Rocket } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function HeroSection() {
+  const { theme } = useTheme();
+
+  // Dark theme -> show light images, Light theme -> show dark images
+  const desktopImage =
+    theme === "dark" ? "/light_profile.webp" : "/dark_profile.webp";
+  const mobileImage =
+    theme === "dark"
+      ? "/light_center_profile.webp"
+      : "/dark_center_profile.webp";
+
   return (
     <section id="home" className="mt-8 md:mt-10">
       <motion.div
@@ -11,16 +22,28 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Image - Mobile (center images) */}
+        <div className="absolute inset-0 z-0 md:hidden">
+          <img
+            alt="Background"
+            className="object-cover w-full h-full"
+            style={{ objectPosition: "center center" }}
+            src={mobileImage}
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/70 to-white/20 dark:from-black/80 dark:via-black/60 dark:to-transparent" />
+        </div>
+
+        {/* Background Image - Desktop */}
+        <div className="absolute inset-0 z-0 hidden md:block">
           <img
             alt="Background"
             className="object-cover w-full h-full"
             style={{ objectPosition: "85% center" }}
-            src="/profile.webp"
+            src={desktopImage}
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white/95 via-white/70 to-white/20 dark:from-black/80 dark:via-black/60 dark:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-white/20 dark:from-black/80 dark:via-black/60 dark:to-transparent" />
         </div>
 
         {/* Content */}
@@ -58,7 +81,6 @@ export default function HeroSection() {
               {profileData.tagline}
             </motion.p>
           </div>
-
           {/* Mission Card */}
           <motion.div
             className="mt-4 md:mt-6"
