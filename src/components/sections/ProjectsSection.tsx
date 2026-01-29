@@ -88,8 +88,11 @@ export default function ProjectsSection() {
                     <img
                       alt={`${project.title} - Screenshot ${imgIndex + 1}`}
                       loading="lazy"
+                      decoding="async"
                       className="h-full object-contain bg-neutral-100 dark:bg-neutral-800"
                       src={img}
+                      width={1200}
+                      height={675}
                     />
                   </SwiperSlide>
                 ))}
@@ -119,7 +122,14 @@ export default function ProjectsSection() {
                   key={tech.name}
                   className="flex cursor-default items-center gap-2 rounded-md border border-neutral-200 bg-white px-2 py-1 font-mono text-sm font-medium text-neutral-800 duration-200 hover:bg-neutral-50 motion-reduce:transition-none dark:border-neutral-800 dark:bg-transparent dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-white/5"
                 >
-                  <img src={tech.icon} alt={tech.name} className="w-5 h-5" />
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="w-5 h-5"
+                    width={20}
+                    height={20}
+                    loading="lazy"
+                  />
                   {tech.name}
                 </div>
               ))}

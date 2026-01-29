@@ -27,10 +27,13 @@ export default function HeroSection() {
           {/* Mobile Image */}
           <div className="relative aspect-square">
             <img
-              alt="Background"
+              alt="Noureddine Laktab - Full Stack Developer"
               className="object-cover w-full h-full"
               style={{ objectPosition: "center top" }}
               src={mobileImage}
+              width={500}
+              height={500}
+              fetchPriority="high"
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/30 to-transparent dark:from-black/95 dark:via-black/30 dark:to-transparent" />
@@ -97,10 +100,13 @@ export default function HeroSection() {
           {/* Desktop Image */}
           <div className="absolute inset-0 z-0">
             <img
-              alt="Background"
+              alt="Noureddine Laktab - Full Stack Developer"
               className="object-cover w-full h-full"
               style={{ objectPosition: "85% center" }}
               src={desktopImage}
+              width={1200}
+              height={675}
+              fetchPriority="high"
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent dark:from-black/80 dark:via-black/40 dark:to-transparent" />
