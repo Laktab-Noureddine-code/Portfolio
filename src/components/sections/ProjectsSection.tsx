@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link, ArrowRight, FileText } from "lucide-react";
+import { Link, ArrowRight } from "lucide-react";
 import { projects } from "../../data/portfolio-data";
 
 export default function ProjectsSection() {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Settings, AlignLeft, X, Sun, Moon } from "lucide-react";
+import { AlignLeft, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { navLinks } from "../../data/portfolio-data";
 
