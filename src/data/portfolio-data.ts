@@ -94,7 +94,7 @@ export const projects = [
     title: "IT Material Management System",
     subtitle: "Jet Contractors - Internship Project",
     description:
-      "An internship project handling full hardware inventory tracking with real-time monitoring, intelligent assignment systems, and PDF generation. Includes an analytical dashboard.",
+      "An internship project handling full hardware inventory management, intelligent assignment systems, and PDF generation. Includes an analytical dashboard for stock visualization.",
     tech: [
       { name: "Laravel 11", icon: "/tech/laravel.svg" },
       { name: "MySQL", icon: "/tech/mysql.svg" },
