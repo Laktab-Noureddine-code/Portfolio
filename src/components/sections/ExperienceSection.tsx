@@ -29,7 +29,7 @@ function TimelineItem({
     >
       {/* Timeline Dot */}
       <motion.div
-        className="absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-500 rounded-full transform -translate-x-1/2 border-4 border-white shadow-sm z-10"
+        className="absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-500 rounded-full transform -translate-x-1/2 border-4 border-neutral-900 shadow-sm z-10"
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
@@ -42,21 +42,21 @@ function TimelineItem({
         className={`ml-8 md:ml-0 md:w-1/2 ${isEven ? "md:pr-12" : "md:pl-12"}`}
       >
         <motion.div
-          className="bg-light-secondary rounded-2xl p-6 shadow-sm border border-gray-100"
+          className="bg-neutral-800/50 rounded-2xl p-6 shadow-sm border border-neutral-700"
           whileHover={{ scale: 1.02, y: -5 }}
           transition={{ duration: 0.3 }}
         >
           <div className="flex items-start justify-between mb-3">
             <div className="flex flex-wrap gap-2">
               <motion.span
-                className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full"
+                className="text-xs font-medium text-emerald-400 bg-emerald-900/30 px-2 py-1 rounded-full"
                 whileHover={{ scale: 1.1 }}
               >
                 {item.period}
               </motion.span>
               {item.current && (
                 <motion.span
-                  className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full"
+                  className="text-xs font-medium text-blue-400 bg-blue-900/30 px-2 py-1 rounded-full"
                   animate={{
                     boxShadow: [
                       "0 0 0 0 rgba(59, 130, 246, 0.4)",
@@ -70,12 +70,14 @@ function TimelineItem({
               )}
             </div>
             <motion.div whileHover={{ rotate: 15 }}>
-              <Briefcase size={18} className="text-gray-400" />
+              <Briefcase size={18} className="text-neutral-500" />
             </motion.div>
           </div>
-          <h3 className="text-lg font-semibold text-dark mb-1">{item.title}</h3>
-          <p className="text-sm text-emerald-600 mb-3">{item.subtitle}</p>
-          <p className="text-gray-600 text-sm">{item.description}</p>
+          <h3 className="text-lg font-semibold text-white mb-1">
+            {item.title}
+          </h3>
+          <p className="text-sm text-emerald-400 mb-3">{item.subtitle}</p>
+          <p className="text-neutral-400 text-sm">{item.description}</p>
         </motion.div>
       </div>
 
@@ -86,26 +88,32 @@ function TimelineItem({
 }
 
 // Education card component
-function EducationCard({ edu, index }: { edu: (typeof education)[0]; index: number }) {
+function EducationCard({
+  edu,
+  index,
+}: {
+  edu: (typeof education)[0];
+  index: number;
+}) {
   return (
     <motion.div
       variants={scaleUp}
       custom={index}
       whileHover={{ scale: 1.02, y: -5 }}
       transition={{ duration: 0.3 }}
-      className="bg-light-secondary rounded-2xl p-6 shadow-sm border border-gray-100"
+      className="bg-neutral-800/50 rounded-2xl p-6 shadow-sm border border-neutral-700"
     >
       <div>
         <div className="flex items-start justify-between mb-3">
           <motion.span
-            className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full"
+            className="text-xs font-medium text-emerald-400 bg-emerald-900/30 px-2 py-1 rounded-full"
             whileHover={{ scale: 1.1 }}
           >
             {edu.period}
           </motion.span>
           {edu.current && (
             <motion.span
-              className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full"
+              className="text-xs font-medium text-blue-400 bg-blue-900/30 px-2 py-1 rounded-full"
               animate={{
                 boxShadow: [
                   "0 0 0 0 rgba(59, 130, 246, 0.4)",
@@ -118,9 +126,9 @@ function EducationCard({ edu, index }: { edu: (typeof education)[0]; index: numb
             </motion.span>
           )}
         </div>
-        <h4 className="font-semibold text-dark mb-1">{edu.degree}</h4>
-        <p className="text-sm text-emerald-600 mb-2">{edu.institution}</p>
-        <p className="text-gray-600 text-sm">{edu.description}</p>
+        <h4 className="font-semibold text-white mb-1">{edu.degree}</h4>
+        <p className="text-sm text-emerald-400 mb-2">{edu.institution}</p>
+        <p className="text-neutral-400 text-sm">{edu.description}</p>
       </div>
     </motion.div>
   );
@@ -128,7 +136,7 @@ function EducationCard({ edu, index }: { edu: (typeof education)[0]; index: numb
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" className="py-20 bg-[#0a0a0a]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -138,10 +146,10 @@ export default function ExperienceSection() {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               My <span className="gradient-text">Journey</span>
             </h2>
-            <p className="text-gray-600">
+            <p className="text-neutral-400">
               A timeline of my professional experiences and milestones
             </p>
           </motion.div>
@@ -150,7 +158,7 @@ export default function ExperienceSection() {
           <div className="relative">
             {/* Vertical Line */}
             <motion.div
-              className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 transform md:-translate-x-1/2"
+              className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-neutral-700 transform md:-translate-x-1/2"
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
@@ -166,7 +174,7 @@ export default function ExperienceSection() {
           {/* Education */}
           <motion.div variants={fadeInUp} className="mt-16">
             <motion.h3
-              className="text-xl font-semibold text-dark mb-8 text-center flex items-center justify-center gap-2"
+              className="text-xl font-semibold text-white mb-8 text-center flex items-center justify-center gap-2"
               variants={fadeInUp}
             >
               <motion.span

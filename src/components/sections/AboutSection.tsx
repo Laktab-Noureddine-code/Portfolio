@@ -18,13 +18,13 @@ export default function AboutSection() {
         viewport={{ once: true }}
       >
         About me
-        <span className="bg-gradient-to-r from-[#6310ff] to-[#1491ff] bg-clip-text text-transparent dark:from-[#a2facf] dark:to-[#64acff]">
+        <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
           .
         </span>
       </motion.h2>
 
       <motion.div
-        className="prose prose-neutral dark:text-neutral-300"
+        className="prose text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -74,7 +74,7 @@ export default function AboutSection() {
         </a>
 
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-800 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-white/10 text-white hover:bg-white/15"
           href="#contact"
         >
           Contact me

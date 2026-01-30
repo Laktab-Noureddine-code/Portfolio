@@ -10,7 +10,7 @@ export default function Navigation() {
     <nav className="z-50 mx-auto flex w-full max-w-screen-lg items-center pt-9 font-mono px-6">
       {/* Logo */}
       <a
-        className="text-lg font-black text-neutral-800 duration-300 motion-reduce:transition-none dark:text-white mr-6"
+        className="text-lg font-black text-white duration-300 motion-reduce:transition-none mr-6"
         href="#home"
       >
         <img src="/logo.svg" className="w-16" />
@@ -24,7 +24,7 @@ export default function Navigation() {
             .map((link) => (
               <a
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-black/10 hover:text-black dark:hover:bg-white/10 dark:hover:text-neutral-200 sm:px-3 sm:py-2 text-black dark:text-neutral-400"
+                className="relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
                 href={link.href}
               >
                 {link.name}
@@ -35,7 +35,7 @@ export default function Navigation() {
             .map((link) => (
               <a
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-black/10 hover:text-black dark:hover:bg-white/10 dark:hover:text-neutral-200 sm:px-3 sm:py-2 text-black dark:text-neutral-400"
+                className="relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
                 href={link.href}
                 download
               >
@@ -51,9 +51,9 @@ export default function Navigation() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(true)}
-          className="group flex items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none size-10 justify-center border-0 !bg-transparent !outline-none hover:!bg-neutral-300 dark:hover:!bg-white/15 lg:hidden"
+          className="group flex items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none size-10 justify-center border-0 !bg-transparent !outline-none hover:!bg-white/15 lg:hidden"
         >
-          <AlignLeft className="size-5 shrink-0 text-neutral-900 dark:text-neutral-100" />
+          <AlignLeft className="size-5 shrink-0 text-neutral-100" />
         </button>
       </div>
 
@@ -76,23 +76,20 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 bottom-0 w-[320px] bg-white dark:bg-[#161617] z-50 p-6 lg:hidden"
+              className="fixed top-0 left-0 bottom-0 w-[320px] bg-[#161617] z-50 p-6 lg:hidden"
             >
               <div className="flex items-center justify-between mb-8">
-                <a
-                  className="text-lg font-black text-neutral-900 dark:text-white"
-                  href="#home"
-                >
+                <a className="text-lg font-black text-white" href="#home">
                   NL
-                  <span className="bg-gradient-to-r from-[#6310ff] to-[#1491ff] bg-clip-text text-transparent dark:from-[#a2facf] dark:to-[#64acff]">
+                  <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
                     .
                   </span>
                 </a>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-md hover:bg-neutral-200 dark:hover:bg-white/10"
+                  className="p-2 rounded-md hover:bg-white/10"
                 >
-                  <X className="size-5 text-neutral-900 dark:text-white" />
+                  <X className="size-5 text-white" />
                 </button>
               </div>
 
@@ -100,7 +97,7 @@ export default function Navigation() {
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
-                    className="px-4 py-3 rounded-md text-neutral-900 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/10 transition-colors"
+                    className="px-4 py-3 rounded-md text-neutral-300 hover:bg-white/10 transition-colors"
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     {...(link.download ? { download: true } : {})}

@@ -1,23 +1,16 @@
 import { motion } from "framer-motion";
 import { Globe, Rocket } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
-import { useTheme } from "../../context/ThemeContext";
 
 export default function HeroSection() {
-  const { theme } = useTheme();
-
-  // Dark theme -> show light images, Light theme -> show dark images
-  const desktopImage =
-    theme === "dark" ? "/light_profile.webp" : "/dark_profile.webp";
-  const mobileImage =
-    theme === "dark"
-      ? "/light_center_profile.webp"
-      : "/dark_center_profile.webp";
+  // Always use dark theme images (light profile images that look good on dark background)
+  const desktopImage = "/light_profile.webp";
+  const mobileImage = "/light_center_profile.webp";
 
   return (
     <section id="home" className="mt-8 md:mt-10">
       <motion.div
-        className="relative overflow-hidden rounded-3xl shadow-lg dark:shadow-2xl border border-black/5 dark:border-transparent"
+        className="relative overflow-hidden rounded-3xl shadow-2xl border border-transparent"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -36,14 +29,14 @@ export default function HeroSection() {
               fetchPriority="high"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/30 to-transparent dark:from-black/95 dark:via-black/30 dark:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent" />
           </div>
 
           {/* Mobile Content - Overlays bottom of image */}
           <div className="absolute bottom-0 left-0 right-0 p-5">
-            <div className="text-neutral-800 dark:text-white">
+            <div className="text-white">
               <motion.h2
-                className="font-medium uppercase tracking-wider flex items-center text-xs text-neutral-800 dark:text-white/90"
+                className="font-medium uppercase tracking-wider flex items-center text-xs text-white/90"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -53,7 +46,7 @@ export default function HeroSection() {
               </motion.h2>
 
               <motion.h1
-                className="mt-1 text-2xl font-bold tracking-tight text-neutral-900 dark:text-white"
+                className="mt-1 text-2xl font-bold tracking-tight text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -63,7 +56,7 @@ export default function HeroSection() {
               </motion.h1>
 
               <motion.p
-                className="mt-2 text-sm font-light leading-relaxed text-neutral-800 dark:text-white/90"
+                className="mt-2 text-sm font-light leading-relaxed text-white/90"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -79,7 +72,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-xl p-3 text-neutral-800 dark:text-white border border-neutral-200 dark:border-neutral-800">
+              <div className="bg-neutral-900/95 backdrop-blur-md rounded-xl p-3 text-white border border-neutral-800">
                 <h2 className="font-medium uppercase tracking-wider flex items-center text-xs">
                   <Rocket className="mr-2" size={14} />
                   My Mission
@@ -109,14 +102,14 @@ export default function HeroSection() {
               fetchPriority="high"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent dark:from-black/80 dark:via-black/40 dark:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           </div>
 
           {/* Desktop Content */}
           <div className="relative z-10 flex flex-col justify-end h-full p-8 max-w-[60%]">
-            <div className="text-neutral-800 dark:text-white">
+            <div className="text-white">
               <motion.h2
-                className="font-medium uppercase tracking-wider flex items-center text-base text-neutral-800 dark:text-white"
+                className="font-medium uppercase tracking-wider flex items-center text-base text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -126,7 +119,7 @@ export default function HeroSection() {
               </motion.h2>
 
               <motion.h1
-                className="mt-3 text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white"
+                className="mt-3 text-4xl lg:text-5xl font-bold tracking-tight text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -136,7 +129,7 @@ export default function HeroSection() {
               </motion.h1>
 
               <motion.p
-                className="mt-4 text-lg font-light leading-relaxed text-neutral-800 dark:text-white"
+                className="mt-4 text-lg font-light leading-relaxed text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -152,7 +145,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="bg-white/90 dark:bg-neutral-900/80 backdrop-blur-md rounded-2xl p-5 text-neutral-800 dark:text-white border border-neutral-200 dark:border-transparent">
+              <div className="bg-neutral-900/80 backdrop-blur-md rounded-2xl p-5 text-white border border-transparent">
                 <h2 className="font-medium uppercase tracking-wider flex items-center text-sm">
                   <Rocket className="mr-2" size={16} />
                   My Mission

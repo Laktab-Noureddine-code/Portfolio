@@ -20,13 +20,13 @@ export default function ProjectsSection() {
         viewport={{ once: true }}
       >
         Featured Projects
-        <span className="bg-gradient-to-r from-[#6310ff] to-[#1491ff] bg-clip-text text-transparent dark:from-[#a2facf] dark:to-[#64acff]">
+        <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
           .
         </span>
       </motion.h2>
 
       <motion.p
-        className="text-neutral-800 dark:text-neutral-300"
+        className="text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -52,12 +52,12 @@ export default function ProjectsSection() {
             </h3>
 
             {/* Subtitle */}
-            <p className="my-2 block text-sm font-normal leading-none text-neutral-500 dark:text-neutral-500">
+            <p className="my-2 block text-sm font-normal leading-none text-neutral-500">
               {project.subtitle}
             </p>
 
             {/* Description */}
-            <p className="mb-4 mt-2 text-neutral-800 dark:text-neutral-400 md:w-3/4">
+            <p className="mb-4 mt-2 text-neutral-400 md:w-3/4">
               {project.description}
             </p>
 
@@ -89,7 +89,7 @@ export default function ProjectsSection() {
                       alt={`${project.title} - Screenshot ${imgIndex + 1}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-full object-contain bg-neutral-100 dark:bg-neutral-800"
+                      className="h-full object-contain bg-neutral-800"
                       src={img}
                       width={1200}
                       height={675}
@@ -102,14 +102,14 @@ export default function ProjectsSection() {
               {project.images && project.images.length > 1 && (
                 <>
                   <button
-                    className={`swiper-button-prev-${project.id} absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-700`}
+                    className={`swiper-button-prev-${project.id} absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-neutral-800 border border-neutral-700`}
                   >
-                    <ChevronLeft className="w-5 h-5 text-neutral-700 dark:text-white" />
+                    <ChevronLeft className="w-5 h-5 text-white" />
                   </button>
                   <button
-                    className={`swiper-button-next-${project.id} absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-700`}
+                    className={`swiper-button-next-${project.id} absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-neutral-800 border border-neutral-700`}
                   >
-                    <ChevronRight className="w-5 h-5 text-neutral-700 dark:text-white" />
+                    <ChevronRight className="w-5 h-5 text-white" />
                   </button>
                 </>
               )}
@@ -120,7 +120,7 @@ export default function ProjectsSection() {
               {project.tech.map((tech) => (
                 <div
                   key={tech.name}
-                  className="flex cursor-default items-center gap-2 rounded-md border border-neutral-200 bg-white px-2 py-1 font-mono text-sm font-medium text-neutral-800 duration-200 hover:bg-neutral-50 motion-reduce:transition-none dark:border-neutral-800 dark:bg-transparent dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-white/5"
+                  className="flex cursor-default items-center gap-2 rounded-md border border-neutral-800 bg-transparent px-2 py-1 font-mono text-sm font-medium text-neutral-400 duration-200 hover:border-neutral-700 hover:bg-white/5 motion-reduce:transition-none"
                 >
                   <img
                     src={tech.icon}
@@ -153,7 +153,7 @@ export default function ProjectsSection() {
               {project.github && project.github !== "#" && (
                 <a
                   rel="noopener noreferrer"
-                  className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-800 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+                  className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-white/10 text-white hover:bg-white/15"
                   href={project.github}
                   target="_blank"
                 >
@@ -163,7 +163,7 @@ export default function ProjectsSection() {
                     viewBox="0 0 25 25"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="mr-2 size-5 fill-neutral-700 dark:fill-white"
+                    className="mr-2 size-5 fill-white"
                   >
                     <path
                       fillRule="evenodd"
@@ -187,11 +187,9 @@ export default function ProjectsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <p className="mb-2 text-neutral-800 dark:text-neutral-400">
-          Want to see more?
-        </p>
+        <p className="mb-2 text-neutral-400">Want to see more?</p>
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-neutral-200 text-neutral-800 hover:bg-neutral-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-white/10 text-white hover:bg-white/15"
           href={`https://github.com/Laktab-Noureddine-code?tab=repositories`}
           target="_blank"
         >

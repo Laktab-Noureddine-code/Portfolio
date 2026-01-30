@@ -28,27 +28,22 @@ export default function Footer() {
 
   return (
     <footer className="mx-auto w-full max-w-screen-md pb-12">
-      <hr className="mx-auto mb-5 w-full border border-neutral-200 dark:border-neutral-800" />
+      <hr className="mx-auto mb-5 w-full border border-neutral-800" />
 
-      <p className="mb-4 text-sm text-neutral-700 opacity-50 dark:text-neutral-300">
+      <p className="mb-4 text-sm text-neutral-300 opacity-50">
         Copyright © 2023 - {currentYear} {profileData.name}
       </p>
 
       <div className="flex justify-between gap-4">
         {Object.entries(footerLinks).map(([category, links]) => (
-          <div
-            key={category}
-            className="text-neutral-700 dark:text-neutral-400"
-          >
-            <p className="mb-2 mt-1 font-bold text-neutral-800 dark:text-white">
-              {category}
-            </p>
+          <div key={category} className="text-neutral-400">
+            <p className="mb-2 mt-1 font-bold text-white">{category}</p>
             {links.map((link) => (
               <a
                 key={link.name}
                 target={link.external ? "_blank" : "_self"}
                 rel={link.external ? "noopener noreferrer" : undefined}
-                className="mt-1 block duration-100 hover:text-neutral-700 hover:underline motion-reduce:transition-none dark:hover:text-neutral-300"
+                className="mt-1 block duration-100 hover:text-neutral-300 hover:underline motion-reduce:transition-none"
                 href={link.href}
                 {...("download" in link && link.download
                   ? { download: true }
