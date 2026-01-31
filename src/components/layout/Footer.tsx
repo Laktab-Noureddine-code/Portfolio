@@ -31,7 +31,7 @@ export default function Footer() {
       <hr className="mx-auto mb-5 w-full border border-neutral-800" />
 
       <p className="mb-4 text-sm text-neutral-300 opacity-50">
-        Copyright © 2023 - {currentYear} {profileData.name}
+        Copyright © {currentYear} {profileData.name}
       </p>
 
       <div className="flex justify-between gap-4">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Code, Laptop, Palette } from "lucide-react";
+import { Code, Database, Laptop } from "lucide-react";
+import { profileData } from "../../data/portfolio-data";
 
 export default function StudioSection() {
   return (
@@ -12,7 +13,10 @@ export default function StudioSection() {
       <div className="p-6 sm:p-8 rounded-3xl bg-[#111111] backdrop-blur-sm text-white border border-[#333] shadow-2xl flex flex-col h-full">
         {/* Header */}
         <div className="text-white uppercase tracking-wider flex gap-2 items-center text-sm sm:text-base">
-          <span className="bg-[#FF3B00] p-1.5 rounded-md">
+          <span
+            style={{ backgroundColor: profileData.accentColor }}
+            className="p-1.5 rounded-md"
+          >
             <Code color="#FFFFFF" size={20} />
           </span>
           My Studio
@@ -22,8 +26,8 @@ export default function StudioSection() {
         <div className="mt-4 flex-grow">
           <p className="text-base sm:text-lg tracking-wide leading-relaxed mb-4 text-neutral-200">
             Welcome! This portfolio showcases my journey as a Full Stack
-            Developer & DevOps Enthusiast. Discover my projects, skills, and
-            passion for building scalable applications.
+            Developer. Discover my projects, skills, and passion for building
+            scalable applications.
           </p>
         </div>
 
@@ -46,7 +50,11 @@ export default function StudioSection() {
         >
           {/* Web Development Card */}
           <div className="bg-[#1a1a1a] border border-[#333] rounded-2xl p-4 flex flex-col items-start">
-            <Laptop className="text-[#FF3B00] mb-2" size={24} />
+            <Laptop
+              style={{ color: profileData.accentColor }}
+              className="mb-2"
+              size={24}
+            />
             <h3 className="font-semibold text-white text-base mb-1">
               Web Development
             </h3>
@@ -56,15 +64,19 @@ export default function StudioSection() {
             </p>
           </div>
 
-          {/* DevOps Card */}
+          {/* Database & API Card */}
           <div className="bg-[#1a1a1a] border border-[#333] rounded-2xl p-4 flex flex-col items-start">
-            <Palette className="text-[#FF3B00] mb-2" size={24} />
+            <Database
+              style={{ color: profileData.accentColor }}
+              className="mb-2"
+              size={24}
+            />
             <h3 className="font-semibold text-white text-base mb-1">
-              DevOps & Cloud
+              Database & API Design
             </h3>
             <p className="text-sm text-gray-400">
-              Automating deployments with Docker, Ansible, and cloud
-              infrastructure.
+              Designing efficient database schemas and RESTful APIs for scalable
+              applications.
             </p>
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { profileData, education } from "../../data/portfolio-data";
+import { ArrowRight, Briefcase } from "lucide-react";
+import { profileData, education, experience } from "../../data/portfolio-data";
 
 export default function AboutSection() {
   // Calculate years of coding
@@ -32,13 +32,12 @@ export default function AboutSection() {
       >
         <span>
           I have been coding for over {yearsOfCoding} years, building full-stack
-          applications and learning DevOps practices.
+          applications.
         </span>
         <p>
           Currently pursuing a {education[0]?.degree} at{" "}
           {education[0]?.institution}.
         </p>
-        <span>{profileData.bio}</span>
       </motion.div>
 
       {/* CTA Buttons */}
@@ -81,6 +80,39 @@ export default function AboutSection() {
           <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
         </a>
       </motion.div>
+
+      {/* Experience Card */}
+      {experience[0] && (
+        <motion.div
+          className="mt-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <div className="bg-neutral-900/80 border border-neutral-800 rounded-xl p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <Briefcase style={{ color: profileData.accentColor }} size={16} />
+              <span className="text-xs uppercase tracking-wider text-neutral-400 font-medium">
+                Experience
+              </span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div>
+                <h3 className="font-semibold text-white text-sm">
+                  {experience[0].title}
+                </h3>
+                <p className="text-neutral-400 text-sm">
+                  {experience[0].subtitle}
+                </p>
+                <p className="text-neutral-500 text-xs mt-1">
+                  {experience[0].period}
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }

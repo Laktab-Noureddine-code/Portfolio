@@ -1,20 +1,52 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Send, AtSign, ArrowRight } from "lucide-react";
+import {
+  Send,
+  AtSign,
+  ArrowRight,
+  Loader2,
+  CheckCircle,
+  XCircle,
+} from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
+import emailjs from "@emailjs/browser";
+
+// EmailJS credentials
+const EMAILJS_SERVICE_ID = "service_btav8bo";
+const EMAILJS_TEMPLATE_ID = "template_i3qw6sw";
+const EMAILJS_PUBLIC_KEY = "omkybeoZ5KgYPt0j6";
 
 export default function ContactSection() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - could integrate with email service
-    const mailtoLink = `mailto:${profileData.email}?subject=Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
-    window.location.href = mailtoLink;
+    setStatus("loading");
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        EMAILJS_PUBLIC_KEY,
+      );
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      // Reset status after 3 seconds
+      setTimeout(() => setStatus("idle"), 3000);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   const characterCount = formData.message.length;
@@ -56,6 +88,7 @@ export default function ContactSection() {
         transition={{ delay: 0.2 }}
       >
         <form
+          ref={formRef}
           className="relative flex w-full flex-col items-center justify-center"
           onSubmit={handleSubmit}
         >
@@ -104,7 +137,7 @@ export default function ContactSection() {
                 id="email"
                 className="border-neutral-800 text-white focus:border-neutral-700 my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
                 type="email"
-                placeholder="john@doe.com"
+                placeholder="name@domain.com"
                 name="email"
                 value={formData.email}
                 onChange={(e) =>
@@ -153,10 +186,37 @@ export default function ContactSection() {
           <button
             className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none bg-white/10 text-white hover:bg-white/15 ml-auto mt-4"
             type="submit"
-            disabled={!formData.name || !formData.email || !formData.message}
+            disabled={
+              status === "loading" ||
+              !formData.name ||
+              !formData.email ||
+              !formData.message
+            }
           >
-            <Send className="mr-2 size-4" />
-            Send
+            {status === "loading" && (
+              <>
+                <Loader2 className="mr-2 size-4 animate-spin" />
+                Sending...
+              </>
+            )}
+            {status === "success" && (
+              <>
+                <CheckCircle className="mr-2 size-4 text-green-500" />
+                Sent!
+              </>
+            )}
+            {status === "error" && (
+              <>
+                <XCircle className="mr-2 size-4 text-red-500" />
+                Failed
+              </>
+            )}
+            {status === "idle" && (
+              <>
+                <Send className="mr-2 size-4" />
+                Send
+              </>
+            )}
           </button>
         </form>
       </motion.div>

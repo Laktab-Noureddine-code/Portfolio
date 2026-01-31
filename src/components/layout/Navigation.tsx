@@ -80,10 +80,7 @@ export default function Navigation() {
             >
               <div className="flex items-center justify-between mb-8">
                 <a className="text-lg font-black text-white" href="#home">
-                  NL
-                  <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
-                    .
-                  </span>
+                  <img src="/logo.svg" className="w-16" />
                 </a>
                 <button
                   onClick={() => setMobileMenuOpen(false)}

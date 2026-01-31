@@ -3,15 +3,15 @@ export const profileData = {
   firstName: "Noureddine",
   lastName: "Laktab",
   role: "Full Stack Web Developer - React / Laravel",
-  tagline:
-    "Specialized in React and Laravel. Passionate about designing and building complete business applications.",
+  tagline: "designing and building complete business applications.",
   status: "Seeking an internship to apply technical expertise",
   location: "Casablanca, Maroc",
   email: "noureddine.laktab15@gmail.com",
   linkedin: "https://linkedin.com/in/noureddine-laktab",
   phone: "+212 606271812",
   github: "https://github.com/Laktab-Noureddine-code",
-  bio: "I am a Full Stack Web Developer specialized in React and Laravel. I am passionate about designing complete business applications and am currently looking for an internship to contribute effectively to production-oriented projects.",
+  bio: "I am a Full Stack Web Developer specialized in React and Laravel. Currently seeking an internship to contribute to production-oriented projects.",
+  accentColor: "#27f9b0",
 };
 
 export const techStack = [
