@@ -8,7 +8,7 @@ export default function HeroSection() {
   const mobileImage = "/light_center_profile.webp";
 
   return (
-    <section id="home" className="mt-8 md:mt-10">
+    <section id="home" className="mt-4 md:mt-6">
       <motion.div
         className="relative overflow-hidden rounded-3xl shadow-2xl border border-transparent"
         initial={{ opacity: 0, y: 20 }}
@@ -105,10 +105,10 @@ export default function HeroSection() {
           </div>
 
           {/* Desktop Content */}
-          <div className="relative z-10 flex flex-col justify-end h-full p-8 max-w-[60%]">
+          <div className="relative z-10 flex flex-col justify-center h-full py-6 px-8 max-w-[60%]">
             <div className="text-white">
               <motion.span
-                className="font-medium uppercase tracking-wider flex items-center text-base text-white"
+                className="font-medium uppercase tracking-wider inline-flex items-center text-base text-white mb-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -123,7 +123,8 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                {profileData.name}
+                hey, I'm {profileData.firstName}
+                <span className="animate-wave inline-block ml-2">👋</span>
                 <span className="block text-2xl lg:text-3xl font-medium mt-2 text-white/90">
                   Full-Stack Web Developer – React & Laravel
                 </span>
@@ -141,7 +142,7 @@ export default function HeroSection() {
 
             {/* Mission Card */}
             <motion.div
-              className="mt-6"
+              className="mt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
