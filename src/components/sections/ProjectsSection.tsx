@@ -86,7 +86,7 @@ export default function ProjectsSection() {
                 {(project.images || [project.image]).map((img, imgIndex) => (
                   <SwiperSlide key={imgIndex}>
                     <img
-                      alt={`${project.title} - Screenshot ${imgIndex + 1}`}
+                      alt={`${project.title} - ${project.subtitle} screenshot ${imgIndex + 1}`}
                       loading="lazy"
                       decoding="async"
                       className="h-full object-contain bg-neutral-800"
@@ -124,7 +124,7 @@ export default function ProjectsSection() {
                 >
                   <img
                     src={tech.icon}
-                    alt={tech.name}
+                    alt={`${tech.name} technology icon`}
                     className="w-5 h-5"
                     width={20}
                     height={20}

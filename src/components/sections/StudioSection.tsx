@@ -4,15 +4,19 @@ import { profileData } from "../../data/portfolio-data";
 
 export default function StudioSection() {
   return (
-    <motion.div
+    <motion.section
       className="mt-8 md:mt-0"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      aria-labelledby="studio-heading"
     >
       <div className="p-6 sm:p-8 rounded-3xl bg-[#111111] backdrop-blur-sm text-white border border-[#333] shadow-2xl flex flex-col h-full">
         {/* Header */}
-        <div className="text-white uppercase tracking-wider flex gap-2 items-center text-sm sm:text-base">
+        <h2
+          id="studio-heading"
+          className="text-white uppercase tracking-wider flex gap-2 items-center text-sm sm:text-base font-medium"
+        >
           <span
             style={{ backgroundColor: profileData.accentColor }}
             className="p-1.5 rounded-md"
@@ -20,7 +24,7 @@ export default function StudioSection() {
             <Code color="#FFFFFF" size={20} />
           </span>
           My Studio
-        </div>
+        </h2>
 
         {/* Description */}
         <div className="mt-4 flex-grow">
@@ -81,6 +85,6 @@ export default function StudioSection() {
           </div>
         </motion.div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 }

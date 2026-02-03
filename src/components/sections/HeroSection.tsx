@@ -16,11 +16,11 @@ export default function HeroSection() {
         transition={{ duration: 0.6 }}
       >
         {/* Mobile Layout */}
-        <div className="md:hidden flex flex-col">
+        <div className="md:hidden flex flex-col" aria-hidden="true">
           {/* Mobile Image with overlay text */}
           <div className="relative w-full aspect-[3/4]">
             <img
-              alt="Noureddine Laktab - Full Stack Developer"
+              alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
               className="object-cover w-full h-full"
               style={{ objectPosition: "center top" }}
               src={mobileImage}
@@ -33,7 +33,7 @@ export default function HeroSection() {
 
             {/* Text overlay on image */}
             <div className="absolute bottom-0 left-0 right-0 p-5">
-              <motion.h2
+              <motion.span
                 className="font-medium uppercase tracking-wider flex items-center text-xs text-white/90"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -41,9 +41,9 @@ export default function HeroSection() {
               >
                 <Globe className="mr-2" size={14} />
                 About me
-              </motion.h2>
+              </motion.span>
 
-              <motion.h1
+              <motion.p
                 className="mt-2 text-2xl font-bold tracking-tight text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function HeroSection() {
               >
                 hey, I'm {profileData.firstName}
                 <span className="animate-wave inline-block ml-2">👋</span>
-              </motion.h1>
+              </motion.p>
 
               <motion.p
                 className="mt-3 text-sm font-light leading-relaxed text-white/90"
@@ -72,10 +72,10 @@ export default function HeroSection() {
               transition={{ delay: 0.5 }}
             >
               <div className="bg-neutral-900/95 backdrop-blur-md rounded-xl p-4 text-white border border-neutral-800">
-                <h2 className="font-medium uppercase tracking-wider flex items-center text-xs">
+                <span className="font-medium uppercase tracking-wider flex items-center text-xs">
                   <Rocket className="mr-2" size={14} />
                   My Mission
-                </h2>
+                </span>
                 <p className="mt-2 text-xs font-light leading-relaxed">
                   {profileData.bio}
                 </p>
@@ -92,7 +92,7 @@ export default function HeroSection() {
           {/* Desktop Image */}
           <div className="absolute inset-0 z-0">
             <img
-              alt="Noureddine Laktab - Full Stack Developer"
+              alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
               className="object-cover w-full h-full"
               style={{ objectPosition: "85% center" }}
               src={desktopImage}
@@ -107,7 +107,7 @@ export default function HeroSection() {
           {/* Desktop Content */}
           <div className="relative z-10 flex flex-col justify-end h-full p-8 max-w-[60%]">
             <div className="text-white">
-              <motion.h2
+              <motion.span
                 className="font-medium uppercase tracking-wider flex items-center text-base text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export default function HeroSection() {
               >
                 <Globe className="mr-2" size={18} />
                 About me
-              </motion.h2>
+              </motion.span>
 
               <motion.h1
                 className="mt-3 text-4xl lg:text-5xl font-bold tracking-tight text-white"
@@ -123,8 +123,10 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                hey, I'm {profileData.firstName}
-                <span className="animate-wave inline-block ml-2">👋</span>
+                {profileData.name}
+                <span className="block text-2xl lg:text-3xl font-medium mt-2 text-white/90">
+                  Full-Stack Web Developer – React & Laravel
+                </span>
               </motion.h1>
 
               <motion.p
@@ -145,10 +147,10 @@ export default function HeroSection() {
               transition={{ delay: 0.5 }}
             >
               <div className="bg-neutral-900/80 backdrop-blur-md rounded-2xl p-5 text-white border border-transparent">
-                <h2 className="font-medium uppercase tracking-wider flex items-center text-sm">
+                <span className="font-medium uppercase tracking-wider flex items-center text-sm">
                   <Rocket className="mr-2" size={16} />
                   My Mission
-                </h2>
+                </span>
                 <p className="mt-3 text-base font-light leading-relaxed">
                   {profileData.bio}
                 </p>
@@ -160,6 +162,11 @@ export default function HeroSection() {
           </div>
         </div>
       </motion.div>
+
+      {/* Screen-reader only H1 for mobile (since aria-hidden hides mobile visual content) */}
+      <h1 className="sr-only md:hidden">
+        {profileData.name} – Full-Stack Web Developer – React & Laravel
+      </h1>
     </section>
   );
 }
