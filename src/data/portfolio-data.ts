@@ -22,6 +22,7 @@ export const techStack = [
   { name: "Javascript", icon: "/tech/js.svg" },
   { name: "Typescript", icon: "/tech/typescript.svg" },
   { name: "Angular", icon: "/tech/angular.svg" },
+  {name : "NextJs" ,icon : "/tech/nextjs.svg"},
   { name: "React", icon: "/tech/react.svg" },
   { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
   { name: "Docker", icon: "/tech/docker.svg" },
@@ -34,7 +35,7 @@ export const techStack = [
 export const projects = [
   {
     id: 1,
-    title: "3sila-ai",
+    title: "3ssila-ai",
     subtitle: "AI-Powered Translation & Summarization",
     description:
       "A translation and text summarization tool leveraging AI APIs. Features intelligent language detection, multi-language support, and context-aware summarization capabilities.",
@@ -54,7 +55,7 @@ export const projects = [
       "/projects/3ssila/3ssila4.webp",
       "/projects/3ssila/3ssila5.webp",
     ],
-    github: "https://github.com/Laktab-Noureddine-code/3sila-ai",
+    github: "https://github.com/Laktab-Noureddine-code/3ssila-ai",
     live: "https://www.3ssila-ai.tech/",
     featured: true,
   },
@@ -153,5 +154,5 @@ export const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Resume", href: "/CV_LAKTAB.pdf", download: true },
-  { name: "Contact", href: "#contact" },
+
 ];

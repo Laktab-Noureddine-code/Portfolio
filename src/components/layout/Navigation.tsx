@@ -7,17 +7,17 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="z-50 mx-auto flex w-full max-w-screen-lg items-center pt-9 font-mono px-6">
+    <nav className="z-50 mx-auto  flex justify-between w-full max-w-screen-2xl items-center pt-9 font-mono px-6">
       {/* Logo */}
       <a
-        className="text-lg font-black text-white duration-300 motion-reduce:transition-none mr-6"
+        className="text-lg font-black  text-white duration-300 motion-reduce:transition-none mr-6"
         href="#home"
       >
-        <img src="/logo.svg" className="w-16" />
+        <img src="/logo.svg" className="w-12" />
       </a>
 
       {/* Desktop Navigation */}
-      <div className="flex flex-grow justify-start">
+      <div className="flex justify-start">
         <div className="hidden gap-4 lg:inline-flex items-center">
           {navLinks
             .filter((link) => !link.download)
@@ -44,6 +44,12 @@ export default function Navigation() {
             ))}
         </div>
       </div>
+      <a
+        className="relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
+        href="#contact"
+      >
+        Contact
+      </a>
 
       {/* Right Side Controls */}
       <div className="flex items-center gap-2">

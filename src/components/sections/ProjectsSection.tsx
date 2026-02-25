@@ -59,7 +59,7 @@ export default function ProjectsSection() {
             {/* Description */}
             <p className="mb-4 mt-2 text-neutral-400 md:w-3/4">
               {project.description}
-            </p>
+            </p>  
 
             {/* Project Image Slider */}
             <div className="mb-6 group relative">
@@ -104,12 +104,12 @@ export default function ProjectsSection() {
                   <button
                     className={`swiper-button-prev-${project.id} absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-neutral-800 border border-neutral-700`}
                   >
-                    <ChevronLeft className="w-5 h-5 text-white" />
+                    <ChevronLeft className="w-5 h-5 text-white cursor-pointer" />
                   </button>
                   <button
                     className={`swiper-button-next-${project.id} absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-neutral-900/90 backdrop-blur-sm shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-neutral-800 border border-neutral-700`}
                   >
-                    <ChevronRight className="w-5 h-5 text-white" />
+                    <ChevronRight className="w-5 h-5 text-white cursor-pointer" />
                   </button>
                 </>
               )}
