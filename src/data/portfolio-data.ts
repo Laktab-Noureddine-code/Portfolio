@@ -132,7 +132,6 @@ export const projects = [
       "/projects/lakpics/lakpics1.webp",
       "/projects/lakpics/lakpics2.webp",
       "/projects/lakpics/lakpics3.webp",
-      "/projects/lakpics/lakpics4.webp",
     ],
     github: "https://github.com/Laktab-Noureddine-code/LakPics",
     live: "https://lak-piks.vercel.app/",
