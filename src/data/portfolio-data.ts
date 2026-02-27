@@ -22,7 +22,7 @@ export const techStack = [
   { name: "Javascript", icon: "/tech/js.svg" },
   { name: "Typescript", icon: "/tech/typescript.svg" },
   { name: "Angular", icon: "/tech/angular.svg" },
-  {name : "NextJs" ,icon : "/tech/nextjs.svg"},
+  { name: "NextJs", icon: "/tech/nextjs.svg" },
   { name: "React", icon: "/tech/react.svg" },
   { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
   { name: "Docker", icon: "/tech/docker.svg" },
@@ -114,6 +114,30 @@ export const projects = [
     live: "#",
     featured: true,
   },
+  {
+    id: 4,
+    title: "LakPics",
+    subtitle: "High-Quality Stock Photo Search",
+    description:
+      "A responsive and dynamic web application for searching and discovering millions of high-quality stock photos and videos. Built with Next.js App Router and features real-time search, masonry grid layouts, infinite scrolling, and category filtering.",
+    tech: [
+      { name: "Next.js", icon: "/tech/nextjs.svg" },
+      { name: "React", icon: "/tech/react.svg" },
+      { name: "TypeScript", icon: "/tech/typescript.svg" },
+      { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
+      { name: "Vercel", icon: "/tech/vercel.svg" },
+    ],
+    image: "/projects/lakpics/lakpics1.webp",
+    images: [
+      "/projects/lakpics/lakpics1.webp",
+      "/projects/lakpics/lakpics2.webp",
+      "/projects/lakpics/lakpics3.webp",
+      "/projects/lakpics/lakpics4.webp",
+    ],
+    github: "https://github.com/Laktab-Noureddine-code/LakPics",
+    live: "https://lak-piks.vercel.app/",
+    featured: true,
+  },
 ];
 
 export const experience = [
@@ -154,5 +178,4 @@ export const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Resume", href: "/CV_LAKTAB.pdf", download: true },
-
 ];
