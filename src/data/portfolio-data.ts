@@ -134,7 +134,7 @@ export const projects = [
       "/projects/lakpics/lakpics3.webp",
     ],
     github: "https://github.com/Laktab-Noureddine-code/LakPics",
-    live: "https://lak-piks.vercel.app/",
+    live: "https://lak-pics.vercel.app/",
     featured: true,
   },
 ];
