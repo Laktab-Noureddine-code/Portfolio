@@ -1,73 +1,100 @@
-# React + TypeScript + Vite
+# Noureddine Laktab — Developer Portfolio 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Banner](./public/og-image.webp) <!-- Optional: Add a screenshot of your portfolio in the public folder and link it here -->
 
-Currently, two official plugins are available:
+> **"Designing and building complete business applications."**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Welcome to the open-source repository of my personal developer portfolio! This project showcases my skills, experience, and favorite projects as a **Full Stack Web Developer** specializing in React, Next.js, and Laravel. 
 
-## React Compiler
+You can check out my live portfolio here: *(Insert Live Link Here)*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Modern & Responsive UI**: Fully fluid design that looks spectacular on mobile, tablet, and ultra-wide desktop displays.
+- **Custom Project Gallery**: Features an intuitive, dynamic layout that switches between desktop browser mockups and physical smartphone mockups based on the project type.
+- **Fullscreen Lightbox**: A fluid, smooth, immersive image viewing experience powered by `framer-motion`.
+- **Interactive Tech Stack**: A comprehensive, linked technology tag system guiding users to official documentation for every tool I use.
+- **Highly Performant**: Built on top of Vite and React 18 for lightning-fast HMR and minimal bundle footprint.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Technology Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This interactive portfolio is built using my favorite modern web technologies:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/) / Netlify
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*For a full list of my backend and frontend skills (including Laravel, Spring Boot, FastAPI, and more), check out the "Technologies" section in the live app!*
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📂 Project Highlights featured in this Portfolio
+
+Here are a few of the highlighted applications detailed inside:
+
+1. **3ssila-ai** - An AI-powered translation & summarization tool leveraging FastAPI and Vue.js.
+2. **Social Blog App** - A decoupled full-stack blogging platform built with Laravel and React.
+3. **LakPics** - A dynamic, responsive masonry-layout stock photo engine built on Next.js App Router.
+4. **My Todos App** - A native, cross-platform task manager built beautifully in Flutter.
+5. **IT Material System** - A highly secure, confidential enterprise internship logistics platform.
+
+---
+
+## ⚙️ Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+Make sure you have Node.js and npm (or yarn/pnpm) installed on your machine.
+- Node.js >= 18.0.0
+
+### Installation
+
+1. **Clone the repo**
+   ```sh
+   git clone https://github.com/Laktab-Noureddine-code/portfolio.git
+   ```
+2. **Navigate into the directory**
+   ```sh
+   cd portfolio
+   ```
+3. **Install NPM packages**
+   ```sh
+   npm install
+   ```
+4. **Run the development server**
+   ```sh
+   npm run dev
+   ```
+5. Open your browser and visit `http://localhost:5173` to view the site!
+
+---
+
+## 🎨 Customizing for Yourself
+
+If you want to use this template for your own portfolio:
+
+1. Open `src/data/portfolio-data.ts`.
+2. Update the `profileData`, `techStack`, `experience`, `education`, and `projects` objects with your information.
+3. Replace the icons in the `public/tech` and `public/projects` folders with your own screenshots and assets.
+4. Tweak the styles in `ProjectsSection.tsx` or `index.css` to fit your vibe!
+
+---
+
+## 📫 Contact Me
+
+**Noureddine Laktab**
+- **Location**: Casablanca, Maroc
+- **Email**: [noureddine.laktab15@gmail.com](mailto:noureddine.laktab15@gmail.com)
+- **LinkedIn**: [in/noureddine-laktab](https://linkedin.com/in/noureddine-laktab)
+- **GitHub**: [@Laktab-Noureddine-code](https://github.com/Laktab-Noureddine-code)
+
+---
+*Created with ❤️ and TypeScript.*

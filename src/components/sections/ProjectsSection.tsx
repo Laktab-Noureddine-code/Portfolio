@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, ArrowRight, ChevronLeft, ChevronRight, Eye, X, ImageIcon, Monitor } from "lucide-react";
+import { Link, ArrowRight, ChevronLeft, ChevronRight, Eye, X, ImageIcon, Monitor, Wifi, Battery, Signal } from "lucide-react";
 import { projects } from "../../data/portfolio-data";
 
 type LightboxState = {
@@ -108,31 +108,58 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
       <div className="w-full xl:w-[55%] flex flex-col gap-4">
         {/* Main Image Container */}
         <div 
-          className="relative group rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl cursor-pointer"
+          className={`relative group overflow-hidden bg-neutral-900 shadow-2xl cursor-pointer flex flex-col ${
+            project.isMobile 
+              ? "rounded-[2.5rem] w-full max-w-[280px] sm:max-w-[320px] mx-auto border-[8px] border-neutral-800 aspect-[9/19]" 
+              : "rounded-xl w-full border border-neutral-800"
+          }`}
           onClick={() => openLightbox(images, activeImgIndex)}
         >
-          {/* Top Bar simulating a browser */}
-          <div className="flex items-center justify-between px-4 py-3 bg-neutral-900 border-b border-neutral-800">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-              <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-            </div>
-            <div className="text-xs text-neutral-500 font-mono tracking-wider bg-neutral-950 px-4 py-1.5 rounded-full">
-              preview
-            </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 bg-neutral-800/80 px-2.5 py-1.5 rounded-md">
-              <Monitor className="w-3.5 h-3.5" /> Web
-            </div>
+          {/* Top Bar simulating a device */}
+          <div className={`flex items-center justify-between px-4 bg-neutral-900 border-neutral-800 ${project.isMobile ? 'py-3 pb-2 z-10' : 'py-3 border-b'}`}>
+            {project.isMobile ? (
+              <>
+                 <div className="flex-1 flex justify-start pl-1">
+                   <span className="text-[11px] font-semibold text-neutral-300">9:41</span>
+                 </div>
+                 {/* Dynamic Island Mockup */}
+                 <div className="w-20 sm:w-24 h-6 bg-black rounded-full flex items-center justify-end px-2 border border-neutral-800 shadow-inner">
+                    <div className="w-2 h-2 rounded-full bg-neutral-800/80 mr-1.5 opacity-60"></div>
+                 </div>
+                 <div className="flex-1 flex items-center justify-end gap-1.5 pr-1 text-neutral-400">
+                    <Signal className="w-3.5 h-3.5" />
+                    <Wifi className="w-3.5 h-3.5" />
+                    <Battery className="w-4 h-4" />
+                 </div>
+              </>
+            ) : (
+              <>
+                <div className="flex-1 flex gap-2 justify-start items-center">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <div className="text-xs text-neutral-500 font-mono tracking-wider bg-neutral-950 px-4 py-1.5 rounded-full flex-shrink-0">
+                  preview
+                </div>
+                <div className="flex-1 flex items-center justify-end">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 bg-neutral-800/80 px-2.5 py-1.5 rounded-md">
+                    <Monitor className="w-3.5 h-3.5" /> Web
+                  </div>
+                </div>
+              </>
+            )}
           </div>
           
           {/* Active Image */}
-          <div className="relative aspect-video w-full flex items-center justify-center bg-neutral-950/50 p-0 sm:p-2 overflow-hidden">
+          <div className={`relative w-full flex-grow flex items-center justify-center bg-neutral-950 p-0 overflow-hidden ${project.isMobile ? '' : 'aspect-video'}`}>
             <img
               src={images[activeImgIndex]}
               alt={`${project.title} screenshot ${activeImgIndex + 1}`}
-              className={`object-contain transition-transform duration-500 group-hover:scale-[1.02] ${
-                project.isMobile || project.title.toLowerCase().includes('todo') ? "h-[320px] sm:h-[400px] w-auto py-2" : "w-full h-full"
+              className={`transition-transform duration-500 group-hover:scale-[1.02] ${
+                project.isMobile 
+                  ? "w-full h-full object-cover" 
+                  : "w-full h-full object-contain sm:p-2"
               }`}
             />
             {/* Hover Overlay: Click to view */}
@@ -192,15 +219,20 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
         <div className="mb-10">
           <h4 className="text-xs font-bold tracking-widest text-neutral-500 uppercase mb-4">Technologies</h4>
           <div className="flex flex-wrap gap-2.5">
-            {project.tech.map((tech: any) => (
-              <div
-                key={tech.name}
-                className="flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition-colors hover:bg-neutral-800"
-              >
-                <img src={tech.icon} alt={tech.name} className="w-4 h-4 opacity-80" />
-                {tech.name}
-              </div>
-            ))}
+            {project.tech.map((tech: any) => {
+              const TechWrapper = tech.link ? 'a' : 'div';
+              const linkProps = tech.link ? { href: tech.link, target: "_blank", rel: "noopener noreferrer" } : {};
+              return (
+                <TechWrapper
+                  key={tech.name}
+                  {...linkProps}
+                  className={`flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition-colors hover:bg-neutral-800 ${tech.link ? 'cursor-pointer hover:border-neutral-600 shadow-sm hover:text-white' : ''}`}
+                >
+                  <img src={tech.icon} alt={tech.name} className="w-4 h-4 opacity-80" />
+                  {tech.name}
+                </TechWrapper>
+              );
+            })}
           </div>
         </div>
 

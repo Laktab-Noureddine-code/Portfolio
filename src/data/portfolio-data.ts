@@ -15,23 +15,23 @@ export const profileData = {
 };
 
 export const techStack = [
-  { name: "Java", icon: "/tech/java.svg" },
-  { name: "Spring Boot", icon: "/tech/spring.svg" },
-  { name: "PHP", icon: "/tech/php.svg" },
-  { name: "Laravel", icon: "/tech/laravel.svg" },
-  { name: "Javascript", icon: "/tech/js.svg" },
-  { name: "Typescript", icon: "/tech/typescript.svg" },
-  { name: "Angular", icon: "/tech/angular.svg" },
-  { name: "Flutter", icon: "/tech/flutter.svg" },
-  { name: "Figma", icon: "/tech/figma.svg" },
-  { name: "NextJs", icon: "/tech/nextjs.svg" },
-  { name: "React", icon: "/tech/react.svg" },
-  { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
-  { name: "Docker", icon: "/tech/docker.svg" },
-  { name: "MySQL", icon: "/tech/mysql.svg" },
-  { name: "MongoDB", icon: "/tech/mongo.svg" },
-  { name: "Git", icon: "/tech/git.svg" },
-  { name: "Vercel", icon: "/tech/vercel.svg" },
+  { name: "Java", icon: "/tech/java.svg", link: "https://www.java.com/" },
+  { name: "Spring Boot", icon: "/tech/spring.svg", link: "https://spring.io/projects/spring-boot" },
+  { name: "PHP", icon: "/tech/php.svg", link: "https://www.php.net/" },
+  { name: "Laravel", icon: "/tech/laravel.svg", link: "https://laravel.com/" },
+  { name: "Javascript", icon: "/tech/js.svg", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { name: "Typescript", icon: "/tech/typescript.svg", link: "https://www.typescriptlang.org/" },
+  { name: "Angular", icon: "/tech/angular.svg", link: "https://angular.dev/" },
+  { name: "Flutter", icon: "/tech/flutter.svg", link: "https://flutter.dev/" },
+  { name: "Figma", icon: "/tech/figma.svg", link: "https://www.figma.com/" },
+  { name: "NextJs", icon: "/tech/nextjs.svg", link: "https://nextjs.org/" },
+  { name: "React", icon: "/tech/react.svg", link: "https://react.dev/" },
+  { name: "TailwindCSS", icon: "/tech/tailwind.svg", link: "https://tailwindcss.com/" },
+  { name: "Docker", icon: "/tech/docker.svg", link: "https://www.docker.com/" },
+  { name: "MySQL", icon: "/tech/mysql.svg", link: "https://www.mysql.com/" },
+  { name: "MongoDB", icon: "/tech/mongo.svg", link: "https://www.mongodb.com/" },
+  { name: "Git", icon: "/tech/git.svg", link: "https://git-scm.com/" },
+  { name: "Vercel", icon: "/tech/vercel.svg", link: "https://vercel.com/" },
 ];
 
 export const projects = [
@@ -42,12 +42,12 @@ export const projects = [
     description:
       "A translation and text summarization tool leveraging AI APIs. Features intelligent language detection, multi-language support, and context-aware summarization capabilities.",
     tech: [
-      { name: "FastAPI", icon: "/tech/FastAPI.svg" },
-      { name: "Vue.js", icon: "/tech/vue.svg" },
-      { name: "SQLite", icon: "/tech/sqlite.svg" },
-      { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
-      { name: "Vercel", icon: "/tech/vercel.svg" },
-      { name: "docker", icon: "/tech/docker.svg" },
+      { name: "FastAPI", icon: "/tech/FastAPI.svg", link: "https://fastapi.tiangolo.com/" },
+      { name: "Vue.js", icon: "/tech/vue.svg", link: "https://vuejs.org/" },
+      { name: "SQLite", icon: "/tech/sqlite.svg", link: "https://www.sqlite.org/" },
+      { name: "TailwindCSS", icon: "/tech/tailwind.svg", link: "https://tailwindcss.com/" },
+      { name: "Vercel", icon: "/tech/vercel.svg", link: "https://vercel.com/" },
+      { name: "docker", icon: "/tech/docker.svg", link: "https://www.docker.com/" },
     ],
     image: "/projects/3ssila/3ssila1.webp",
     images: [
@@ -68,11 +68,11 @@ export const projects = [
     description:
       "A full-stack blogging platform featuring a decoupled architecture with Laravel backend and React frontend. Includes user authentication, post management, and social interactions.",
     tech: [
-      { name: "Laravel", icon: "/tech/laravel.svg" },
-      { name: "React", icon: "/tech/react.svg" },
-      { name: "Docker", icon: "/tech/docker.svg" },
-      { name: "Git", icon: "/tech/git.svg" },
-      { name: "MySQL", icon: "/tech/mysql.svg" },
+      { name: "Laravel", icon: "/tech/laravel.svg", link: "https://laravel.com/" },
+      { name: "React", icon: "/tech/react.svg", link: "https://react.dev/" },
+      { name: "Docker", icon: "/tech/docker.svg", link: "https://www.docker.com/" },
+      { name: "Git", icon: "/tech/git.svg", link: "https://git-scm.com/" },
+      { name: "MySQL", icon: "/tech/mysql.svg", link: "https://www.mysql.com/" },
     ],
     image: "/projects/mn/mn1.webp",
     images: [
@@ -99,10 +99,10 @@ export const projects = [
     description:
       "An internship project handling full hardware inventory management, intelligent assignment systems, and PDF generation. Includes an analytical dashboard for stock visualization.",
     tech: [
-      { name: "Laravel 11", icon: "/tech/laravel.svg" },
-      { name: "MySQL", icon: "/tech/mysql.svg" },
-      { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
-      { name: "jQuery", icon: "/tech/jquery.svg" },
+      { name: "Laravel 11", icon: "/tech/laravel.svg", link: "https://laravel.com/" },
+      { name: "MySQL", icon: "/tech/mysql.svg", link: "https://www.mysql.com/" },
+      { name: "TailwindCSS", icon: "/tech/tailwind.svg", link: "https://tailwindcss.com/" },
+      { name: "jQuery", icon: "/tech/jquery.svg", link: "https://jquery.com/" },
     ],
     image: "/projects/it/it1.webp",
     images: [
@@ -124,11 +124,11 @@ export const projects = [
     description:
       "A responsive and dynamic web application for searching and discovering millions of high-quality stock photos and videos. Built with Next.js App Router and features real-time search, masonry grid layouts, infinite scrolling, and category filtering.",
     tech: [
-      { name: "Next.js", icon: "/tech/nextjs.svg" },
-      { name: "React", icon: "/tech/react.svg" },
-      { name: "TypeScript", icon: "/tech/typescript.svg" },
-      { name: "TailwindCSS", icon: "/tech/tailwind.svg" },
-      { name: "Vercel", icon: "/tech/vercel.svg" },
+      { name: "Next.js", icon: "/tech/nextjs.svg", link: "https://nextjs.org/" },
+      { name: "React", icon: "/tech/react.svg", link: "https://react.dev/" },
+      { name: "TypeScript", icon: "/tech/typescript.svg", link: "https://www.typescriptlang.org/" },
+      { name: "TailwindCSS", icon: "/tech/tailwind.svg", link: "https://tailwindcss.com/" },
+      { name: "Vercel", icon: "/tech/vercel.svg", link: "https://vercel.com/" },
     ],
     image: "/projects/lakpics/lakpics1.webp",
     images: [
@@ -147,9 +147,9 @@ export const projects = [
     description:
       "A beautiful, responsive, and easy-to-use Todo application built with Flutter. Features an intuitive UI, cross-platform native support, and seamless task management.",
     tech: [
-      { name: "Dart", icon: "/tech/dart.svg" },
-      { name: "Flutter", icon: "/tech/flutter.svg" },
-      { name: "SQLite", icon: "/tech/sqlite.svg" },
+      { name: "Dart", icon: "/tech/dart.svg", link: "https://dart.dev/" },
+      { name: "Flutter", icon: "/tech/flutter.svg", link: "https://flutter.dev/" },
+      { name: "SQLite", icon: "/tech/sqlite.svg", link: "https://www.sqlite.org/" },
     ],
     image: "/projects/todo/todo1.webp",
     images: [
@@ -160,6 +160,7 @@ export const projects = [
     github: "https://github.com/Laktab-Noureddine-code/my-todos",
     live: "#",
     featured: true,
+    isMobile: true,
   }
 ];
 
