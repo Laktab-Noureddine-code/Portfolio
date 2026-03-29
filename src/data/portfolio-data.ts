@@ -137,6 +137,27 @@ export const projects = [
     live: "https://lak-pics.vercel.app/",
     featured: true,
   },
+  {
+    id: 5,
+    title: "My Todos App",
+    subtitle: "Flutter Mobile Application",
+    description:
+      "A beautiful, responsive, and easy-to-use Todo application built with Flutter. Features an intuitive UI, cross-platform native support, and seamless task management.",
+    tech: [
+      { name: "Dart", icon: "/tech/dart.svg" },
+      { name: "Flutter", icon: "/tech/flutter.svg" },
+      { name: "SQLite", icon: "/tech/sqlite.svg" },
+    ],
+    image: "/projects/todo/todo1.webp",
+    images: [
+      "/projects/todo/todo1.webp",
+      "/projects/todo/todo2.webp",
+      "/projects/todo/todo3.webp",
+    ],
+    github: "https://github.com/Laktab-Noureddine-code/my-todos",
+    live: "#",
+    featured: true,
+  }
 ];
 
 export const experience = [

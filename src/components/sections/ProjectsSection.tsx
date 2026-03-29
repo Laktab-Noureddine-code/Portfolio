@@ -85,15 +85,19 @@ export default function ProjectsSection() {
               >
                 {(project.images || [project.image]).map((img, imgIndex) => (
                   <SwiperSlide key={imgIndex}>
-                    <img
-                      alt={`${project.title} - ${project.subtitle} screenshot ${imgIndex + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full object-contain bg-neutral-800"
-                      src={img}
-                      width={1200}
-                      height={675}
-                    />
+                    <div className={project.id === 5 ? "flex justify-center bg-neutral-800 py-4 sm:py-8 h-full" : "h-full"}>
+                      <img
+                        alt={`${project.title} - ${project.subtitle} screenshot ${imgIndex + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        className={`object-contain bg-neutral-800 ${
+                          project.id === 5 ? "h-[500px] sm:h-[600px] w-auto mx-auto" : "w-full aspect-video"
+                        }`}
+                        src={img}
+                        width={project.id === 5 ? 600 : 1200}
+                        height={project.id === 5 ? 1200 : 675}
+                      />
+                    </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
