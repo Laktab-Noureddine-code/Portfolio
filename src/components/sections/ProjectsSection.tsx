@@ -202,12 +202,24 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
 
       {/* Right Column: Info */}
       <div className="w-full xl:w-[45%] flex flex-col">
-        <h3 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">
-          {project.title}
-        </h3>
+        <div className="flex items-start gap-4 mb-3">
+          {project.logo && (
+            <div className="flex-shrink-0 mt-1 p-2 bg-neutral-900/80 rounded-xl border border-neutral-800 shadow-sm">
+              <img 
+                src={project.logo} 
+                alt={`${project.title} logo`} 
+                className="w-10 h-10 object-contain"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <h3 className="text-3xl lg:text-4xl font-bold tracking-tight leading-tight">
+            {project.title}
+          </h3>
+        </div>
         
         {/* Subtitle */}
-        <p className="text-blue-400 font-mono text-sm mb-6">
+        <p className="text-blue-400 font-mono text-sm mb-6 mt-1">
           {project.subtitle}
         </p>
 

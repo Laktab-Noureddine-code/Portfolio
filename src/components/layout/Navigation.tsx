@@ -45,7 +45,7 @@ export default function Navigation() {
         </div>
       </div>
       <a
-        className="relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
+        className="hidden lg:inline-flex relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
         href="#contact"
       >
         Contact
@@ -108,6 +108,13 @@ export default function Navigation() {
                     {link.name}
                   </a>
                 ))}
+                <a
+                  className="px-4 py-3 rounded-md text-neutral-300 hover:bg-white/10 transition-colors mt-2 border-t border-neutral-800 pt-5"
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </a>
               </div>
             </motion.div>
           </>
