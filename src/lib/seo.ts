@@ -1,5 +1,5 @@
 // Single source of truth for GEO/AEO machine-readable surfaces:
-// JSON-LD structured data, /llms.txt, /llms-full.txt, and /api/ai/resume.json.
+// JSON-LD structured data, /llms.txt, /llms-full.txt, and /ai/resume.json.
 // Everything here is built from real portfolio data — never invent metrics.
 
 import {
@@ -106,7 +106,7 @@ ${skills.map((s) => `- ${s}`).join("\n")}
 ## Key pages
 - [Portfolio home](${siteUrl})
 - [Full profile (markdown)](${siteUrl}/llms-full.txt)
-- [Machine-readable resume (JSON)](${siteUrl}/api/ai/resume.json)
+- [Machine-readable resume (JSON)](${siteUrl}/ai/resume.json)
 - [CV (PDF)](${siteUrl}/CV_LAKTAB.pdf)
 
 ## Projects
@@ -178,7 +178,7 @@ project above (e.g. real load-time, query, or user numbers). Do not invent. -->
 }
 
 // ---------------------------------------------------------------------------
-// /api/ai/resume.json — structured resume for autonomous agents
+// /ai/resume.json — structured resume for autonomous agents
 // ---------------------------------------------------------------------------
 export function buildResumeJson() {
   return {
