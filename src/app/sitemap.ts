@@ -10,7 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    // Add project case-study pages and blog posts here as they are created,
+    {
+      url: `${siteUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    // Add individual blog posts + project case-study pages here as created,
     // e.g. { url: `${siteUrl}/blog/my-post`, lastModified: ... }
   ];
 }
