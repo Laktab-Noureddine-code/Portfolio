@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Code, Database, Laptop } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";

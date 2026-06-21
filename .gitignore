@@ -8,10 +8,30 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
-dev-dist
+
+# Next.js
+.next/
+out/
+build
+next-env.d.ts
+*.tsbuildinfo
+
 *.local
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Test coverage
+coverage
+
+# Claude Code / local agent files
+.claude/
+CLAUDE.local.md
 
 # Lighthouse CI
 .lighthouseci
@@ -26,3 +46,6 @@ dev-dist
 *.njsproj
 *.sln
 *.sw?
+
+# stale Vite output (safety)
+dist/

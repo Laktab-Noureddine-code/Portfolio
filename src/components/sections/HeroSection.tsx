@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Globe, Rocket } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
@@ -19,14 +22,14 @@ export default function HeroSection() {
         <div className="md:hidden flex flex-col" aria-hidden="true">
           {/* Mobile Image with overlay text */}
           <div className="relative w-full aspect-[3/4]">
-            <img
+            <Image
               alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
-              className="object-cover w-full h-full"
+              className="object-cover"
               style={{ objectPosition: "center top" }}
               src={mobileImage}
-              width={500}
-              height={667}
-              fetchPriority="high"
+              fill
+              sizes="100vw"
+              priority
             />
             {/* Gradient Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -91,14 +94,14 @@ export default function HeroSection() {
         <div className="hidden md:block relative aspect-[16/9]">
           {/* Desktop Image */}
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
-              className="object-cover w-full h-full"
+              className="object-cover"
               style={{ objectPosition: "85% center" }}
               src={desktopImage}
-              width={1200}
-              height={675}
-              fetchPriority="high"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              priority
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />

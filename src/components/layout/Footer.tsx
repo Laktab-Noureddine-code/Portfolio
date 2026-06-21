@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { profileData, navLinks } from "../../data/portfolio-data";
 
 export default function Footer() {
@@ -38,20 +39,29 @@ export default function Footer() {
         {Object.entries(footerLinks).map(([category, links]) => (
           <div key={category} className="text-neutral-400">
             <p className="mb-2 mt-1 font-bold text-white">{category}</p>
-            {links.map((link) => (
-              <a
-                key={link.name}
-                target={link.external ? "_blank" : "_self"}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                className="mt-1 block duration-100 hover:text-neutral-300 hover:underline motion-reduce:transition-none"
-                href={link.href}
-                {...("download" in link && link.download
-                  ? { download: true }
-                  : {})}
-              >
-                {link.name}
-              </a>
-            ))}
+            {links.map((link) => {
+              const className =
+                "mt-1 block duration-100 hover:text-neutral-300 hover:underline motion-reduce:transition-none";
+              const isDownload = "download" in link && link.download;
+              // External links and the CV download stay plain <a>; internal
+              // navigation uses next/link.
+              return link.external || isDownload ? (
+                <a
+                  key={link.name}
+                  className={className}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  {...(isDownload ? { download: true } : {})}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link key={link.name} className={className} href={link.href}>
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         ))}
       </div>
