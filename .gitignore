@@ -8,10 +8,16 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
-dev-dist
+
+# Next.js
+.next/
+out/
+build
+next-env.d.ts
+*.tsbuildinfo
+
 *.local
+.env*.local
 
 # Lighthouse CI
 .lighthouseci
@@ -26,3 +32,6 @@ dev-dist
 *.njsproj
 *.sln
 *.sw?
+
+# stale Vite output (safety)
+dist/

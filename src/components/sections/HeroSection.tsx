@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Globe, Rocket } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";

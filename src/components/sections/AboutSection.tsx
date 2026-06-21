@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { profileData, education, experience } from "../../data/portfolio-data";

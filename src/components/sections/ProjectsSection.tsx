@@ -1,6 +1,20 @@
-import { useState, useEffect } from "react";
+"use client";
+
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, ArrowRight, ChevronLeft, ChevronRight, Eye, X, ImageIcon, Monitor, Wifi, Battery, Signal } from "lucide-react";
+import {
+  Link,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  X,
+  ImageIcon,
+  Monitor,
+  Wifi,
+  Battery,
+  Signal,
+} from "lucide-react";
 import { projects } from "../../data/portfolio-data";
 
 type LightboxState = {
@@ -9,8 +23,30 @@ type LightboxState = {
   currentIndex: number;
 };
 
+type Tech = {
+  name: string;
+  icon: string;
+  link?: string;
+};
+
+type Project = {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  tech: Tech[];
+  image: string;
+  images?: string[];
+  logo?: string;
+  github?: string;
+  live?: string;
+  featured?: boolean;
+  isPrivate?: boolean;
+  isMobile?: boolean;
+};
+
 export default function ProjectsSection() {
-  const featuredProjects = projects.filter((p: any) => p.featured);
+  const featuredProjects = (projects as Project[]).filter((p) => p.featured);
   const [lightbox, setLightbox] = useState<LightboxState>({
     isOpen: false,
     images: [],
@@ -54,12 +90,12 @@ export default function ProjectsSection() {
       </motion.p>
 
       <div className="mt-12">
-        {featuredProjects.map((project: any, index: number) => (
-          <ProjectCard 
-            key={project.id} 
-            project={project} 
-            index={index} 
-            openLightbox={openLightbox} 
+        {featuredProjects.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={index}
+            openLightbox={openLightbox}
           />
         ))}
       </div>
@@ -92,7 +128,15 @@ export default function ProjectsSection() {
   );
 }
 
-const ProjectCard = ({ project, index, openLightbox }: { project: any, index: number, openLightbox: (images: string[], index: number) => void }) => {
+const ProjectCard = ({
+  project,
+  index,
+  openLightbox,
+}: {
+  project: Project;
+  index: number;
+  openLightbox: (images: string[], index: number) => void;
+}) => {
   const images = project.images || [project.image];
   const [activeImgIndex, setActiveImgIndex] = useState(0);
 
@@ -107,30 +151,34 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
       {/* Left Column: Image Gallery */}
       <div className="w-full xl:w-[55%] flex flex-col gap-4">
         {/* Main Image Container */}
-        <div 
+        <div
           className={`relative group overflow-hidden bg-neutral-900 shadow-2xl cursor-pointer flex flex-col ${
-            project.isMobile 
-              ? "rounded-[2.5rem] w-full max-w-[280px] sm:max-w-[320px] mx-auto border-[8px] border-neutral-800 aspect-[9/19]" 
+            project.isMobile
+              ? "rounded-[2.5rem] w-full max-w-[280px] sm:max-w-[320px] mx-auto border-[8px] border-neutral-800 aspect-[9/19]"
               : "rounded-xl w-full border border-neutral-800"
           }`}
           onClick={() => openLightbox(images, activeImgIndex)}
         >
           {/* Top Bar simulating a device */}
-          <div className={`flex items-center justify-between px-4 bg-neutral-900 border-neutral-800 ${project.isMobile ? 'py-3 pb-2 z-10' : 'py-3 border-b'}`}>
+          <div
+            className={`flex items-center justify-between px-4 bg-neutral-900 border-neutral-800 ${project.isMobile ? "py-3 pb-2 z-10" : "py-3 border-b"}`}
+          >
             {project.isMobile ? (
               <>
-                 <div className="flex-1 flex justify-start pl-1">
-                   <span className="text-[11px] font-semibold text-neutral-300">9:41</span>
-                 </div>
-                 {/* Dynamic Island Mockup */}
-                 <div className="w-20 sm:w-24 h-6 bg-black rounded-full flex items-center justify-end px-2 border border-neutral-800 shadow-inner">
-                    <div className="w-2 h-2 rounded-full bg-neutral-800/80 mr-1.5 opacity-60"></div>
-                 </div>
-                 <div className="flex-1 flex items-center justify-end gap-1.5 pr-1 text-neutral-400">
-                    <Signal className="w-3.5 h-3.5" />
-                    <Wifi className="w-3.5 h-3.5" />
-                    <Battery className="w-4 h-4" />
-                 </div>
+                <div className="flex-1 flex justify-start pl-1">
+                  <span className="text-[11px] font-semibold text-neutral-300">
+                    9:41
+                  </span>
+                </div>
+                {/* Dynamic Island Mockup */}
+                <div className="w-20 sm:w-24 h-6 bg-black rounded-full flex items-center justify-end px-2 border border-neutral-800 shadow-inner">
+                  <div className="w-2 h-2 rounded-full bg-neutral-800/80 mr-1.5 opacity-60"></div>
+                </div>
+                <div className="flex-1 flex items-center justify-end gap-1.5 pr-1 text-neutral-400">
+                  <Signal className="w-3.5 h-3.5" />
+                  <Wifi className="w-3.5 h-3.5" />
+                  <Battery className="w-4 h-4" />
+                </div>
               </>
             ) : (
               <>
@@ -150,15 +198,17 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
               </>
             )}
           </div>
-          
+
           {/* Active Image */}
-          <div className={`relative w-full flex-grow flex items-center justify-center bg-neutral-950 p-0 overflow-hidden ${project.isMobile ? '' : 'aspect-video'}`}>
+          <div
+            className={`relative w-full flex-grow flex items-center justify-center bg-neutral-950 p-0 overflow-hidden ${project.isMobile ? "" : "aspect-video"}`}
+          >
             <img
               src={images[activeImgIndex]}
               alt={`${project.title} screenshot ${activeImgIndex + 1}`}
               className={`transition-transform duration-500 group-hover:scale-[1.02] ${
-                project.isMobile 
-                  ? "w-full h-full object-cover" 
+                project.isMobile
+                  ? "w-full h-full object-cover"
                   : "w-full h-full object-contain sm:p-2"
               }`}
             />
@@ -169,7 +219,7 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
                 Click to view
               </span>
             </div>
-            
+
             {/* Photos Badge */}
             {images.length > 1 && (
               <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-medium text-neutral-300 border border-neutral-700 shadow-xl pointer-events-none">
@@ -179,7 +229,7 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
             )}
           </div>
         </div>
-        
+
         {/* Thumbnails Row */}
         {images.length > 1 && (
           <div className="flex gap-3 overflow-x-auto pb-4 pt-1 snap-x scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent">
@@ -188,12 +238,16 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
                 key={idx}
                 onClick={() => setActiveImgIndex(idx)}
                 className={`relative flex-shrink-0 w-28 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 snap-center ${
-                  activeImgIndex === idx 
-                    ? "border-blue-500 opacity-100 shadow-[0_0_15px_rgba(59,130,246,0.3)] scale-105" 
+                  activeImgIndex === idx
+                    ? "border-blue-500 opacity-100 shadow-[0_0_15px_rgba(59,130,246,0.3)] scale-105"
                     : "border-neutral-800 opacity-50 hover:opacity-100 hover:border-neutral-600"
                 }`}
               >
-                <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                <img
+                  src={img}
+                  alt={`Thumbnail ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                />
               </button>
             ))}
           </div>
@@ -205,9 +259,9 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
         <div className="flex items-start gap-4 mb-3">
           {project.logo && (
             <div className="flex-shrink-0 mt-1 p-2 bg-neutral-900/80 rounded-xl border border-neutral-800 shadow-sm">
-              <img 
-                src={project.logo} 
-                alt={`${project.title} logo`} 
+              <img
+                src={project.logo}
+                alt={`${project.title} logo`}
                 className="w-10 h-10 object-contain"
                 loading="lazy"
               />
@@ -217,7 +271,7 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
             {project.title}
           </h3>
         </div>
-        
+
         {/* Subtitle */}
         <p className="text-blue-400 font-mono text-sm mb-6 mt-1">
           {project.subtitle}
@@ -229,18 +283,30 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
 
         {/* tech stack */}
         <div className="mb-10">
-          <h4 className="text-xs font-bold tracking-widest text-neutral-500 uppercase mb-4">Technologies</h4>
+          <h4 className="text-xs font-bold tracking-widest text-neutral-500 uppercase mb-4">
+            Technologies
+          </h4>
           <div className="flex flex-wrap gap-2.5">
-            {project.tech.map((tech: any) => {
-              const TechWrapper = tech.link ? 'a' : 'div';
-              const linkProps = tech.link ? { href: tech.link, target: "_blank", rel: "noopener noreferrer" } : {};
+            {project.tech.map((tech) => {
+              const TechWrapper = tech.link ? "a" : "div";
+              const linkProps = tech.link
+                ? {
+                    href: tech.link,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  }
+                : {};
               return (
                 <TechWrapper
                   key={tech.name}
                   {...linkProps}
-                  className={`flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition-colors hover:bg-neutral-800 ${tech.link ? 'cursor-pointer hover:border-neutral-600 shadow-sm hover:text-white' : ''}`}
+                  className={`flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition-colors hover:bg-neutral-800 ${tech.link ? "cursor-pointer hover:border-neutral-600 shadow-sm hover:text-white" : ""}`}
                 >
-                  <img src={tech.icon} alt={tech.name} className="w-4 h-4 opacity-80" />
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="w-4 h-4 opacity-80"
+                  />
                   {tech.name}
                 </TechWrapper>
               );
@@ -252,7 +318,21 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
         <div className="flex flex-wrap gap-4 mt-auto">
           {project.isPrivate ? (
             <div className="flex items-center justify-center rounded-lg px-5 py-2.5 font-medium bg-neutral-900/40 text-neutral-500 border border-neutral-800/50 cursor-not-allowed select-none">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 w-4 h-4 opacity-70"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="mr-2 w-4 h-4 opacity-70"
+              >
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
               Confidential Project (Source Unavailable)
             </div>
           ) : (
@@ -303,20 +383,26 @@ const ProjectCard = ({ project, index, openLightbox }: { project: any, index: nu
   );
 };
 
-const Lightbox = ({ state, onClose }: { state: LightboxState; onClose: () => void }) => {
+const Lightbox = ({
+  state,
+  onClose,
+}: {
+  state: LightboxState;
+  onClose: () => void;
+}) => {
   const [currentIndex, setCurrentIndex] = useState(state.currentIndex);
-
-  useEffect(() => {
-    setCurrentIndex(state.currentIndex);
-  }, [state.currentIndex]);
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev === state.images.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === state.images.length - 1 ? 0 : prev + 1,
+    );
   };
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev === 0 ? state.images.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? state.images.length - 1 : prev - 1,
+    );
   };
 
   return (
@@ -329,7 +415,7 @@ const Lightbox = ({ state, onClose }: { state: LightboxState; onClose: () => voi
     >
       {/* Controls Container to avoid hover interference with image */}
       <div className="absolute inset-0 pointer-events-none z-[110]">
-        <button 
+        <button
           className="absolute top-6 right-6 text-neutral-400 hover:text-white transition-colors bg-neutral-900/60 hover:bg-neutral-800 p-2 rounded-full pointer-events-auto backdrop-blur-sm border border-neutral-700"
           onClick={onClose}
         >
@@ -338,13 +424,13 @@ const Lightbox = ({ state, onClose }: { state: LightboxState; onClose: () => voi
 
         {state.images.length > 1 && (
           <>
-            <button 
+            <button
               className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-neutral-900/60 hover:bg-neutral-800 pointer-events-auto backdrop-blur-sm border border-neutral-700 hover:scale-110 group"
               onClick={handlePrev}
             >
               <ChevronLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform" />
             </button>
-            <button 
+            <button
               className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-neutral-900/60 hover:bg-neutral-800 pointer-events-auto backdrop-blur-sm border border-neutral-700 hover:scale-110 group"
               onClick={handleNext}
             >
@@ -369,13 +455,16 @@ const Lightbox = ({ state, onClose }: { state: LightboxState; onClose: () => voi
 
       {state.images.length > 1 && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[110] bg-neutral-900/80 px-4 py-2 rounded-full backdrop-blur-md border border-neutral-800">
-           {state.images.map((_, i) => (
-             <button 
-               key={i} 
-               onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
-               className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentIndex ? 'bg-white scale-125' : 'bg-neutral-600 hover:bg-neutral-400'}`} 
-             />
-           ))}
+          {state.images.map((_, i) => (
+            <button
+              key={i}
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIndex(i);
+              }}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentIndex ? "bg-white scale-125" : "bg-neutral-600 hover:bg-neutral-400"}`}
+            />
+          ))}
         </div>
       )}
     </motion.div>

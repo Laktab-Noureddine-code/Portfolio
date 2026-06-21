@@ -1,7 +1,9 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./dist",
+      "startServerCommand": "npm run start",
+      "startServerReadyPattern": "Ready in|started server on|Local:",
+      "url": ["http://localhost:3000/"],
       "numberOfRuns": 3
     },
     "assert": {

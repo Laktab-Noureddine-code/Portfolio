@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { techStack } from "../../data/portfolio-data";
 
@@ -37,12 +39,14 @@ export default function TechStackSection() {
       >
         {techStack.map((tech, index) => {
           const TechWrapper = tech.link ? motion.a : motion.div;
-          const linkProps = tech.link ? { href: tech.link, target: "_blank", rel: "noopener noreferrer" } : {};
+          const linkProps = tech.link
+            ? { href: tech.link, target: "_blank", rel: "noopener noreferrer" }
+            : {};
           return (
             <TechWrapper
               key={tech.name}
               {...linkProps}
-              className={`flex items-center gap-2 rounded-md border border-neutral-800 bg-transparent px-2 py-1 font-mono font-medium text-neutral-400 duration-200 hover:border-neutral-700 hover:bg-white/5 motion-reduce:transition-none ${tech.link ? 'cursor-pointer hover:text-white' : 'cursor-default'}`}
+              className={`flex items-center gap-2 rounded-md border border-neutral-800 bg-transparent px-2 py-1 font-mono font-medium text-neutral-400 duration-200 hover:border-neutral-700 hover:bg-white/5 motion-reduce:transition-none ${tech.link ? "cursor-pointer hover:text-white" : "cursor-default"}`}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

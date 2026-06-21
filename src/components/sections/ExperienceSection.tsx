@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
 import { experience, education } from "../../data/portfolio-data";
