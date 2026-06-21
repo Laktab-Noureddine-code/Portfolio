@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { buildJsonLd, siteUrl } from "@/lib/seo";
 import "./globals.css";
-
-const siteUrl = "https://laktab.dev";
 const title = "Noureddine Laktab | Full-Stack Web Developer – React & Laravel";
 const description =
   "I'm Noureddine Laktab, a Full-Stack Web Developer from Morocco specializing in React and Laravel. I build clean, scalable, and performance-focused web applications. View my portfolio and projects.";
@@ -77,35 +76,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Noureddine Laktab",
-  jobTitle: "Full-Stack Web Developer",
-  description:
-    "Full-Stack Web Developer specializing in React and Laravel, building clean, scalable, and performance-focused web applications.",
-  url: siteUrl,
-  image: `${siteUrl}/dark_center_profile.webp`,
-  email: "noureddine.laktab15@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Casablanca",
-    addressCountry: "Morocco",
-  },
-  sameAs: [
-    "https://github.com/Laktab-Noureddine-code",
-    "https://linkedin.com/in/noureddine-laktab",
-  ],
-  knowsAbout: [
-    "React",
-    "Laravel",
-    "JavaScript",
-    "TypeScript",
-    "PHP",
-    "Full-Stack Development",
-    "Web Development",
-  ],
-};
+const jsonLd = buildJsonLd();
 
 export default function RootLayout({
   children,

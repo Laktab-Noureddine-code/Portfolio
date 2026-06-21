@@ -49,3 +49,8 @@ CLAUDE.local.md
 
 # stale Vite output (safety)
 dist/
+
+# Generated GEO/AEO files (built by scripts/generate-seo-files.mts)
+public/llms.txt
+public/llms-full.txt
+public/ai/

@@ -275,3 +275,65 @@ quality links beats volume.
   portfolio SEO guide.
 - AEO / answer-engine optimization (entity consistency, answer-first, schema):
   cxl.com, amsive.com, almcorp.com, frase.io, hubspot.com.
+
+---
+
+## GEO & AEO update (expert brief — June 2026)
+
+Splitting the strategy into three lenses:
+
+- **SEO** — rank to win clicks (Googlebot + humans). Backlinks, keywords.
+- **GEO** (Generative Engine Optimization) — be _cited_ by RAG models. Fact
+  density, quotations, Reddit/GitHub authority.
+- **AEO** (Answer Engine Optimization) — be _extracted_ by answer parsers.
+  Answer-first writing, schema, markdown efficiency.
+
+### ✅ Shipped (technical foundation — Month 1–2)
+
+- **SSR/SSG** via the Next.js migration — crawlers + AI bots get full HTML.
+- **JSON-LD `@graph`**: `WebSite` + `ProfilePage` + `Person` (expanded:
+  languages, alumni, skills, `seeks` internship) + one `SoftwareSourceCode`
+  per project (programmingLanguage, repo, live URL). Built from real data in
+  `src/lib/seo.ts`.
+- **`/llms.txt`** — concise markdown directory (answer-first summary).
+- **`/llms-full.txt`** — full portfolio as one markdown doc (4–6× cheaper for
+  LLMs than HTML).
+- **`/ai/resume.json`** — agentic endpoint; autonomous recruiter agents pull a
+  structured resume without parsing HTML. CORS-open.
+- All generated at build by `scripts/generate-seo-files.mts` (prebuild/predev),
+  always in sync with `portfolio-data.ts`. Never contains invented metrics.
+
+### ⛔ Owner action items (cannot be automated — need YOUR real data / effort)
+
+- **Fact density (Very High impact):** rewrite each project description with
+  _true, quantifiable_ results. Not "fast app" → "reduced LCP from X to Y",
+  "handled N records", "cut build time by Z%". Only real numbers — fake stats
+  destroy E-E-A-T. Update `portfolio-data.ts`; files regenerate automatically.
+- **FAQPage schema:** add a Services/FAQ section answering recruiter questions
+  ("What is your Docker experience?") in machine-readable Q&A. Needs your real
+  answers — then I can wire the `FAQPage` JSON-LD.
+- **Reddit (Massive impact):** answer ~2 hard technical questions/week in
+  r/webdev, r/laravel, r/reactjs with real code; lead with the answer, link a
+  deeper case study only after. Build karma first. No astroturfing.
+- **dev.to / Hashnode:** republish tutorials with canonical → laktab.dev.
+- **YouTube:** short screen-recordings of projects (Gemini favors YouTube);
+  link from Reddit answers.
+- **Test loop:** monthly, prompt Perplexity/ChatGPT/Claude with niche queries
+  ("freelance React developer Morocco", "best Laravel deploy practices") and
+  check if/where you're cited.
+
+### Content pattern for all future blog/case-study writing
+
+Inverted pyramid: **direct one-sentence answer → context → code snippet.**
+Strict H1→H6, never skip levels. Embed real recruiter questions as H2s with
+concise factual answers. Use markdown tables for comparisons (LLMs parse them
+well). Title for citability: "How I Reduced LCP from 3.2s to 1.1s in a
+React/Next.js App", not "How I Optimized a Front-End".
+
+### Sources (expert brief)
+
+- Princeton / IIT Delhi (KDD 2024): +41% AI visibility via statistics &
+  quotation addition.
+- WorkfxAI / Tinuiti (Q1 2026): Reddit = 24% of Perplexity citations, 21% of
+  Google AI Overviews; 99% point to discussion threads, not brand profiles.
+- llms.txt spec (2025): markdown 4–6× more token-efficient than HTML for LLMs.
