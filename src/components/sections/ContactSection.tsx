@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Send,
   AtSign,
@@ -56,7 +56,7 @@ export default function ContactSection() {
 
   return (
     <section className="mb-12">
-      <motion.h2
+      <m.h2
         id="contact"
         className="mb-2 scroll-mt-20 text-[1.7rem] font-[750] text-white motion-reduce:transition-none"
         initial={{ opacity: 0, y: 20 }}
@@ -67,9 +67,9 @@ export default function ContactSection() {
         <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
           .
         </span>
-      </motion.h2>
+      </m.h2>
 
-      <motion.p
+      <m.p
         className="text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -79,10 +79,10 @@ export default function ContactSection() {
         I'm always eager to explore new opportunities and take on exciting
         projects. If you have a project in mind, or just want to say hi, feel
         free to send me a message.
-      </motion.p>
+      </m.p>
 
       {/* Contact Form */}
-      <motion.div
+      <m.div
         className="my-6 flex w-full rounded-md border border-neutral-800 bg-[#161617] p-5"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -221,10 +221,10 @@ export default function ContactSection() {
             )}
           </button>
         </form>
-      </motion.div>
+      </m.div>
 
       {/* Alternative Contact Methods */}
-      <motion.p
+      <m.p
         className="text-neutral-300"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -232,9 +232,9 @@ export default function ContactSection() {
         transition={{ delay: 0.3 }}
       >
         Or contact me with...
-      </motion.p>
+      </m.p>
 
-      <motion.div
+      <m.div
         className="mt-4 flex flex-wrap gap-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -290,7 +290,7 @@ export default function ContactSection() {
           GitHub
           <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
         </a>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

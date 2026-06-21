@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { profileData, education, experience } from "../../data/portfolio-data";
 
@@ -13,7 +13,7 @@ export default function AboutSection() {
 
   return (
     <section className="mb-16 mt-6">
-      <motion.h2
+      <m.h2
         id="about"
         className="mb-2 scroll-mt-20 text-[1.7rem] font-[750] motion-reduce:transition-none"
         initial={{ opacity: 0, y: 20 }}
@@ -24,9 +24,9 @@ export default function AboutSection() {
         <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
           .
         </span>
-      </motion.h2>
+      </m.h2>
 
-      <motion.div
+      <m.div
         className="prose text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -41,10 +41,10 @@ export default function AboutSection() {
           Currently pursuing a {education[0]?.degree} at{" "}
           {education[0]?.institution}.
         </p>
-      </motion.div>
+      </m.div>
 
       {/* CTA Buttons */}
-      <motion.div
+      <m.div
         className="mt-6 flex flex-row flex-wrap gap-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -82,11 +82,11 @@ export default function AboutSection() {
           Contact me
           <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* Experience Card */}
       {experience[0] && (
-        <motion.div
+        <m.div
           className="mt-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +114,7 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </section>
   );

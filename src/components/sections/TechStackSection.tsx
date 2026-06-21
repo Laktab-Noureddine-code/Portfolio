@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { techStack } from "../../data/portfolio-data";
 
 export default function TechStackSection() {
   return (
     <section className="my-6 mb-16">
-      <motion.h2
+      <m.h2
         id="tech"
         className="mb-2 scroll-mt-20 text-[1.7rem] font-[750] motion-reduce:transition-none"
         initial={{ opacity: 0, y: 20 }}
@@ -18,9 +18,9 @@ export default function TechStackSection() {
         <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
           .
         </span>
-      </motion.h2>
+      </m.h2>
 
-      <motion.p
+      <m.p
         className="text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,9 +29,9 @@ export default function TechStackSection() {
       >
         Over the years, I have worked with a variety of technologies. Here are
         some of the technologies I have experience with:
-      </motion.p>
+      </m.p>
 
-      <motion.div
+      <m.div
         className="mt-4 flex flex-wrap gap-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function TechStackSection() {
         transition={{ delay: 0.2 }}
       >
         {techStack.map((tech, index) => {
-          const TechWrapper = tech.link ? motion.a : motion.div;
+          const TechWrapper = tech.link ? m.a : m.div;
           const linkProps = tech.link
             ? { href: tech.link, target: "_blank", rel: "noopener noreferrer" }
             : {};
@@ -55,7 +55,7 @@ export default function TechStackSection() {
               whileHover={{ scale: 1.05 }}
             >
               <Image
-                alt={`${tech.name} logo`}
+                alt=""
                 loading="lazy"
                 width={20}
                 height={20}
@@ -66,9 +66,9 @@ export default function TechStackSection() {
             </TechWrapper>
           );
         })}
-      </motion.div>
+      </m.div>
 
-      <motion.p
+      <m.p
         className="mt-4 text-center text-neutral-400"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -76,7 +76,7 @@ export default function TechStackSection() {
         transition={{ delay: 0.5 }}
       >
         ...and many more!
-      </motion.p>
+      </m.p>
     </section>
   );
 }

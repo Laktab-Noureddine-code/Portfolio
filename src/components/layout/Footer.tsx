@@ -31,7 +31,7 @@ export default function Footer() {
     <footer className="mx-auto w-full max-w-screen-md pb-12">
       <hr className="mx-auto mb-5 w-full border border-neutral-800" />
 
-      <p className="mb-4 text-sm text-neutral-300 opacity-50">
+      <p className="mb-4 text-sm text-neutral-400">
         Copyright © {currentYear} {profileData.name}
       </p>
 

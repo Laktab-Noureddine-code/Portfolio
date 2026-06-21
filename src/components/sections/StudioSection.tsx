@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Code, Database, Laptop } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
 
 export default function StudioSection() {
   return (
-    <motion.section
+    <m.section
       className="mt-8 md:mt-0"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ export default function StudioSection() {
         </a>
 
         {/* Service Cards */}
-        <motion.div
+        <m.div
           className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -85,8 +85,8 @@ export default function StudioSection() {
               applications.
             </p>
           </div>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

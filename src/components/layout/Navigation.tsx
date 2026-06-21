@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { AlignLeft, X } from "lucide-react";
 import { navLinks } from "../../data/portfolio-data";
 
@@ -20,7 +20,7 @@ export default function Navigation() {
       >
         <Image
           src="/logo.svg"
-          alt="Noureddine Laktab logo"
+          alt=""
           width={48}
           height={48}
           className="w-12"
@@ -81,7 +81,7 @@ export default function Navigation() {
         {mobileMenuOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -90,7 +90,7 @@ export default function Navigation() {
             />
 
             {/* Menu Panel */}
-            <motion.div
+            <m.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
@@ -106,7 +106,7 @@ export default function Navigation() {
                 >
                   <Image
                     src="/logo.svg"
-                    alt="Noureddine Laktab logo"
+                    alt=""
                     width={64}
                     height={64}
                     className="w-16"
@@ -153,7 +153,7 @@ export default function Navigation() {
                   Contact
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

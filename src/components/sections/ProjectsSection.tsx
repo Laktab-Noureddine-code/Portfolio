@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import {
   Link,
   ArrowRight,
@@ -66,7 +66,7 @@ export default function ProjectsSection() {
 
   return (
     <section className="mb-6 relative">
-      <motion.h2
+      <m.h2
         id="projects"
         className="mb-2 scroll-mt-20 text-[1.7rem] font-[750] motion-reduce:transition-none"
         initial={{ opacity: 0, y: 20 }}
@@ -77,9 +77,9 @@ export default function ProjectsSection() {
         <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
           .
         </span>
-      </motion.h2>
+      </m.h2>
 
-      <motion.p
+      <m.p
         className="text-neutral-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export default function ProjectsSection() {
       >
         Highlighting my latest work: full-stack development, AI integration, and
         DevOps automation.
-      </motion.p>
+      </m.p>
 
       <div className="mt-12">
         {featuredProjects.map((project, index) => (
@@ -102,7 +102,7 @@ export default function ProjectsSection() {
       </div>
 
       {/* View More Link */}
-      <motion.div
+      <m.div
         className="mb-10 flex flex-col items-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function ProjectsSection() {
           More Projects
           <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
         </a>
-      </motion.div>
+      </m.div>
 
       <AnimatePresence>
         {lightbox.isOpen && (
@@ -142,7 +142,7 @@ const ProjectCard = ({
   const [activeImgIndex, setActiveImgIndex] = useState(0);
 
   return (
-    <motion.div
+    <m.div
       className="mb-24 flex flex-col xl:flex-row gap-8 lg:gap-14 items-center"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -238,6 +238,7 @@ const ProjectCard = ({
               <button
                 key={idx}
                 onClick={() => setActiveImgIndex(idx)}
+                aria-label={`Show screenshot ${idx + 1}`}
                 className={`relative flex-shrink-0 w-28 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 snap-center ${
                   activeImgIndex === idx
                     ? "border-blue-500 opacity-100 shadow-[0_0_15px_rgba(59,130,246,0.3)] scale-105"
@@ -246,7 +247,7 @@ const ProjectCard = ({
               >
                 <Image
                   src={img}
-                  alt={`Thumbnail ${idx + 1}`}
+                  alt=""
                   fill
                   sizes="112px"
                   className="object-cover"
@@ -264,7 +265,7 @@ const ProjectCard = ({
             <div className="flex-shrink-0 mt-1 p-2 bg-neutral-900/80 rounded-xl border border-neutral-800 shadow-sm">
               <Image
                 src={project.logo}
-                alt={`${project.title} logo`}
+                alt=""
                 width={40}
                 height={40}
                 className="w-10 h-10 object-contain"
@@ -309,7 +310,7 @@ const ProjectCard = ({
                 >
                   <Image
                     src={tech.icon}
-                    alt={tech.name}
+                    alt=""
                     width={16}
                     height={16}
                     className="w-4 h-4 opacity-80"
@@ -386,7 +387,7 @@ const ProjectCard = ({
           )}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -413,7 +414,7 @@ const Lightbox = ({
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -449,8 +450,8 @@ const Lightbox = ({
 
       <div className="w-full h-full max-w-[95vw] max-h-[95vh] flex items-center justify-center p-4">
         {/* Fullscreen modal image: framer-animated, dynamic dimensions, opened
-            only on click — intentionally a motion.img, not next/image. */}
-        <motion.img
+            only on click — intentionally a m.img, not next/image. */}
+        <m.img
           key={currentIndex}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -476,6 +477,6 @@ const Lightbox = ({
           ))}
         </div>
       )}
-    </motion.div>
+    </m.div>
   );
 };
