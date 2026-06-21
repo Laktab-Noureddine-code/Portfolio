@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   images: {
     // Modern formats for better LCP / smaller payloads
     formats: ["image/avif", "image/webp"],
+    // Allow next/image to serve our local SVG logos/tech icons (trusted assets)
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   async headers() {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Link,
@@ -201,15 +202,15 @@ const ProjectCard = ({
 
           {/* Active Image */}
           <div
-            className={`relative w-full flex-grow flex items-center justify-center bg-neutral-950 p-0 overflow-hidden ${project.isMobile ? "" : "aspect-video"}`}
+            className={`relative w-full flex-grow flex items-center justify-center bg-neutral-950 p-0 overflow-hidden ${project.isMobile ? "aspect-[9/16] max-h-[70vh]" : "aspect-video"}`}
           >
-            <img
+            <Image
               src={images[activeImgIndex]}
               alt={`${project.title} screenshot ${activeImgIndex + 1}`}
+              fill
+              sizes="(max-width: 1280px) 100vw, 55vw"
               className={`transition-transform duration-500 group-hover:scale-[1.02] ${
-                project.isMobile
-                  ? "w-full h-full object-cover"
-                  : "w-full h-full object-contain sm:p-2"
+                project.isMobile ? "object-cover" : "object-contain sm:p-2"
               }`}
             />
             {/* Hover Overlay: Click to view */}
@@ -243,10 +244,12 @@ const ProjectCard = ({
                     : "border-neutral-800 opacity-50 hover:opacity-100 hover:border-neutral-600"
                 }`}
               >
-                <img
+                <Image
                   src={img}
                   alt={`Thumbnail ${idx + 1}`}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="112px"
+                  className="object-cover"
                 />
               </button>
             ))}
@@ -259,9 +262,11 @@ const ProjectCard = ({
         <div className="flex items-start gap-4 mb-3">
           {project.logo && (
             <div className="flex-shrink-0 mt-1 p-2 bg-neutral-900/80 rounded-xl border border-neutral-800 shadow-sm">
-              <img
+              <Image
                 src={project.logo}
                 alt={`${project.title} logo`}
+                width={40}
+                height={40}
                 className="w-10 h-10 object-contain"
                 loading="lazy"
               />
@@ -302,9 +307,11 @@ const ProjectCard = ({
                   {...linkProps}
                   className={`flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition-colors hover:bg-neutral-800 ${tech.link ? "cursor-pointer hover:border-neutral-600 shadow-sm hover:text-white" : ""}`}
                 >
-                  <img
+                  <Image
                     src={tech.icon}
                     alt={tech.name}
+                    width={16}
+                    height={16}
                     className="w-4 h-4 opacity-80"
                   />
                   {tech.name}
@@ -441,6 +448,8 @@ const Lightbox = ({
       </div>
 
       <div className="w-full h-full max-w-[95vw] max-h-[95vh] flex items-center justify-center p-4">
+        {/* Fullscreen modal image: framer-animated, dynamic dimensions, opened
+            only on click — intentionally a motion.img, not next/image. */}
         <motion.img
           key={currentIndex}
           initial={{ opacity: 0, scale: 0.95 }}
