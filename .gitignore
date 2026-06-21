@@ -17,7 +17,21 @@ next-env.d.ts
 *.tsbuildinfo
 
 *.local
-.env*.local
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Test coverage
+coverage
+
+# Claude Code / local agent files
+.claude/
+CLAUDE.local.md
 
 # Lighthouse CI
 .lighthouseci
