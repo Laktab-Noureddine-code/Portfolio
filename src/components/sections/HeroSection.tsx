@@ -6,13 +6,7 @@ import { Globe, Rocket } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
 
 export default function HeroSection() {
-  // Always use dark theme images (light profile images that look good on dark background)
-  const desktopImage = "/light_profile.webp";
-  const mobileImage = "/light_center_profile.webp";
-  const desktopBlur =
-    "data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSDgAAAABYFNbe5O0tRrKGAVNSwJW2oYJnHCY0MFJj4aImADQh0qCsUn3xJreCZ22CZ8u0qPnn9KjOyG1H1ZQOCA6AAAA0AEAnQEqDAAHAAOAWiWcAALtCh8gd+AA/nGkYg7qJ+7itYhtaPAX0cvfZh8NG11G2Mepcabiex6AAA==";
-  const mobileBlur =
-    "data:image/webp;base64,UklGRtgAAABXRUJQVlA4WAoAAAAQAAAACwAADgAAQUxQSFoAAAABcFtr25rEVtABvMoE3oahqKiszwJ0jEDHEpTU7v5gsQ0iYgKEVqUsrDCGbon8gGWJ/oSF8q8D4PxTptATSgvIS6w1zNQfbXQFOPZNIdhRuvUnVCwOVeZUfQFWUDggWAAAAFACAJ0BKgwADwADgFollAJ0fwATup8igJRYAAD+2V9p+hJbeIb87EQ/98DrMXEg7tuERnH1GRjiEhkmNyi4WvzmLjdNXkOSSq+kYhGgJZJ6T5Gi3oWYAAA=";
+  const profileImage = "/profile.svg";
 
   return (
     <section id="home" className="mt-4 md:mt-6">
@@ -27,12 +21,10 @@ export default function HeroSection() {
               alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
               className="object-cover"
               style={{ objectPosition: "center top" }}
-              src={mobileImage}
+              src={profileImage}
               fill
-              sizes="100vw"
+              sizes="calc(100vw - 48px)"
               priority
-              placeholder="blur"
-              blurDataURL={mobileBlur}
             />
             {/* Gradient Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -94,26 +86,9 @@ export default function HeroSection() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:block relative aspect-[16/9]">
-          {/* Desktop Image */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
-              className="object-cover"
-              style={{ objectPosition: "85% center" }}
-              src={desktopImage}
-              fill
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              priority
-              placeholder="blur"
-              blurDataURL={desktopBlur}
-            />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-          </div>
-
+        <div className="hidden md:flex aspect-video bg-dark">
           {/* Desktop Content */}
-          <div className="relative z-10 flex flex-col justify-center h-full py-6 px-8 max-w-[60%]">
+          <div className="relative z-10 flex flex-col justify-center flex-1 min-w-0 py-6 px-8">
             <div className="text-white">
               <m.span
                 className="font-medium uppercase tracking-wider inline-flex items-center text-base text-white mb-2"
@@ -168,6 +143,18 @@ export default function HeroSection() {
                 </p>
               </div>
             </m.div>
+          </div>
+
+          {/* Desktop Image: full height, right-aligned, cropped ~20% off the bottom for a bigger look */}
+          <div className="relative h-full aspect-[814.5/868.8] shrink-0">
+            <Image
+              alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
+              className="object-cover object-top"
+              src={profileImage}
+              fill
+              sizes="(max-width: 1024px) 45vw, 460px"
+              priority
+            />
           </div>
         </div>
       </div>

@@ -40,7 +40,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo.svg",
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.webmanifest",
@@ -54,7 +58,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/dark_center_profile.webp",
+        url: "/profile-og.png",
         width: 1200,
         height: 630,
         alt: "Noureddine Laktab - Full-Stack Web Developer",
@@ -66,7 +70,7 @@ export const metadata: Metadata = {
     title,
     description:
       "Full-Stack Web Developer from Morocco specializing in React & Laravel. Building clean, scalable web applications.",
-    images: ["/dark_center_profile.webp"],
+    images: ["/profile-og.png"],
   },
 };
 
@@ -97,7 +101,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <SpeedInsights />
         <Analytics />

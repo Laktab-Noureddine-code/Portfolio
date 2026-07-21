@@ -27,7 +27,7 @@ export function buildJsonLd() {
     jobTitle: "Full-Stack Web Developer",
     description: profileData.bio,
     url: siteUrl,
-    image: `${siteUrl}/dark_center_profile.webp`,
+    image: `${siteUrl}/profile-og.png`,
     email: profileData.email,
     telephone: profileData.phone,
     nationality: "Moroccan",
