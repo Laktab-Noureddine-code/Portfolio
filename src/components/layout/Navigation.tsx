@@ -6,6 +6,7 @@ import Link from "next/link";
 import { m, AnimatePresence } from "framer-motion";
 import { AlignLeft, X } from "lucide-react";
 import { navLinks } from "../../data/portfolio-data";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function Navigation() {
     <nav className="z-50 mx-auto  flex justify-between w-full max-w-screen-2xl items-center pt-9 font-mono px-6">
       {/* Logo */}
       <Link
-        className="text-lg font-black  text-white duration-300 motion-reduce:transition-none mr-6"
+        className="text-lg font-black text-foreground duration-300 motion-reduce:transition-none mr-6"
         href="#home"
         aria-label="Noureddine Laktab — home"
       >
@@ -23,7 +24,7 @@ export default function Navigation() {
           alt=""
           width={48}
           height={48}
-          className="w-12"
+          className="w-12 invert dark:invert-0"
           priority
         />
       </Link>
@@ -36,7 +37,7 @@ export default function Navigation() {
             .map((link) => (
               <Link
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
+                className="relative rounded-md px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
                 href={link.href}
               >
                 {link.name}
@@ -47,7 +48,7 @@ export default function Navigation() {
             .map((link) => (
               <a
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
+                className="relative rounded-md px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
                 href={link.href}
                 download
               >
@@ -57,7 +58,7 @@ export default function Navigation() {
         </div>
       </div>
       <Link
-        className="hidden lg:inline-flex relative rounded-md px-2 py-1 transition-all hover:bg-white/10 hover:text-neutral-200 sm:px-3 sm:py-2 text-neutral-400"
+        className="hidden lg:inline-flex relative rounded-md px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
         href="#contact"
       >
         Contact
@@ -65,14 +66,19 @@ export default function Navigation() {
 
       {/* Right Side Controls */}
       <div className="flex items-center gap-2">
+        <AnimatedThemeToggler
+          aria-label="Toggle colour theme"
+          className="flex size-10 items-center justify-center rounded-md text-muted outline-none transition-colors hover:bg-hover hover:text-foreground [&_svg]:size-5 [&_svg]:shrink-0"
+        />
+
         {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(true)}
           aria-label="Open navigation menu"
-          className="group flex items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none size-10 justify-center border-0 !bg-transparent !outline-none hover:!bg-white/15 lg:hidden"
+          className="group flex items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none size-10 justify-center border-0 !bg-transparent !outline-none hover:!bg-hover-strong lg:hidden"
         >
-          <AlignLeft className="size-5 shrink-0 text-neutral-100" />
+          <AlignLeft className="size-5 shrink-0 text-foreground" />
         </button>
       </div>
 
@@ -86,7 +92,7 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+              className="fixed inset-0 bg-scrim z-40 lg:hidden"
             />
 
             {/* Menu Panel */}
@@ -95,11 +101,11 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 bottom-0 w-[320px] bg-[#161617] z-50 p-6 lg:hidden"
+              className="fixed top-0 left-0 bottom-0 w-[320px] bg-surface border-r border-border z-50 p-6 lg:hidden"
             >
               <div className="flex items-center justify-between mb-8">
                 <Link
-                  className="text-lg font-black text-white"
+                  className="text-lg font-black text-foreground"
                   href="#home"
                   aria-label="Noureddine Laktab — home"
                   onClick={() => setMobileMenuOpen(false)}
@@ -109,16 +115,16 @@ export default function Navigation() {
                     alt=""
                     width={64}
                     height={64}
-                    className="w-16"
+                    className="w-16 invert dark:invert-0"
                   />
                 </Link>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close navigation menu"
-                  className="p-2 rounded-md hover:bg-white/10"
+                  className="p-2 rounded-md hover:bg-hover"
                 >
-                  <X className="size-5 text-white" />
+                  <X className="size-5 text-foreground" />
                 </button>
               </div>
 
@@ -127,7 +133,7 @@ export default function Navigation() {
                   link.download ? (
                     <a
                       key={link.name}
-                      className="px-4 py-3 rounded-md text-neutral-300 hover:bg-white/10 transition-colors"
+                      className="px-4 py-3 rounded-md text-body hover:bg-hover hover:text-foreground transition-colors"
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                       download
@@ -137,7 +143,7 @@ export default function Navigation() {
                   ) : (
                     <Link
                       key={link.name}
-                      className="px-4 py-3 rounded-md text-neutral-300 hover:bg-white/10 transition-colors"
+                      className="px-4 py-3 rounded-md text-body hover:bg-hover hover:text-foreground transition-colors"
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -146,7 +152,7 @@ export default function Navigation() {
                   ),
                 )}
                 <Link
-                  className="px-4 py-3 rounded-md text-neutral-300 hover:bg-white/10 transition-colors mt-2 border-t border-neutral-800 pt-5"
+                  className="px-4 py-3 rounded-md text-body hover:bg-hover hover:text-foreground transition-colors mt-2 border-t border-border pt-5"
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
                 >

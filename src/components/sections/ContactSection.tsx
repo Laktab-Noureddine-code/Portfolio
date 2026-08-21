@@ -58,19 +58,19 @@ export default function ContactSection() {
     <section className="mb-12">
       <m.h2
         id="contact"
-        className="mb-2 scroll-mt-20 text-[1.7rem] font-[750] text-white motion-reduce:transition-none"
+        className="mb-2 scroll-mt-20 text-[1.7rem] font-[750] text-foreground motion-reduce:transition-none"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
         Contact me
-        <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-gradient-from to-gradient-to bg-clip-text text-transparent">
           .
         </span>
       </m.h2>
 
       <m.p
-        className="text-neutral-300"
+        className="text-body"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -83,7 +83,7 @@ export default function ContactSection() {
 
       {/* Contact Form */}
       <m.div
-        className="my-6 flex w-full rounded-md border border-neutral-800 bg-[#161617] p-5"
+        className="my-6 flex w-full rounded-md border border-border bg-surface p-5"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -98,19 +98,19 @@ export default function ContactSection() {
             {/* Name Field */}
             <label
               htmlFor="name"
-              className="w-full text-left text-sm font-bold tracking-wide text-neutral-300"
+              className="w-full text-left text-sm font-bold tracking-wide text-body"
             >
               Name
               <span
                 aria-hidden="true"
-                className="cursor-help text-red-500"
+                className="cursor-help text-red-600 dark:text-red-500"
                 title="Required"
               >
                 *
               </span>
               <input
                 id="name"
-                className="border-neutral-800 text-white focus:border-neutral-700 my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
+                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
                 type="text"
                 placeholder="Your Name"
                 name="name"
@@ -125,19 +125,19 @@ export default function ContactSection() {
             {/* Email Field */}
             <label
               htmlFor="email"
-              className="w-full text-left text-sm font-bold tracking-wide text-neutral-300"
+              className="w-full text-left text-sm font-bold tracking-wide text-body"
             >
               Email
               <span
                 aria-hidden="true"
-                className="cursor-help text-red-500"
+                className="cursor-help text-red-600 dark:text-red-500"
                 title="Required"
               >
                 *
               </span>
               <input
                 id="email"
-                className="border-neutral-800 text-white focus:border-neutral-700 my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
+                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
                 type="email"
                 placeholder="name@domain.com"
                 name="email"
@@ -154,12 +154,12 @@ export default function ContactSection() {
           <div className="mt-2 flex w-full flex-col items-center justify-center gap-1.5">
             <label
               htmlFor="message"
-              className="w-full text-left text-sm font-bold tracking-wide text-neutral-300"
+              className="w-full text-left text-sm font-bold tracking-wide text-body"
             >
               Message
               <span
                 aria-hidden="true"
-                className="cursor-help text-red-500"
+                className="cursor-help text-red-600 dark:text-red-500"
                 title="Required"
               >
                 *
@@ -167,7 +167,7 @@ export default function ContactSection() {
               <textarea
                 name="message"
                 id="message"
-                className="border-neutral-800 text-white focus:border-neutral-700 mt-2 max-h-40 min-h-24 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
+                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong mt-2 max-h-40 min-h-24 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
                 placeholder="Hello there, I would like to ask you about..."
                 value={formData.message}
                 onChange={(e) =>
@@ -179,14 +179,14 @@ export default function ContactSection() {
                 required
               />
             </label>
-            <span className="text-neutral-300 ml-auto text-xs opacity-50">
+            <span className="text-muted ml-auto text-xs">
               {characterCount}/{maxCharacters} characters
             </span>
           </div>
 
           {/* Submit Button */}
           <button
-            className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none bg-white/10 text-white hover:bg-white/15 ml-auto mt-4"
+            className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong ml-auto mt-4"
             type="submit"
             disabled={
               status === "loading" ||
@@ -203,13 +203,13 @@ export default function ContactSection() {
             )}
             {status === "success" && (
               <>
-                <CheckCircle className="mr-2 size-4 text-green-500" />
+                <CheckCircle className="mr-2 size-4 text-emerald-600 dark:text-emerald-400" />
                 Sent!
               </>
             )}
             {status === "error" && (
               <>
-                <XCircle className="mr-2 size-4 text-red-500" />
+                <XCircle className="mr-2 size-4 text-red-600 dark:text-red-400" />
                 Failed
               </>
             )}
@@ -225,7 +225,7 @@ export default function ContactSection() {
 
       {/* Alternative Contact Methods */}
       <m.p
-        className="text-neutral-300"
+        className="text-body"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -243,7 +243,7 @@ export default function ContactSection() {
       >
         {/* Email */}
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-neutral-800 bg-[#161617] text-white hover:border-neutral-700 hover:bg-[#202021] gap-2"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
           href={`mailto:${profileData.email}`}
         >
           <AtSign className="size-5" />
@@ -253,7 +253,7 @@ export default function ContactSection() {
 
         {/* LinkedIn */}
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-neutral-800 bg-[#161617] text-white hover:border-neutral-700 hover:bg-[#202021] gap-2"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
           href={profileData.linkedin}
           target="_blank"
           rel="noopener noreferrer"
@@ -271,13 +271,13 @@ export default function ContactSection() {
 
         {/* GitHub */}
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-neutral-800 bg-[#161617] text-white hover:border-neutral-700 hover:bg-[#202021] gap-2"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
           href={profileData.github}
           target="_blank"
           rel="noopener noreferrer"
         >
           <svg
-            className="size-5 fill-white"
+            className="size-5 fill-current"
             viewBox="0 0 25 25"
             xmlns="http://www.w3.org/2000/svg"
           >

@@ -1,41 +1,111 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap");
 @import "tailwindcss";
 
-@theme {
+/* Class-based dark mode (the <html> element gets/loses `.dark`). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Theme tokens.
+
+   Every colour the UI uses is a semantic token defined twice: once on :root
+   (light) and once on .dark. Components reference the token utilities
+   (bg-surface, text-body, border-border, …) so a single class works in both
+   themes and the toggle needs no per-component `dark:` overrides.
+--------------------------------------------------------------------------- */
+:root {
+  /* Page + text */
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --body: #3f3f46;
+  --muted: #52525b;
+  --subtle: #71717a;
+
+  /* Surfaces, from "raised card" down to "sunken well".
+     Light mode inverts the dark stacking order: the page is the grey and
+     cards are white, so a card still reads as raised above the page. */
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --surface-3: #e9e9eb;
+  --sunken: #f0f0f2;
+
+  /* Lines */
+  --border-color: #e4e4e7;
+  --border-strong: #d4d4d8;
+
+  /* Translucent hover washes (dark ink on light, light ink on dark) */
+  --hover: rgb(0 0 0 / 0.06);
+  --hover-strong: rgb(0 0 0 / 0.1);
+
+  /* Brand */
+  --gradient-from: #06a37a;
+  --gradient-to: #2563eb;
+  --accent: #0d9488;
+  --accent-foreground: #ffffff;
+
+  /* Scrim behind modals / drawers */
+  --scrim: rgb(0 0 0 / 0.45);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --body: #d4d4d4;
+  --muted: #a3a3a3;
+  --subtle: #737373;
+
+  --surface: #111111;
+  --surface-2: #1a1a1a;
+  --surface-3: #202021;
+  --sunken: #0a0a0a;
+
+  --border-color: #262626;
+  --border-strong: #404040;
+
+  --hover: rgb(255 255 255 / 0.1);
+  --hover-strong: rgb(255 255 255 / 0.15);
+
+  --gradient-from: #a2facf;
+  --gradient-to: #64acff;
+  --accent: #27f9b0;
+  --accent-foreground: #0a0a0a;
+
+  --scrim: rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
   --font-mono:
     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Primary gradient colors (dark mode) */
-  --color-gradient-from: #a2facf;
-  --color-gradient-to: #64acff;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
 
-  /* Accent color */
-  --color-accent: #ff3b00;
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-sunken: var(--sunken);
 
-  /* Dark mode colors */
-  --color-dark: #0a0a0a;
-  --color-dark-secondary: #111111;
-  --color-dark-tertiary: #161617;
-  --color-dark-card: #1a1a1a;
+  --color-border: var(--border-color);
+  --color-border-strong: var(--border-strong);
 
-  /* Neutral colors */
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
-  --color-neutral-300: #d4d4d4;
-  --color-neutral-400: #a3a3a3;
-  --color-neutral-500: #737373;
-  --color-neutral-600: #525252;
-  --color-neutral-700: #404040;
-  --color-neutral-800: #262626;
-  --color-neutral-900: #171717;
+  --color-hover: var(--hover);
+  --color-hover-strong: var(--hover-strong);
+
+  --color-gradient-from: var(--gradient-from);
+  --color-gradient-to: var(--gradient-to);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-scrim: var(--scrim);
 }
 
 @layer base {
   * {
-    @apply border-neutral-800;
+    border-color: var(--border-color);
     box-sizing: border-box;
   }
 
@@ -46,12 +116,16 @@
 
   html {
     scroll-behavior: smooth;
-    background: #0a0a0a;
+    background: var(--background);
+    color-scheme: light;
+  }
+
+  html.dark {
     color-scheme: dark;
   }
 
   body {
-    @apply font-mono antialiased relative text-white;
+    @apply font-mono antialiased relative bg-background text-foreground;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -59,12 +133,51 @@
 
   /* Scrollbar styling */
   * {
-    scrollbar-color: #161617 transparent;
+    scrollbar-color: var(--surface-3) transparent;
     scrollbar-width: thin;
   }
 
   ::selection {
-    @apply bg-neutral-800 text-white;
+    background: var(--surface-3);
+    color: var(--foreground);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   View-transition plumbing for <AnimatedThemeToggler />.
+
+   The component drives the reveal itself via Element.animate() on
+   ::view-transition-new(root); these rules disable the UA cross-fade, keep the
+   incoming snapshot on top, and pin the collapsed clip-path between snapshot
+   and the JS animation so Firefox never flashes the new theme unclipped.
+--------------------------------------------------------------------------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646;
+}
+
+:root[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration, 400ms);
+}
+
+:root[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  clip-path: var(--magicui-theme-vt-clip-from);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }
 
@@ -74,11 +187,11 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-gradient-from to-gradient-to bg-clip-text text-transparent;
   }
 
   .gradient-dot {
-    @apply bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text;
+    @apply bg-gradient-to-r from-gradient-from to-gradient-to bg-clip-text;
     -webkit-text-fill-color: transparent;
   }
 
@@ -87,7 +200,7 @@
   }
 
   .glass-effect {
-    @apply backdrop-blur-md bg-white/10;
+    @apply backdrop-blur-md bg-hover;
   }
 
   /* Noise texture overlay */
@@ -157,7 +270,7 @@
 
 /* Prose styles for content */
 .prose {
-  color: #d4d4d4;
+  color: var(--body);
   max-width: 65ch;
   line-height: 1.75;
 }
@@ -168,18 +281,18 @@
 }
 
 .prose a {
-  color: #f5f5f5;
+  color: var(--foreground);
   text-decoration: underline;
   font-weight: 500;
-  text-decoration-color: #737373;
+  text-decoration-color: var(--subtle);
   transition: 0.2s;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 2px;
 }
 
 .prose a:hover {
-  color: #f5f5f5;
-  text-decoration-color: #f5f5f5;
+  color: var(--foreground);
+  text-decoration-color: var(--foreground);
 }
 
 /* Custom scrollbar */
@@ -192,12 +305,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #161617;
+  background: var(--surface-3);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #262626;
+  background: var(--border-strong);
 }
 
 /* Swiper custom styles */
@@ -209,13 +322,13 @@
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background: rgba(255, 255, 255, 0.4);
+  background: color-mix(in srgb, var(--foreground) 40%, transparent);
   opacity: 1;
   transition: all 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
-  background: white;
+  background: var(--foreground);
   width: 24px;
   border-radius: 4px;
 }

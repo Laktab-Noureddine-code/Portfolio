@@ -12,7 +12,7 @@ export default function HeroSection() {
     <section id="home" className="mt-4 md:mt-6">
       {/* Plain div (not animated): keeps the LCP hero image painted on first
           render instead of waiting for framer-motion to fade it in. */}
-      <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-transparent">
+      <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-border">
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-col" aria-hidden="true">
           {/* Mobile Image with overlay text */}
@@ -63,13 +63,13 @@ export default function HeroSection() {
           </div>
 
           {/* Mission Card - Below image */}
-          <div className="bg-dark p-5 pt-4">
+          <div className="bg-sunken p-5 pt-4">
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="bg-neutral-900/95 backdrop-blur-md rounded-xl p-4 text-white border border-neutral-800">
+              <div className="bg-surface/95 backdrop-blur-md rounded-xl p-4 text-foreground border border-border">
                 <span className="font-medium uppercase tracking-wider flex items-center text-xs">
                   <Rocket className="mr-2" size={14} />
                   My Mission
@@ -86,12 +86,12 @@ export default function HeroSection() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex aspect-video bg-dark">
+        <div className="hidden md:flex aspect-video bg-sunken">
           {/* Desktop Content */}
           <div className="relative z-10 flex flex-col justify-center flex-1 min-w-0 py-6 px-8">
-            <div className="text-white">
+            <div className="text-foreground">
               <m.span
-                className="font-medium uppercase tracking-wider inline-flex items-center text-base text-white mb-2"
+                className="font-medium uppercase tracking-wider inline-flex items-center text-base text-foreground mb-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -101,20 +101,20 @@ export default function HeroSection() {
               </m.span>
 
               <m.h1
-                className="mt-3 text-4xl lg:text-5xl font-bold tracking-tight text-white"
+                className="mt-3 text-4xl lg:text-5xl font-bold tracking-tight text-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 hey, I'm {profileData.firstName}
                 <span className="animate-wave inline-block ml-2">👋</span>
-                <span className="block text-2xl lg:text-3xl font-medium mt-2 text-white/90">
+                <span className="block text-2xl lg:text-3xl font-medium mt-2 text-body">
                   Full-Stack Web Developer – React & Laravel
                 </span>
               </m.h1>
 
               <m.p
-                className="mt-4 text-lg font-light leading-relaxed text-white"
+                className="mt-4 text-lg font-light leading-relaxed text-body"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -130,7 +130,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="bg-neutral-900/80 backdrop-blur-md rounded-2xl p-5 text-white border border-transparent">
+              <div className="bg-surface/80 backdrop-blur-md rounded-2xl p-5 text-foreground border border-border">
                 <span className="font-medium uppercase tracking-wider flex items-center text-sm">
                   <Rocket className="mr-2" size={16} />
                   My Mission

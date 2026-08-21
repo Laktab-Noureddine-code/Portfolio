@@ -74,13 +74,13 @@ export default function ProjectsSection() {
         viewport={{ once: true }}
       >
         Featured Projects
-        <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-gradient-from to-gradient-to bg-clip-text text-transparent">
           .
         </span>
       </m.h2>
 
       <m.p
-        className="text-neutral-300"
+        className="text-body"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -108,9 +108,9 @@ export default function ProjectsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <p className="mb-2 text-neutral-400">Want to see more?</p>
+        <p className="mb-2 text-muted">Want to see more?</p>
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-white/10 text-white hover:bg-white/15"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong"
           href={`https://github.com/Laktab-Noureddine-code?tab=repositories`}
           target="_blank"
           rel="noopener noreferrer"
@@ -153,29 +153,29 @@ const ProjectCard = ({
       <div className="w-full xl:w-[55%] flex flex-col gap-4">
         {/* Main Image Container */}
         <div
-          className={`relative group overflow-hidden bg-neutral-900 shadow-2xl cursor-pointer flex flex-col ${
+          className={`relative group overflow-hidden bg-surface shadow-2xl cursor-pointer flex flex-col ${
             project.isMobile
-              ? "rounded-[2.5rem] w-full max-w-[280px] sm:max-w-[320px] mx-auto border-[8px] border-neutral-800 aspect-[9/19]"
-              : "rounded-xl w-full border border-neutral-800"
+              ? "rounded-[2.5rem] w-full max-w-[280px] sm:max-w-[320px] mx-auto border-[8px] border-border aspect-[9/19]"
+              : "rounded-xl w-full border border-border"
           }`}
           onClick={() => openLightbox(images, activeImgIndex)}
         >
           {/* Top Bar simulating a device */}
           <div
-            className={`flex items-center justify-between px-4 bg-neutral-900 border-neutral-800 ${project.isMobile ? "py-3 pb-2 z-10" : "py-3 border-b"}`}
+            className={`flex items-center justify-between px-4 bg-surface border-border ${project.isMobile ? "py-3 pb-2 z-10" : "py-3 border-b"}`}
           >
             {project.isMobile ? (
               <>
                 <div className="flex-1 flex justify-start pl-1">
-                  <span className="text-[11px] font-semibold text-neutral-300">
+                  <span className="text-[11px] font-semibold text-body">
                     9:41
                   </span>
                 </div>
                 {/* Dynamic Island Mockup */}
-                <div className="w-20 sm:w-24 h-6 bg-black rounded-full flex items-center justify-end px-2 border border-neutral-800 shadow-inner">
-                  <div className="w-2 h-2 rounded-full bg-neutral-800/80 mr-1.5 opacity-60"></div>
+                <div className="w-20 sm:w-24 h-6 bg-black rounded-full flex items-center justify-end px-2 border border-border shadow-inner">
+                  <div className="w-2 h-2 rounded-full bg-neutral-700 mr-1.5 opacity-60"></div>
                 </div>
-                <div className="flex-1 flex items-center justify-end gap-1.5 pr-1 text-neutral-400">
+                <div className="flex-1 flex items-center justify-end gap-1.5 pr-1 text-muted">
                   <Signal className="w-3.5 h-3.5" />
                   <Wifi className="w-3.5 h-3.5" />
                   <Battery className="w-4 h-4" />
@@ -188,11 +188,11 @@ const ProjectCard = ({
                   <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                 </div>
-                <div className="text-xs text-neutral-500 font-mono tracking-wider bg-neutral-950 px-4 py-1.5 rounded-full flex-shrink-0">
+                <div className="text-xs text-subtle font-mono tracking-wider bg-sunken px-4 py-1.5 rounded-full flex-shrink-0">
                   preview
                 </div>
                 <div className="flex-1 flex items-center justify-end">
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 bg-neutral-800/80 px-2.5 py-1.5 rounded-md">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-muted bg-surface-3 px-2.5 py-1.5 rounded-md">
                     <Monitor className="w-3.5 h-3.5" /> Web
                   </div>
                 </div>
@@ -202,7 +202,7 @@ const ProjectCard = ({
 
           {/* Active Image */}
           <div
-            className={`relative w-full flex-grow flex items-center justify-center bg-neutral-950 p-0 overflow-hidden ${project.isMobile ? "aspect-[9/16] max-h-[70vh]" : "aspect-video"}`}
+            className={`relative w-full flex-grow flex items-center justify-center bg-sunken p-0 overflow-hidden ${project.isMobile ? "aspect-[9/16] max-h-[70vh]" : "aspect-video"}`}
           >
             <Image
               src={images[activeImgIndex]}
@@ -216,14 +216,14 @@ const ProjectCard = ({
             {/* Hover Overlay: Click to view */}
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center z-10 backdrop-blur-sm">
               <Eye className="w-12 h-12 text-white mb-3 drop-shadow-lg" />
-              <span className="bg-black/80 text-white font-medium tracking-wide px-4 py-2 rounded-lg border border-neutral-700/50">
+              <span className="bg-black/80 text-white font-medium tracking-wide px-4 py-2 rounded-lg border border-white/20">
                 Click to view
               </span>
             </div>
 
             {/* Photos Badge */}
             {images.length > 1 && (
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-medium text-neutral-300 border border-neutral-700 shadow-xl pointer-events-none">
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-medium text-neutral-200 border border-white/20 shadow-xl pointer-events-none">
                 <ImageIcon className="w-3.5 h-3.5" />
                 {images.length} photos
               </div>
@@ -233,7 +233,7 @@ const ProjectCard = ({
 
         {/* Thumbnails Row */}
         {images.length > 1 && (
-          <div className="flex gap-3 overflow-x-auto pb-4 pt-1 snap-x scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent">
+          <div className="flex gap-3 overflow-x-auto pb-4 pt-1 snap-x">
             {images.map((img: string, idx: number) => (
               <button
                 key={idx}
@@ -242,7 +242,7 @@ const ProjectCard = ({
                 className={`relative flex-shrink-0 w-28 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 snap-center ${
                   activeImgIndex === idx
                     ? "border-blue-500 opacity-100 shadow-[0_0_15px_rgba(59,130,246,0.3)] scale-105"
-                    : "border-neutral-800 opacity-50 hover:opacity-100 hover:border-neutral-600"
+                    : "border-border opacity-50 hover:opacity-100 hover:border-border-strong"
                 }`}
               >
                 <Image
@@ -262,7 +262,7 @@ const ProjectCard = ({
       <div className="w-full xl:w-[45%] flex flex-col">
         <div className="flex items-start gap-4 mb-3">
           {project.logo && (
-            <div className="flex-shrink-0 mt-1 p-2 bg-neutral-900/80 rounded-xl border border-neutral-800 shadow-sm">
+            <div className="flex-shrink-0 mt-1 p-2 bg-surface-2 rounded-xl border border-border shadow-sm">
               <Image
                 src={project.logo}
                 alt=""
@@ -279,17 +279,17 @@ const ProjectCard = ({
         </div>
 
         {/* Subtitle */}
-        <p className="text-blue-400 font-mono text-sm mb-6 mt-1">
+        <p className="text-blue-600 dark:text-blue-400 font-mono text-sm mb-6 mt-1">
           {project.subtitle}
         </p>
 
-        <p className="text-neutral-400 leading-relaxed text-base lg:text-lg mb-8 max-w-2xl">
+        <p className="text-muted leading-relaxed text-base lg:text-lg mb-8 max-w-2xl">
           {project.description}
         </p>
 
         {/* tech stack */}
         <div className="mb-10">
-          <h4 className="text-xs font-bold tracking-widest text-neutral-500 uppercase mb-4">
+          <h4 className="text-xs font-bold tracking-widest text-subtle uppercase mb-4">
             Technologies
           </h4>
           <div className="flex flex-wrap gap-2.5">
@@ -306,7 +306,7 @@ const ProjectCard = ({
                 <TechWrapper
                   key={tech.name}
                   {...linkProps}
-                  className={`flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-1.5 text-sm font-medium text-neutral-300 transition-colors hover:bg-neutral-800 ${tech.link ? "cursor-pointer hover:border-neutral-600 shadow-sm hover:text-white" : ""}`}
+                  className={`flex items-center gap-2 rounded-md border border-border bg-surface-2 px-3 py-1.5 text-sm font-medium text-body transition-colors hover:bg-surface-3 ${tech.link ? "cursor-pointer hover:border-border-strong shadow-sm hover:text-foreground" : ""}`}
                 >
                   <Image
                     src={tech.icon}
@@ -325,7 +325,7 @@ const ProjectCard = ({
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-4 mt-auto">
           {project.isPrivate ? (
-            <div className="flex items-center justify-center rounded-lg px-5 py-2.5 font-medium bg-neutral-900/40 text-neutral-500 border border-neutral-800/50 cursor-not-allowed select-none">
+            <div className="flex items-center justify-center rounded-lg px-5 py-2.5 font-medium bg-surface-2 text-subtle border border-border cursor-not-allowed select-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -348,7 +348,7 @@ const ProjectCard = ({
               {project.live && project.live !== "#" && (
                 <a
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition-all duration-300 bg-neutral-100 text-neutral-900 hover:bg-white shadow-lg"
+                  className="group flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition-all duration-300 bg-foreground text-background hover:opacity-90 shadow-lg"
                   href={project.live}
                   target="_blank"
                 >
@@ -361,7 +361,7 @@ const ProjectCard = ({
               {project.github && project.github !== "#" && (
                 <a
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition-all duration-300 bg-neutral-900 text-white hover:bg-neutral-800 border border-neutral-700"
+                  className="group flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition-all duration-300 bg-surface-2 text-foreground hover:bg-surface-3 border border-border-strong"
                   href={project.github}
                   target="_blank"
                 >
@@ -371,7 +371,7 @@ const ProjectCard = ({
                     viewBox="0 0 25 25"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="mr-2 w-5 h-5 fill-white"
+                    className="mr-2 w-5 h-5 fill-current"
                   >
                     <path
                       fillRule="evenodd"
@@ -424,7 +424,7 @@ const Lightbox = ({
       {/* Controls Container to avoid hover interference with image */}
       <div className="absolute inset-0 pointer-events-none z-[110]">
         <button
-          className="absolute top-6 right-6 text-neutral-400 hover:text-white transition-colors bg-neutral-900/60 hover:bg-neutral-800 p-2 rounded-full pointer-events-auto backdrop-blur-sm border border-neutral-700"
+          className="absolute top-6 right-6 text-neutral-300 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full pointer-events-auto backdrop-blur-sm border border-white/20"
           onClick={onClose}
         >
           <X className="w-6 h-6" />
@@ -433,13 +433,13 @@ const Lightbox = ({
         {state.images.length > 1 && (
           <>
             <button
-              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-neutral-900/60 hover:bg-neutral-800 pointer-events-auto backdrop-blur-sm border border-neutral-700 hover:scale-110 group"
+              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-white/10 hover:bg-white/20 pointer-events-auto backdrop-blur-sm border border-white/20 hover:scale-110 group"
               onClick={handlePrev}
             >
               <ChevronLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform" />
             </button>
             <button
-              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-neutral-900/60 hover:bg-neutral-800 pointer-events-auto backdrop-blur-sm border border-neutral-700 hover:scale-110 group"
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-white/10 hover:bg-white/20 pointer-events-auto backdrop-blur-sm border border-white/20 hover:scale-110 group"
               onClick={handleNext}
             >
               <ChevronRight className="w-8 h-8 group-hover:translate-x-1 transition-transform" />
@@ -464,7 +464,7 @@ const Lightbox = ({
       </div>
 
       {state.images.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[110] bg-neutral-900/80 px-4 py-2 rounded-full backdrop-blur-md border border-neutral-800">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[110] bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20">
           {state.images.map((_, i) => (
             <button
               key={i}
@@ -472,7 +472,7 @@ const Lightbox = ({
                 e.stopPropagation();
                 setCurrentIndex(i);
               }}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentIndex ? "bg-white scale-125" : "bg-neutral-600 hover:bg-neutral-400"}`}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentIndex ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"}`}
             />
           ))}
         </div>

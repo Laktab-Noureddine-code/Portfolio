@@ -21,13 +21,13 @@ export default function AboutSection() {
         viewport={{ once: true }}
       >
         About me
-        <span className="bg-gradient-to-r from-[#a2facf] to-[#64acff] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-gradient-from to-gradient-to bg-clip-text text-transparent">
           .
         </span>
       </m.h2>
 
       <m.div
-        className="prose text-neutral-300"
+        className="prose text-body"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -76,7 +76,7 @@ export default function AboutSection() {
         </a>
 
         <Link
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-white/10 text-white hover:bg-white/15"
+          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong"
           href="#contact"
         >
           Contact me
@@ -93,22 +93,20 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <div className="bg-neutral-900/80 border border-neutral-800 rounded-xl p-4">
+          <div className="bg-surface border border-border rounded-xl p-4">
             <div className="flex items-center gap-2 mb-3">
-              <Briefcase style={{ color: profileData.accentColor }} size={16} />
-              <span className="text-xs uppercase tracking-wider text-neutral-400 font-medium">
+              <Briefcase className="text-accent" size={16} />
+              <span className="text-xs uppercase tracking-wider text-muted font-medium">
                 Experience
               </span>
             </div>
             <div className="flex items-start gap-3">
               <div>
-                <h3 className="font-semibold text-white text-sm">
+                <h3 className="font-semibold text-foreground text-sm">
                   {experience[0].title}
                 </h3>
-                <p className="text-neutral-400 text-sm">
-                  {experience[0].subtitle}
-                </p>
-                <p className="text-neutral-500 text-xs mt-1">
+                <p className="text-muted text-sm">{experience[0].subtitle}</p>
+                <p className="text-subtle text-xs mt-1">
                   {experience[0].period}
                 </p>
               </div>

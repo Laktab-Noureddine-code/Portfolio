@@ -31,7 +31,7 @@ function TimelineItem({
     >
       {/* Timeline Dot */}
       <m.div
-        className="absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-500 rounded-full transform -translate-x-1/2 border-4 border-neutral-900 shadow-sm z-10"
+        className="absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-500 rounded-full transform -translate-x-1/2 border-4 border-background shadow-sm z-10"
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
@@ -44,21 +44,21 @@ function TimelineItem({
         className={`ml-8 md:ml-0 md:w-1/2 ${isEven ? "md:pr-12" : "md:pl-12"}`}
       >
         <m.div
-          className="bg-neutral-800/50 rounded-2xl p-6 shadow-sm border border-neutral-700"
+          className="bg-surface-2 rounded-2xl p-6 shadow-sm border border-border"
           whileHover={{ scale: 1.02, y: -5 }}
           transition={{ duration: 0.3 }}
         >
           <div className="flex items-start justify-between mb-3">
             <div className="flex flex-wrap gap-2">
               <m.span
-                className="text-xs font-medium text-emerald-400 bg-emerald-900/30 px-2 py-1 rounded-full"
+                className="text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-2 py-1 rounded-full"
                 whileHover={{ scale: 1.1 }}
               >
                 {item.period}
               </m.span>
               {item.current && (
                 <m.span
-                  className="text-xs font-medium text-blue-400 bg-blue-900/30 px-2 py-1 rounded-full"
+                  className="text-xs font-medium text-blue-700 dark:text-blue-400 bg-blue-500/15 px-2 py-1 rounded-full"
                   animate={{
                     boxShadow: [
                       "0 0 0 0 rgba(59, 130, 246, 0.4)",
@@ -72,14 +72,16 @@ function TimelineItem({
               )}
             </div>
             <m.div whileHover={{ rotate: 15 }}>
-              <Briefcase size={18} className="text-neutral-500" />
+              <Briefcase size={18} className="text-subtle" />
             </m.div>
           </div>
-          <h3 className="text-lg font-semibold text-white mb-1">
+          <h3 className="text-lg font-semibold text-foreground mb-1">
             {item.title}
           </h3>
-          <p className="text-sm text-emerald-400 mb-3">{item.subtitle}</p>
-          <p className="text-neutral-400 text-sm">{item.description}</p>
+          <p className="text-sm text-emerald-700 dark:text-emerald-400 mb-3">
+            {item.subtitle}
+          </p>
+          <p className="text-muted text-sm">{item.description}</p>
         </m.div>
       </div>
 
@@ -103,19 +105,19 @@ function EducationCard({
       custom={index}
       whileHover={{ scale: 1.02, y: -5 }}
       transition={{ duration: 0.3 }}
-      className="bg-neutral-800/50 rounded-2xl p-6 shadow-sm border border-neutral-700"
+      className="bg-surface-2 rounded-2xl p-6 shadow-sm border border-border"
     >
       <div>
         <div className="flex items-start justify-between mb-3">
           <m.span
-            className="text-xs font-medium text-emerald-400 bg-emerald-900/30 px-2 py-1 rounded-full"
+            className="text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-2 py-1 rounded-full"
             whileHover={{ scale: 1.1 }}
           >
             {edu.period}
           </m.span>
           {edu.current && (
             <m.span
-              className="text-xs font-medium text-blue-400 bg-blue-900/30 px-2 py-1 rounded-full"
+              className="text-xs font-medium text-blue-700 dark:text-blue-400 bg-blue-500/15 px-2 py-1 rounded-full"
               animate={{
                 boxShadow: [
                   "0 0 0 0 rgba(59, 130, 246, 0.4)",
@@ -128,9 +130,11 @@ function EducationCard({
             </m.span>
           )}
         </div>
-        <h4 className="font-semibold text-white mb-1">{edu.degree}</h4>
-        <p className="text-sm text-emerald-400 mb-2">{edu.institution}</p>
-        <p className="text-neutral-400 text-sm">{edu.description}</p>
+        <h4 className="font-semibold text-foreground mb-1">{edu.degree}</h4>
+        <p className="text-sm text-emerald-700 dark:text-emerald-400 mb-2">
+          {edu.institution}
+        </p>
+        <p className="text-muted text-sm">{edu.description}</p>
       </div>
     </m.div>
   );
@@ -138,7 +142,7 @@ function EducationCard({
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 bg-[#0a0a0a]">
+    <section id="experience" className="py-20 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <m.div
           initial="hidden"
@@ -148,10 +152,10 @@ export default function ExperienceSection() {
         >
           {/* Section Header */}
           <m.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               My <span className="gradient-text">Journey</span>
             </h2>
-            <p className="text-neutral-400">
+            <p className="text-muted">
               A timeline of my professional experiences and milestones
             </p>
           </m.div>
@@ -160,7 +164,7 @@ export default function ExperienceSection() {
           <div className="relative">
             {/* Vertical Line */}
             <m.div
-              className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-neutral-700 transform md:-translate-x-1/2"
+              className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border-strong transform md:-translate-x-1/2"
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
@@ -176,14 +180,17 @@ export default function ExperienceSection() {
           {/* Education */}
           <m.div variants={fadeInUp} className="mt-16">
             <m.h3
-              className="text-xl font-semibold text-white mb-8 text-center flex items-center justify-center gap-2"
+              className="text-xl font-semibold text-foreground mb-8 text-center flex items-center justify-center gap-2"
               variants={fadeInUp}
             >
               <m.span
                 whileHover={{ rotate: 15, scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <GraduationCap size={24} className="text-emerald-500" />
+                <GraduationCap
+                  size={24}
+                  className="text-emerald-600 dark:text-emerald-500"
+                />
               </m.span>
               Education
             </m.h3>

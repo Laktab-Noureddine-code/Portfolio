@@ -29,19 +29,19 @@ export default function Footer() {
 
   return (
     <footer className="mx-auto w-full max-w-screen-md pb-12">
-      <hr className="mx-auto mb-5 w-full border border-neutral-800" />
+      <hr className="mx-auto mb-5 w-full border border-border" />
 
-      <p className="mb-4 text-sm text-neutral-400">
+      <p className="mb-4 text-sm text-muted">
         Copyright © {currentYear} {profileData.name}
       </p>
 
       <div className="flex justify-between gap-4">
         {Object.entries(footerLinks).map(([category, links]) => (
-          <div key={category} className="text-neutral-400">
-            <p className="mb-2 mt-1 font-bold text-white">{category}</p>
+          <div key={category} className="text-muted">
+            <p className="mb-2 mt-1 font-bold text-foreground">{category}</p>
             {links.map((link) => {
               const className =
-                "mt-1 block duration-100 hover:text-neutral-300 hover:underline motion-reduce:transition-none";
+                "mt-1 block duration-100 hover:text-foreground hover:underline motion-reduce:transition-none";
               const isDownload = "download" in link && link.download;
               // External links and the CV download stay plain <a>; internal
               // navigation uses next/link.
