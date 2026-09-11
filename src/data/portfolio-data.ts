@@ -286,5 +286,5 @@ export const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
-  { name: "Resume", href: "/CV_LAKTAB.pdf", download: true },
+  { name: "Resume", href: "/NOUREDDINE_LAKTAB_CV.pdf", download: true },
 ];

@@ -35,7 +35,7 @@ export default function StudioSection() {
 
         {/* Download CV Button */}
         <a
-          href="/CV_LAKTAB.pdf"
+          href="/NOUREDDINE_LAKTAB_CV.pdf"
           download
           className="text-sm mt-3 bg-surface-2 border border-border px-5 py-2 rounded-full hover:bg-surface-3 transition-all duration-300 w-fit text-foreground"
         >

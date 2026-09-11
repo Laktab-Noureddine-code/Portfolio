@@ -19,7 +19,7 @@ export default function Footer() {
     Other: [
       {
         name: "Resume",
-        href: "/CV_LAKTAB.pdf",
+        href: "/NOUREDDINE_LAKTAB_CV.pdf",
         external: false,
         download: true,
       },

@@ -107,7 +107,7 @@ ${skills.map((s) => `- ${s}`).join("\n")}
 - [Portfolio home](${siteUrl})
 - [Full profile (markdown)](${siteUrl}/llms-full.txt)
 - [Machine-readable resume (JSON)](${siteUrl}/ai/resume.json)
-- [CV (PDF)](${siteUrl}/CV_LAKTAB.pdf)
+- [CV (PDF)](${siteUrl}/NOUREDDINE_LAKTAB_CV.pdf)
 
 ## Projects
 ${projects.map((p) => `- ${p.title} — ${p.subtitle}`).join("\n")}

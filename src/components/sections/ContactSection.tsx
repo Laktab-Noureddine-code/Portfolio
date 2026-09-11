@@ -45,7 +45,13 @@ export default function ContactSection() {
       // Reset status after 3 seconds
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
-      console.error("EmailJS error:", error);
+      const detail =
+        error && typeof error === "object" && "text" in error
+          ? (error as { text: string }).text
+          : error instanceof Error
+            ? error.message
+            : String(error);
+      console.error("EmailJS error:", detail);
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
     }

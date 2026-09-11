@@ -6,6 +6,7 @@ import AboutSection from "./sections/AboutSection";
 import StudioSection from "./sections/StudioSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import TechStackSection from "./sections/TechStackSection";
+import GithubActivitySection from "./sections/GithubActivitySection";
 import ContactSection from "./sections/ContactSection";
 
 export default function Portfolio() {
@@ -23,6 +24,7 @@ export default function Portfolio() {
             </div>
             <ProjectsSection />
             <TechStackSection />
+            <GithubActivitySection />
             <ContactSection />
           </main>
           <Footer />
