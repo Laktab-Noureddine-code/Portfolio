@@ -9,10 +9,10 @@ export default function HeroSection() {
   const profileImage = "/profile.svg";
 
   return (
-    <section id="home" className="mt-4 md:mt-6">
+    <section id="home" className="relative mt-4 md:mt-6">
       {/* Plain div (not animated): keeps the LCP hero image painted on first
           render instead of waiting for framer-motion to fade it in. */}
-      <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-border">
+      <div className="relative">
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-col" aria-hidden="true">
           {/* Mobile Image with overlay text */}
@@ -23,11 +23,11 @@ export default function HeroSection() {
               style={{ objectPosition: "center top" }}
               src={profileImage}
               fill
-              sizes="calc(100vw - 48px)"
+              sizes="100vw"
               priority
             />
             {/* Gradient Overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 via-25% to-transparent to-45%" />
 
             {/* Text overlay on image */}
             <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -63,13 +63,13 @@ export default function HeroSection() {
           </div>
 
           {/* Mission Card - Below image */}
-          <div className="bg-sunken p-5 pt-4">
+          <div className="p-5 pt-4">
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="bg-surface/95 backdrop-blur-md rounded-xl p-4 text-foreground border border-border">
+              <div className="bg-surface/95 backdrop-blur-md p-4 text-foreground border border-border">
                 <span className="font-medium uppercase tracking-wider flex items-center text-xs">
                   <Rocket className="mr-2" size={14} />
                   My Mission
@@ -86,7 +86,7 @@ export default function HeroSection() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:flex aspect-video bg-sunken">
+        <div className="hidden md:flex h-[560px] lg:h-[640px] mx-auto max-w-screen-xl">
           {/* Desktop Content */}
           <div className="relative z-10 flex flex-col justify-center flex-1 min-w-0 py-6 px-8">
             <div className="text-foreground">
@@ -130,7 +130,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="bg-surface/80 backdrop-blur-md rounded-2xl p-5 text-foreground border border-border">
+              <div className="bg-surface/80 backdrop-blur-md p-5 text-foreground border border-border">
                 <span className="font-medium uppercase tracking-wider flex items-center text-sm">
                   <Rocket className="mr-2" size={16} />
                   My Mission
@@ -152,7 +152,7 @@ export default function HeroSection() {
               className="object-cover object-top"
               src={profileImage}
               fill
-              sizes="(max-width: 1024px) 45vw, 460px"
+              sizes="(max-width: 1024px) 50vw, 600px"
               priority
             />
           </div>

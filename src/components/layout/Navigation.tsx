@@ -12,7 +12,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="z-50 mx-auto  flex justify-between w-full max-w-screen-2xl items-center pt-9 font-mono px-6">
+    <nav className="z-50 mx-auto flex justify-between w-full max-w-screen-2xl items-center pt-9 font-mono px-6">
       {/* Logo */}
       <Link
         className="text-lg font-black text-foreground duration-300 motion-reduce:transition-none mr-6"
@@ -37,7 +37,7 @@ export default function Navigation() {
             .map((link) => (
               <Link
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
+                className="relative px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
                 href={link.href}
               >
                 {link.name}
@@ -48,7 +48,7 @@ export default function Navigation() {
             .map((link) => (
               <a
                 key={link.name}
-                className="relative rounded-md px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
+                className="relative px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
                 href={link.href}
                 download
               >
@@ -58,7 +58,7 @@ export default function Navigation() {
         </div>
       </div>
       <Link
-        className="hidden lg:inline-flex relative rounded-md px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
+        className="hidden lg:inline-flex relative px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
         href="#contact"
       >
         Contact
@@ -68,7 +68,7 @@ export default function Navigation() {
       <div className="flex items-center gap-2">
         <AnimatedThemeToggler
           aria-label="Toggle colour theme"
-          className="flex size-10 items-center justify-center rounded-md text-muted outline-none transition-colors hover:bg-hover hover:text-foreground [&_svg]:size-5 [&_svg]:shrink-0"
+          className="flex size-10 items-center justify-center text-muted outline-none transition-colors hover:bg-hover hover:text-foreground [&_svg]:size-5 [&_svg]:shrink-0"
         />
 
         {/* Mobile Menu Button */}
@@ -76,7 +76,7 @@ export default function Navigation() {
           type="button"
           onClick={() => setMobileMenuOpen(true)}
           aria-label="Open navigation menu"
-          className="group flex items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none size-10 justify-center border-0 !bg-transparent !outline-none hover:!bg-hover-strong lg:hidden"
+          className="group flex items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none size-10 justify-center border-0 !bg-transparent !outline-none hover:!bg-hover-strong lg:hidden"
         >
           <AlignLeft className="size-5 shrink-0 text-foreground" />
         </button>
@@ -122,7 +122,7 @@ export default function Navigation() {
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close navigation menu"
-                  className="p-2 rounded-md hover:bg-hover"
+                  className="p-2 hover:bg-hover"
                 >
                   <X className="size-5 text-foreground" />
                 </button>
@@ -133,7 +133,7 @@ export default function Navigation() {
                   link.download ? (
                     <a
                       key={link.name}
-                      className="px-4 py-3 rounded-md text-body hover:bg-hover hover:text-foreground transition-colors"
+                      className="px-4 py-3 text-body hover:bg-hover hover:text-foreground transition-colors"
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                       download
@@ -143,7 +143,7 @@ export default function Navigation() {
                   ) : (
                     <Link
                       key={link.name}
-                      className="px-4 py-3 rounded-md text-body hover:bg-hover hover:text-foreground transition-colors"
+                      className="px-4 py-3 text-body hover:bg-hover hover:text-foreground transition-colors"
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -152,7 +152,7 @@ export default function Navigation() {
                   ),
                 )}
                 <Link
-                  className="px-4 py-3 rounded-md text-body hover:bg-hover hover:text-foreground transition-colors mt-2 border-t border-border pt-5"
+                  className="px-4 py-3 text-body hover:bg-hover hover:text-foreground transition-colors mt-2 border-t border-border pt-5"
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
                 >

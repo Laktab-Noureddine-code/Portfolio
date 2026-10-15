@@ -53,7 +53,7 @@ export default function AboutSection() {
       >
         <a
           rel="noopener noreferrer"
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-blue-500 text-white hover:bg-blue-600"
+          className="group flex w-fit items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-blue-500 text-white hover:bg-blue-600"
           href={profileData.github}
           target="_blank"
         >
@@ -76,7 +76,7 @@ export default function AboutSection() {
         </a>
 
         <Link
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong"
+          className="group flex w-fit items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong"
           href="#contact"
         >
           Contact me
@@ -93,7 +93,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <div className="bg-surface border border-border rounded-xl p-4">
+          <div className="bg-surface border border-border p-4">
             <div className="flex items-center gap-2 mb-3">
               <Briefcase className="text-accent" size={16} />
               <span className="text-xs uppercase tracking-wider text-muted font-medium">

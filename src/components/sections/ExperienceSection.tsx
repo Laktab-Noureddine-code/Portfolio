@@ -31,7 +31,7 @@ function TimelineItem({
     >
       {/* Timeline Dot */}
       <m.div
-        className="absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-500 rounded-full transform -translate-x-1/2 border-4 border-background shadow-sm z-10"
+        className="absolute left-0 md:left-1/2 w-4 h-4 bg-emerald-500 transform -translate-x-1/2 border-4 border-background shadow-sm z-10"
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
@@ -44,21 +44,21 @@ function TimelineItem({
         className={`ml-8 md:ml-0 md:w-1/2 ${isEven ? "md:pr-12" : "md:pl-12"}`}
       >
         <m.div
-          className="bg-surface-2 rounded-2xl p-6 shadow-sm border border-border"
+          className="bg-surface-2 p-6 shadow-sm border border-border"
           whileHover={{ scale: 1.02, y: -5 }}
           transition={{ duration: 0.3 }}
         >
           <div className="flex items-start justify-between mb-3">
             <div className="flex flex-wrap gap-2">
               <m.span
-                className="text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-2 py-1 rounded-full"
+                className="text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-2 py-1 "
                 whileHover={{ scale: 1.1 }}
               >
                 {item.period}
               </m.span>
               {item.current && (
                 <m.span
-                  className="text-xs font-medium text-blue-700 dark:text-blue-400 bg-blue-500/15 px-2 py-1 rounded-full"
+                  className="text-xs font-medium text-blue-700 dark:text-blue-400 bg-blue-500/15 px-2 py-1 "
                   animate={{
                     boxShadow: [
                       "0 0 0 0 rgba(59, 130, 246, 0.4)",
@@ -105,19 +105,19 @@ function EducationCard({
       custom={index}
       whileHover={{ scale: 1.02, y: -5 }}
       transition={{ duration: 0.3 }}
-      className="bg-surface-2 rounded-2xl p-6 shadow-sm border border-border"
+      className="bg-surface-2 p-6 shadow-sm border border-border"
     >
       <div>
         <div className="flex items-start justify-between mb-3">
           <m.span
-            className="text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-2 py-1 rounded-full"
+            className="text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-2 py-1 "
             whileHover={{ scale: 1.1 }}
           >
             {edu.period}
           </m.span>
           {edu.current && (
             <m.span
-              className="text-xs font-medium text-blue-700 dark:text-blue-400 bg-blue-500/15 px-2 py-1 rounded-full"
+              className="text-xs font-medium text-blue-700 dark:text-blue-400 bg-blue-500/15 px-2 py-1 "
               animate={{
                 boxShadow: [
                   "0 0 0 0 rgba(59, 130, 246, 0.4)",

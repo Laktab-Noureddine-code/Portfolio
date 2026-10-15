@@ -89,7 +89,7 @@ export default function ContactSection() {
 
       {/* Contact Form */}
       <m.div
-        className="my-6 flex w-full rounded-md border border-border bg-surface p-5"
+        className="my-6 flex w-full border border-border bg-surface p-5"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -116,7 +116,7 @@ export default function ContactSection() {
               </span>
               <input
                 id="name"
-                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
+                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full border p-2 font-normal outline-0 duration-200 bg-transparent"
                 type="text"
                 placeholder="Your Name"
                 name="name"
@@ -143,7 +143,7 @@ export default function ContactSection() {
               </span>
               <input
                 id="email"
-                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
+                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full border p-2 font-normal outline-0 duration-200 bg-transparent"
                 type="email"
                 placeholder="name@domain.com"
                 name="email"
@@ -173,7 +173,7 @@ export default function ContactSection() {
               <textarea
                 name="message"
                 id="message"
-                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong mt-2 max-h-40 min-h-24 w-full rounded-lg border p-2 font-normal outline-0 duration-200 bg-transparent"
+                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong mt-2 max-h-40 min-h-24 w-full border p-2 font-normal outline-0 duration-200 bg-transparent"
                 placeholder="Hello there, I would like to ask you about..."
                 value={formData.message}
                 onChange={(e) =>
@@ -192,7 +192,7 @@ export default function ContactSection() {
 
           {/* Submit Button */}
           <button
-            className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong ml-auto mt-4"
+            className="group flex w-fit items-center px-4 py-2 font-medium duration-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong ml-auto mt-4"
             type="submit"
             disabled={
               status === "loading" ||
@@ -249,7 +249,7 @@ export default function ContactSection() {
       >
         {/* Email */}
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
+          className="group flex w-fit items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
           href={`mailto:${profileData.email}`}
         >
           <AtSign className="size-5" />
@@ -259,7 +259,7 @@ export default function ContactSection() {
 
         {/* LinkedIn */}
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
+          className="group flex w-fit items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
           href={profileData.linkedin}
           target="_blank"
           rel="noopener noreferrer"
@@ -277,7 +277,7 @@ export default function ContactSection() {
 
         {/* GitHub */}
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
+          className="group flex w-fit items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-3 gap-2"
           href={profileData.github}
           target="_blank"
           rel="noopener noreferrer"

@@ -47,7 +47,7 @@ export default function TechStackSection() {
             <TechWrapper
               key={tech.name}
               {...linkProps}
-              className={`flex items-center gap-2 rounded-md border border-border bg-transparent px-2 py-1 font-mono font-medium text-muted duration-200 hover:border-border-strong hover:bg-hover motion-reduce:transition-none ${tech.link ? "cursor-pointer hover:text-foreground" : "cursor-default"}`}
+              className={`flex items-center gap-2 border border-border bg-transparent px-2 py-1 font-mono font-medium text-muted duration-200 hover:border-border-strong hover:bg-hover motion-reduce:transition-none ${tech.link ? "cursor-pointer hover:text-foreground" : "cursor-default"}`}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -59,7 +59,7 @@ export default function TechStackSection() {
                 loading="lazy"
                 width={20}
                 height={20}
-                className="size-5 rounded"
+                className="size-5 "
                 src={tech.icon}
               />
               {tech.name}

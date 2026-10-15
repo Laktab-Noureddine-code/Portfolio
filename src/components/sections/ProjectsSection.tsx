@@ -110,7 +110,7 @@ export default function ProjectsSection() {
       >
         <p className="mb-2 text-muted">Want to see more?</p>
         <a
-          className="group flex w-fit items-center rounded-md px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong"
+          className="group flex w-fit items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong"
           href={`https://github.com/Laktab-Noureddine-code?tab=repositories`}
           target="_blank"
           rel="noopener noreferrer"
@@ -155,8 +155,8 @@ const ProjectCard = ({
         <div
           className={`relative group overflow-hidden bg-surface shadow-2xl cursor-pointer flex flex-col ${
             project.isMobile
-              ? "rounded-[2.5rem] w-full max-w-[280px] sm:max-w-[320px] mx-auto border-[8px] border-border aspect-[9/19]"
-              : "rounded-xl w-full border border-border"
+              ? "w-full max-w-[280px] sm:max-w-[320px] mx-auto border-[8px] border-border aspect-[9/19]"
+              : "w-full border border-border"
           }`}
           onClick={() => openLightbox(images, activeImgIndex)}
         >
@@ -172,8 +172,8 @@ const ProjectCard = ({
                   </span>
                 </div>
                 {/* Dynamic Island Mockup */}
-                <div className="w-20 sm:w-24 h-6 bg-black rounded-full flex items-center justify-end px-2 border border-border shadow-inner">
-                  <div className="w-2 h-2 rounded-full bg-neutral-700 mr-1.5 opacity-60"></div>
+                <div className="w-20 sm:w-24 h-6 bg-black flex items-center justify-end px-2 border border-border shadow-inner">
+                  <div className="w-2 h-2 bg-neutral-700 mr-1.5 opacity-60"></div>
                 </div>
                 <div className="flex-1 flex items-center justify-end gap-1.5 pr-1 text-muted">
                   <Signal className="w-3.5 h-3.5" />
@@ -184,15 +184,15 @@ const ProjectCard = ({
             ) : (
               <>
                 <div className="flex-1 flex gap-2 justify-start items-center">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                  <div className="w-3 h-3 bg-red-500/80"></div>
+                  <div className="w-3 h-3 bg-amber-500/80"></div>
+                  <div className="w-3 h-3 bg-green-500/80"></div>
                 </div>
-                <div className="text-xs text-subtle font-mono tracking-wider bg-sunken px-4 py-1.5 rounded-full flex-shrink-0">
+                <div className="text-xs text-subtle font-mono tracking-wider bg-sunken px-4 py-1.5 flex-shrink-0">
                   preview
                 </div>
                 <div className="flex-1 flex items-center justify-end">
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-muted bg-surface-3 px-2.5 py-1.5 rounded-md">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-muted bg-surface-3 px-2.5 py-1.5 ">
                     <Monitor className="w-3.5 h-3.5" /> Web
                   </div>
                 </div>
@@ -216,14 +216,14 @@ const ProjectCard = ({
             {/* Hover Overlay: Click to view */}
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center z-10 backdrop-blur-sm">
               <Eye className="w-12 h-12 text-white mb-3 drop-shadow-lg" />
-              <span className="bg-black/80 text-white font-medium tracking-wide px-4 py-2 rounded-lg border border-white/20">
+              <span className="bg-black/80 text-white font-medium tracking-wide px-4 py-2 border border-white/20">
                 Click to view
               </span>
             </div>
 
             {/* Photos Badge */}
             {images.length > 1 && (
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-medium text-neutral-200 border border-white/20 shadow-xl pointer-events-none">
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-neutral-200 border border-white/20 shadow-xl pointer-events-none">
                 <ImageIcon className="w-3.5 h-3.5" />
                 {images.length} photos
               </div>
@@ -239,7 +239,7 @@ const ProjectCard = ({
                 key={idx}
                 onClick={() => setActiveImgIndex(idx)}
                 aria-label={`Show screenshot ${idx + 1}`}
-                className={`relative flex-shrink-0 w-28 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 snap-center ${
+                className={`relative flex-shrink-0 w-28 h-16 overflow-hidden border-2 transition-all duration-300 snap-center ${
                   activeImgIndex === idx
                     ? "border-blue-500 opacity-100 shadow-[0_0_15px_rgba(59,130,246,0.3)] scale-105"
                     : "border-border opacity-50 hover:opacity-100 hover:border-border-strong"
@@ -262,7 +262,7 @@ const ProjectCard = ({
       <div className="w-full xl:w-[45%] flex flex-col">
         <div className="flex items-start gap-4 mb-3">
           {project.logo && (
-            <div className="flex-shrink-0 mt-1 p-2 bg-surface-2 rounded-xl border border-border shadow-sm">
+            <div className="flex-shrink-0 mt-1 p-2 bg-surface-2 border border-border shadow-sm">
               <Image
                 src={project.logo}
                 alt=""
@@ -306,7 +306,7 @@ const ProjectCard = ({
                 <TechWrapper
                   key={tech.name}
                   {...linkProps}
-                  className={`flex items-center gap-2 rounded-md border border-border bg-surface-2 px-3 py-1.5 text-sm font-medium text-body transition-colors hover:bg-surface-3 ${tech.link ? "cursor-pointer hover:border-border-strong shadow-sm hover:text-foreground" : ""}`}
+                  className={`flex items-center gap-2 border border-border bg-surface-2 px-3 py-1.5 text-sm font-medium text-body transition-colors hover:bg-surface-3 ${tech.link ? "cursor-pointer hover:border-border-strong shadow-sm hover:text-foreground" : ""}`}
                 >
                   <Image
                     src={tech.icon}
@@ -325,7 +325,7 @@ const ProjectCard = ({
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-4 mt-auto">
           {project.isPrivate ? (
-            <div className="flex items-center justify-center rounded-lg px-5 py-2.5 font-medium bg-surface-2 text-subtle border border-border cursor-not-allowed select-none">
+            <div className="flex items-center justify-center px-5 py-2.5 font-medium bg-surface-2 text-subtle border border-border cursor-not-allowed select-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -348,7 +348,7 @@ const ProjectCard = ({
               {project.live && project.live !== "#" && (
                 <a
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition-all duration-300 bg-foreground text-background hover:opacity-90 shadow-lg"
+                  className="group flex items-center justify-center px-5 py-2.5 font-medium transition-all duration-300 bg-foreground text-background hover:opacity-90 shadow-lg"
                   href={project.live}
                   target="_blank"
                 >
@@ -361,7 +361,7 @@ const ProjectCard = ({
               {project.github && project.github !== "#" && (
                 <a
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition-all duration-300 bg-surface-2 text-foreground hover:bg-surface-3 border border-border-strong"
+                  className="group flex items-center justify-center px-5 py-2.5 font-medium transition-all duration-300 bg-surface-2 text-foreground hover:bg-surface-3 border border-border-strong"
                   href={project.github}
                   target="_blank"
                 >
@@ -424,7 +424,7 @@ const Lightbox = ({
       {/* Controls Container to avoid hover interference with image */}
       <div className="absolute inset-0 pointer-events-none z-[110]">
         <button
-          className="absolute top-6 right-6 text-neutral-300 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full pointer-events-auto backdrop-blur-sm border border-white/20"
+          className="absolute top-6 right-6 text-neutral-300 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2 pointer-events-auto backdrop-blur-sm border border-white/20"
           onClick={onClose}
         >
           <X className="w-6 h-6" />
@@ -433,13 +433,13 @@ const Lightbox = ({
         {state.images.length > 1 && (
           <>
             <button
-              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-white/10 hover:bg-white/20 pointer-events-auto backdrop-blur-sm border border-white/20 hover:scale-110 group"
+              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 bg-white/10 hover:bg-white/20 pointer-events-auto backdrop-blur-sm border border-white/20 hover:scale-110 group"
               onClick={handlePrev}
             >
               <ChevronLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform" />
             </button>
             <button
-              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 rounded-full bg-white/10 hover:bg-white/20 pointer-events-auto backdrop-blur-sm border border-white/20 hover:scale-110 group"
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-white transition-all p-3 bg-white/10 hover:bg-white/20 pointer-events-auto backdrop-blur-sm border border-white/20 hover:scale-110 group"
               onClick={handleNext}
             >
               <ChevronRight className="w-8 h-8 group-hover:translate-x-1 transition-transform" />
@@ -458,13 +458,13 @@ const Lightbox = ({
           transition={{ duration: 0.2 }}
           src={state.images[currentIndex]}
           alt={`Fullscreen view ${currentIndex + 1}`}
-          className="max-w-full max-h-full object-contain rounded-lg drop-shadow-2xl"
+          className="max-w-full max-h-full object-contain drop-shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         />
       </div>
 
       {state.images.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[110] bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[110] bg-white/10 px-4 py-2 backdrop-blur-md border border-white/20">
           {state.images.map((_, i) => (
             <button
               key={i}
@@ -472,7 +472,7 @@ const Lightbox = ({
                 e.stopPropagation();
                 setCurrentIndex(i);
               }}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentIndex ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"}`}
+              className={`w-2.5 h-2.5 transition-all ${i === currentIndex ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"}`}
             />
           ))}
         </div>

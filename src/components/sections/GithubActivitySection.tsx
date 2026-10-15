@@ -30,7 +30,7 @@ export default async function GithubActivitySection() {
         .
       </p>
 
-      <div className="mt-4 rounded-xl border border-border bg-surface p-4">
+      <div className="mt-4 border border-border bg-surface p-4">
         <ContributionGraph
           contributions={data.contributions}
           total={data.total}

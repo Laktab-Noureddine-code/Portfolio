@@ -119,10 +119,8 @@ export default function ContributionGraph({
               >
                 {day && (
                   <>
-                    <div
-                      className={`size-full rounded-xs ${levelClass(day.level)}`}
-                    />
-                    <div className="pointer-events-none absolute -top-9 left-1/2 z-10 hidden w-max -translate-x-1/2 rounded-md border border-border bg-surface-2 px-2 py-1 text-[11px] shadow-lg group-hover:block">
+                    <div className={`size-full ${levelClass(day.level)}`} />
+                    <div className="pointer-events-none absolute -top-9 left-1/2 z-10 hidden w-max -translate-x-1/2 border border-border bg-surface-2 px-2 py-1 text-[11px] shadow-lg group-hover:block">
                       <span className="font-medium text-foreground">
                         {day.count} contribution{day.count === 1 ? "" : "s"}
                       </span>
@@ -144,10 +142,7 @@ export default function ContributionGraph({
         <div className="flex items-center gap-1">
           <span>Less</span>
           {([0, 1, 2, 3, 4] as ContributionLevel[]).map((level) => (
-            <div
-              key={level}
-              className={`size-[10px] rounded-xs ${levelClass(level)}`}
-            />
+            <div key={level} className={`size-[10px] ${levelClass(level)}`} />
           ))}
           <span>More</span>
         </div>

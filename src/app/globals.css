@@ -306,7 +306,6 @@
 
 ::-webkit-scrollbar-thumb {
   background: var(--surface-3);
-  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -330,7 +329,6 @@
 .swiper-pagination-bullet-active {
   background: var(--foreground);
   width: 24px;
-  border-radius: 4px;
 }
 
 /* Hide default swiper navigation */

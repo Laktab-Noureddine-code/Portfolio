@@ -8,16 +8,22 @@ import ProjectsSection from "./sections/ProjectsSection";
 import TechStackSection from "./sections/TechStackSection";
 import GithubActivitySection from "./sections/GithubActivitySection";
 import ContactSection from "./sections/ContactSection";
+import HeroBackdrop from "./layout/HeroBackdrop";
 
 export default function Portfolio() {
   return (
     <MotionProvider>
       <div className="relative min-h-screen">
         <div className="noise pointer-events-none fixed inset-0 z-50" />
-        <div className="mx-auto max-w-screen-lg px-6 pb-12">
-          <Navigation />
-          <main>
+        <main>
+          {/* Navbar + hero share one hexagon backdrop. */}
+          <HeroBackdrop>
+            <div className="relative mx-auto max-w-screen-lg px-6">
+              <Navigation />
+            </div>
             <HeroSection />
+          </HeroBackdrop>
+          <div className="mx-auto max-w-screen-lg px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
               <AboutSection />
               <StudioSection />
@@ -26,7 +32,9 @@ export default function Portfolio() {
             <TechStackSection />
             <GithubActivitySection />
             <ContactSection />
-          </main>
+          </div>
+        </main>
+        <div className="mx-auto max-w-screen-lg px-6 pb-12">
           <Footer />
         </div>
       </div>

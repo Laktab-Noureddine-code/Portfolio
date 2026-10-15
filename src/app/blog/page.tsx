@@ -14,7 +14,7 @@ export default function BlogPage() {
     <main className="relative min-h-screen">
       <div className="noise pointer-events-none fixed inset-0 z-50" />
       <div className="mx-auto flex min-h-screen max-w-screen-md flex-col items-center justify-center px-6 text-center font-mono">
-        <span className="mb-4 rounded-full border border-border bg-surface px-4 py-1 text-xs uppercase tracking-widest text-muted">
+        <span className="mb-4 border border-border bg-surface px-4 py-1 text-xs uppercase tracking-widest text-muted">
           Coming soon
         </span>
 
@@ -37,7 +37,7 @@ export default function BlogPage() {
 
         <Link
           href="/"
-          className="mt-8 inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2 text-sm text-body transition-colors hover:bg-surface-3 hover:text-foreground"
+          className="mt-8 inline-flex items-center gap-2 border border-border bg-surface px-4 py-2 text-sm text-body transition-colors hover:bg-surface-3 hover:text-foreground"
         >
           <ArrowLeft className="size-4" />
           Back to portfolio
