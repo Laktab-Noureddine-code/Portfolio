@@ -1,11 +1,12 @@
-import { getGithubContributions } from "../../lib/github";
+import type { ContributionData } from "../../lib/github";
 import { profileData } from "../../data/portfolio-data";
 import ContributionGraph from "../ui/contribution-graph";
 
-export default async function GithubActivitySection() {
-  const username = profileData.github.split("/").filter(Boolean).pop();
-  const data = username ? await getGithubContributions(username) : null;
-
+export default function GithubActivitySection({
+  data,
+}: {
+  data: ContributionData | null;
+}) {
   if (!data) return null;
 
   return (

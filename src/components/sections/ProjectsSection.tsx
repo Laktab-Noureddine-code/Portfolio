@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { m, AnimatePresence } from "framer-motion";
 import {
   Link,
@@ -204,12 +203,10 @@ const ProjectCard = ({
           <div
             className={`relative w-full flex-grow flex items-center justify-center bg-sunken p-0 overflow-hidden ${project.isMobile ? "aspect-[9/16] max-h-[70vh]" : "aspect-video"}`}
           >
-            <Image
+            <img
               src={images[activeImgIndex]}
               alt={`${project.title} screenshot ${activeImgIndex + 1}`}
-              fill
-              sizes="(max-width: 1280px) 100vw, 55vw"
-              className={`transition-transform duration-500 group-hover:scale-[1.02] ${
+              className={`absolute inset-0 size-full transition-transform duration-500 group-hover:scale-[1.02] ${
                 project.isMobile ? "object-cover" : "object-contain sm:p-2"
               }`}
             />
@@ -245,12 +242,10 @@ const ProjectCard = ({
                     : "border-border opacity-50 hover:opacity-100 hover:border-border-strong"
                 }`}
               >
-                <Image
+                <img
                   src={img}
                   alt=""
-                  fill
-                  sizes="112px"
-                  className="object-cover"
+                  className="absolute inset-0 size-full object-cover"
                 />
               </button>
             ))}
@@ -263,7 +258,7 @@ const ProjectCard = ({
         <div className="flex items-start gap-4 mb-3">
           {project.logo && (
             <div className="flex-shrink-0 mt-1 p-2 bg-surface-2 border border-border shadow-sm">
-              <Image
+              <img
                 src={project.logo}
                 alt=""
                 width={40}
@@ -308,7 +303,7 @@ const ProjectCard = ({
                   {...linkProps}
                   className={`flex items-center gap-2 border border-border bg-surface-2 px-3 py-1.5 text-sm font-medium text-body transition-colors hover:bg-surface-3 ${tech.link ? "cursor-pointer hover:border-border-strong shadow-sm hover:text-foreground" : ""}`}
                 >
-                  <Image
+                  <img
                     src={tech.icon}
                     alt=""
                     width={16}

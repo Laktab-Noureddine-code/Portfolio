@@ -2,8 +2,8 @@
   "ci": {
     "collect": {
       "startServerCommand": "npm run start",
-      "startServerReadyPattern": "Ready in|started server on|Local:",
-      "url": ["http://localhost:3000/"],
+      "startServerReadyPattern": "astro|Local|localhost",
+      "url": ["http://localhost:4321/"],
       "numberOfRuns": 3
     },
     "assert": {

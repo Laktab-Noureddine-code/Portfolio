@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { m } from "framer-motion";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { profileData, education, experience } from "../../data/portfolio-data";
@@ -75,13 +74,13 @@ export default function AboutSection() {
           <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
         </a>
 
-        <Link
+        <a
           className="group flex w-fit items-center px-4 py-2 font-medium duration-200 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong"
           href="#contact"
         >
           Contact me
           <ArrowRight className="ml-2 size-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
-        </Link>
+        </a>
       </m.div>
 
       {/* Experience Card */}

@@ -4,9 +4,9 @@
 
 > **"Designing and building complete business applications."**
 
-Welcome to the open-source repository of my personal developer portfolio! This project showcases my skills, experience, and favorite projects as a **Full Stack Web Developer** specializing in React, Next.js, and Laravel. 
+Welcome to the open-source repository of my personal developer portfolio! This project showcases my skills, experience, and favorite projects as a **Full Stack Web Developer** specializing in React, Astro, and Laravel.
 
-You can check out my live portfolio here: *(Insert Live Link Here)*
+You can check out my live portfolio here: _(Insert Live Link Here)_
 
 ---
 
@@ -31,7 +31,7 @@ This interactive portfolio is built using my favorite modern web technologies:
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Deployment**: [Vercel](https://vercel.com/) / Netlify
 
-*For a full list of my backend and frontend skills (including Laravel, Spring Boot, FastAPI, and more), check out the "Technologies" section in the live app!*
+_For a full list of my backend and frontend skills (including Laravel, Spring Boot, FastAPI, and more), check out the "Technologies" section in the live app!_
 
 ---
 
@@ -52,7 +52,9 @@ Here are a few of the highlighted applications detailed inside:
 To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
+
 Make sure you have Node.js and npm (or yarn/pnpm) installed on your machine.
+
 - Node.js >= 18.0.0
 
 ### Installation
@@ -91,10 +93,12 @@ If you want to use this template for your own portfolio:
 ## 📫 Contact Me
 
 **Noureddine Laktab**
+
 - **Location**: Casablanca, Maroc
 - **Email**: [noureddine.laktab15@gmail.com](mailto:noureddine.laktab15@gmail.com)
 - **LinkedIn**: [in/noureddine-laktab](https://linkedin.com/in/noureddine-laktab)
 - **GitHub**: [@Laktab-Noureddine-code](https://github.com/Laktab-Noureddine-code)
 
 ---
-*Created with ❤️ and TypeScript.*
+
+_Created with ❤️ and TypeScript._
