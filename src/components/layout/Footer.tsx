@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { profileData, navLinks } from "../../data/portfolio-data";
 
 export default function Footer() {
@@ -57,9 +56,9 @@ export default function Footer() {
                   {link.name}
                 </a>
               ) : (
-                <Link key={link.name} className={className} href={link.href}>
+                <a key={link.name} className={className} href={link.href}>
                   {link.name}
-                </Link>
+                </a>
               );
             })}
           </div>

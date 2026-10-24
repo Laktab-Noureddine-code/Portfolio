@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { m } from "framer-motion";
 import { Globe, Rocket } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
@@ -17,14 +16,12 @@ export default function HeroSection() {
         <div className="md:hidden flex flex-col" aria-hidden="true">
           {/* Mobile Image with overlay text */}
           <div className="relative w-full aspect-[3/4]">
-            <Image
+            <img
               alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
-              className="object-cover"
+              className="absolute inset-0 size-full object-cover"
               style={{ objectPosition: "center top" }}
               src={profileImage}
-              fill
-              sizes="100vw"
-              priority
+              fetchPriority="high"
             />
             {/* Gradient Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 via-25% to-transparent to-45%" />
@@ -147,13 +144,11 @@ export default function HeroSection() {
 
           {/* Desktop Image: full height, right-aligned, cropped ~20% off the bottom for a bigger look */}
           <div className="relative h-full aspect-[814.5/868.8] shrink-0">
-            <Image
+            <img
               alt="Noureddine Laktab - Full-Stack Web Developer specializing in React and Laravel"
-              className="object-cover object-top"
+              className="absolute inset-0 size-full object-cover object-top"
               src={profileImage}
-              fill
-              sizes="(max-width: 1024px) 50vw, 600px"
-              priority
+              fetchPriority="high"
             />
           </div>
         </div>

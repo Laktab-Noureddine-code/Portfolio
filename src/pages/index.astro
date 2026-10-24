@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Portfolio from "@/components/Portfolio";
+import { getGithubContributions } from "@/lib/github";
+import { profileData } from "@/data/portfolio-data";
+
+// Fetched at build time (the old Next build revalidated hourly).
+const username = profileData.github.split("/").filter(Boolean).pop();
+const github = username ? await getGithubContributions(username) : null;
+---
+
+<Layout>
+  <Portfolio github={github} client:load />
+</Layout>

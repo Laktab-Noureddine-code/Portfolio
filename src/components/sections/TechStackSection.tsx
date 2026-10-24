@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { m } from "framer-motion";
 import { techStack } from "../../data/portfolio-data";
 
@@ -54,7 +53,7 @@ export default function TechStackSection() {
               transition={{ delay: 0.05 * index }}
               whileHover={{ scale: 1.05 }}
             >
-              <Image
+              <img
                 alt=""
                 loading="lazy"
                 width={20}

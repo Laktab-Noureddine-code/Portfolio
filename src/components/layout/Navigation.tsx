@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { m, AnimatePresence } from "framer-motion";
 import { AlignLeft, X } from "lucide-react";
 import { navLinks } from "../../data/portfolio-data";
@@ -14,20 +12,20 @@ export default function Navigation() {
   return (
     <nav className="z-50 mx-auto flex justify-between w-full max-w-screen-2xl items-center pt-9 font-mono px-6">
       {/* Logo */}
-      <Link
+      <a
         className="text-lg font-black text-foreground duration-300 motion-reduce:transition-none mr-6"
         href="#home"
         aria-label="Noureddine Laktab — home"
       >
-        <Image
+        <img
           src="/logo.svg"
           alt=""
           width={48}
           height={48}
           className="w-12 invert dark:invert-0"
-          priority
+          fetchPriority="high"
         />
-      </Link>
+      </a>
 
       {/* Desktop Navigation */}
       <div className="flex justify-start">
@@ -35,13 +33,13 @@ export default function Navigation() {
           {navLinks
             .filter((link) => !link.download)
             .map((link) => (
-              <Link
+              <a
                 key={link.name}
                 className="relative px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
                 href={link.href}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
           {navLinks
             .filter((link) => link.download)
@@ -57,12 +55,12 @@ export default function Navigation() {
             ))}
         </div>
       </div>
-      <Link
+      <a
         className="hidden lg:inline-flex relative px-2 py-1 transition-all hover:bg-hover hover:text-foreground sm:px-3 sm:py-2 text-muted"
         href="#contact"
       >
         Contact
-      </Link>
+      </a>
 
       {/* Right Side Controls */}
       <div className="flex items-center gap-2">
@@ -104,20 +102,20 @@ export default function Navigation() {
               className="fixed top-0 left-0 bottom-0 w-[320px] bg-surface border-r border-border z-50 p-6 lg:hidden"
             >
               <div className="flex items-center justify-between mb-8">
-                <Link
+                <a
                   className="text-lg font-black text-foreground"
                   href="#home"
                   aria-label="Noureddine Laktab — home"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Image
+                  <img
                     src="/logo.svg"
                     alt=""
                     width={64}
                     height={64}
                     className="w-16 invert dark:invert-0"
                   />
-                </Link>
+                </a>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
@@ -141,23 +139,23 @@ export default function Navigation() {
                       {link.name}
                     </a>
                   ) : (
-                    <Link
+                    <a
                       key={link.name}
                       className="px-4 py-3 text-body hover:bg-hover hover:text-foreground transition-colors"
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   ),
                 )}
-                <Link
+                <a
                   className="px-4 py-3 text-body hover:bg-hover hover:text-foreground transition-colors mt-2 border-t border-border pt-5"
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact
-                </Link>
+                </a>
               </div>
             </m.div>
           </>

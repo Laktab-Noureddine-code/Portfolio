@@ -9,8 +9,13 @@ import TechStackSection from "./sections/TechStackSection";
 import GithubActivitySection from "./sections/GithubActivitySection";
 import ContactSection from "./sections/ContactSection";
 import HeroBackdrop from "./layout/HeroBackdrop";
+import type { ContributionData } from "../lib/github";
 
-export default function Portfolio() {
+export default function Portfolio({
+  github,
+}: {
+  github: ContributionData | null;
+}) {
   return (
     <MotionProvider>
       <div className="relative min-h-screen">
@@ -30,7 +35,7 @@ export default function Portfolio() {
             </div>
             <ProjectsSection />
             <TechStackSection />
-            <GithubActivitySection />
+            <GithubActivitySection data={github} />
             <ContactSection />
           </div>
         </main>

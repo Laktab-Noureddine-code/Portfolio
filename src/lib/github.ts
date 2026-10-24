@@ -27,7 +27,6 @@ export async function getGithubContributions(
           "User-Agent":
             "Mozilla/5.0 (compatible; PortfolioContributionGraph/1.0)",
         },
-        next: { revalidate: 3600 },
       },
     );
     if (!res.ok) return null;

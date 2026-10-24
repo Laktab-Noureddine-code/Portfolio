@@ -9,11 +9,10 @@ lerna-debug.log*
 
 node_modules
 
-# Next.js
-.next/
-out/
+# Astro
+dist/
+.astro/
 build
-next-env.d.ts
 *.tsbuildinfo
 
 *.local
