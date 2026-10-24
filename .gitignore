@@ -32,8 +32,6 @@ coverage
 .claude/
 CLAUDE.local.md
 
-# Lighthouse CI
-.lighthouseci
 
 # Editor directories and files
 .vscode/*
