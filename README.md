@@ -102,3 +102,11 @@ If you want to use this template for your own portfolio:
 ---
 
 _Created with ❤️ and TypeScript._
+
+## Deploy (Cloudflare Workers)
+
+The site is a static Astro build served by Cloudflare Workers static assets (see `wrangler.jsonc`).
+
+- Build command: `npm run build` (outputs `dist/`)
+- Deploy command (production): `npx wrangler deploy`
+- Deploy command (non-production branches): `npx wrangler versions upload`
