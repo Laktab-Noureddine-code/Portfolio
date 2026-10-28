@@ -1,6 +1,6 @@
 import type { ContributionData } from "../../lib/github";
 import { profileData } from "../../data/portfolio-data";
-import ContributionGraph from "../ui/contribution-graph";
+import ContributionSkyline from "../ui/contribution-skyline";
 
 export default function GithubActivitySection({
   data,
@@ -31,11 +31,8 @@ export default function GithubActivitySection({
         .
       </p>
 
-      <div className="mt-4 border border-border bg-surface p-4">
-        <ContributionGraph
-          contributions={data.contributions}
-          total={data.total}
-        />
+      <div className="mt-4">
+        <ContributionSkyline data={data.contributions} />
       </div>
     </section>
   );
