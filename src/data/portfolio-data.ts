@@ -56,6 +56,144 @@ export const techStack = [
 
 export const projects = [
   {
+    id: 6,
+    title: "EFact",
+    subtitle: "E-Invoicing API & SDK for Morocco - Itzenata",
+    description:
+      "A Stripe-like compliance API that lets any SaaS or ERP issue electronic invoices that comply with Morocco's DGI 2026 mandate in a few lines of code. Generates UBL 2.1 XML, applies XAdES signatures, tracks each invoice's submission status in real time, and ships with a developer sandbox, API keys, audit logs and full documentation.",
+    tech: [
+      {
+        name: "Next.js",
+        icon: "/tech/nextjs.svg",
+        link: "https://nextjs.org/",
+      },
+      {
+        name: "TypeScript",
+        icon: "/tech/typescript.svg",
+        link: "https://www.typescriptlang.org/",
+      },
+      {
+        name: "Spring Boot",
+        icon: "/tech/spring.svg",
+        link: "https://spring.io/projects/spring-boot",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "/tech/postgresql.svg",
+        link: "https://www.postgresql.org/",
+      },
+      {
+        name: "TailwindCSS",
+        icon: "/tech/tailwind.svg",
+        link: "https://tailwindcss.com/",
+      },
+      {
+        name: "Docker",
+        icon: "/tech/docker.svg",
+        link: "https://www.docker.com/",
+      },
+    ],
+    image: "/projects/efact/efact1.webp",
+    images: [
+      "/projects/efact/efact1.webp",
+      "/projects/efact/efact2.webp",
+      "/projects/efact/efact3.webp",
+      "/projects/efact/efact4.webp",
+      "/projects/efact/efact5.webp",
+      "/projects/efact/efact6.webp",
+      "/projects/efact/efact7.webp",
+      "/projects/efact/efact8.webp",
+    ],
+    logo: "/projects/efact/logo.svg",
+    github: "#",
+    live: "https://efact.ma/",
+    featured: true,
+  },
+  {
+    id: 7,
+    title: "RepoTruss",
+    subtitle: "Developer Technology Discovery Platform",
+    description:
+      "An independent tech publication to discover, compare and connect developer technologies. Tracks trending open-source repositories, compares frameworks and AI tools side by side, and publishes practical guides. Fully static, with instant client-side search.",
+    tech: [
+      { name: "Astro", icon: "/tech/astro.svg", link: "https://astro.build/" },
+      {
+        name: "TypeScript",
+        icon: "/tech/typescript.svg",
+        link: "https://www.typescriptlang.org/",
+      },
+      {
+        name: "TailwindCSS",
+        icon: "/tech/tailwind.svg",
+        link: "https://tailwindcss.com/",
+      },
+      {
+        name: "Cloudflare",
+        icon: "/tech/cloudflare.svg",
+        link: "https://workers.cloudflare.com/",
+      },
+    ],
+    image: "/projects/repotruss/repotruss1.webp",
+    images: [
+      "/projects/repotruss/repotruss1.webp",
+      "/projects/repotruss/repotruss2.webp",
+      "/projects/repotruss/repotruss3.webp",
+      "/projects/repotruss/repotruss4.webp",
+      "/projects/repotruss/repotruss5.webp",
+    ],
+    logo: "/projects/repotruss/logo.webp",
+    github: "#",
+    live: "https://repotruss.com/",
+    featured: true,
+  },
+  {
+    id: 8,
+    title: "FluentSide",
+    subtitle: "AI Language Coach for ChatGPT",
+    description:
+      "Turns everyday ChatGPT conversations into language progress. A ChatGPT connector (MCP server with OAuth) records the corrections ChatGPT makes to your writing, and a private dashboard shows recurring mistakes, honest progress and a daily plan of curated lessons.",
+    tech: [
+      {
+        name: "Next.js",
+        icon: "/tech/nextjs.svg",
+        link: "https://nextjs.org/",
+      },
+      {
+        name: "TypeScript",
+        icon: "/tech/typescript.svg",
+        link: "https://www.typescriptlang.org/",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "/tech/postgresql.svg",
+        link: "https://www.postgresql.org/",
+      },
+      {
+        name: "TailwindCSS",
+        icon: "/tech/tailwind.svg",
+        link: "https://tailwindcss.com/",
+      },
+      {
+        name: "Cloudflare",
+        icon: "/tech/cloudflare.svg",
+        link: "https://workers.cloudflare.com/",
+      },
+    ],
+    image: "/projects/fluentside/fluentside1.webp",
+    images: [
+      "/projects/fluentside/fluentside1.webp",
+      "/projects/fluentside/fluentside2.webp",
+      "/projects/fluentside/fluentside3.webp",
+      "/projects/fluentside/fluentside4.webp",
+      "/projects/fluentside/fluentside5.webp",
+      "/projects/fluentside/fluentside6.webp",
+    ],
+    logo: "/projects/fluentside/logo.webp",
+    github: "#",
+    live: "https://fluentside.com/",
+    featured: true,
+  },
+  {
     id: 1,
     title: "3ssila-ai",
     subtitle: "AI-Powered Translation & Summarization",

@@ -23,7 +23,6 @@
     "@astrojs/check": "^0.9.12",
     "@astrojs/react": "^7.1.0",
     "@astrojs/sitemap": "^3.7.4",
-    "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.3.3",
     "@vercel/analytics": "^1.6.1",

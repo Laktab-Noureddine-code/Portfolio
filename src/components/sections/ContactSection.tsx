@@ -1,65 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { m } from "framer-motion";
-import {
-  Send,
-  AtSign,
-  ArrowRight,
-  Loader2,
-  CheckCircle,
-  XCircle,
-} from "lucide-react";
+import { AtSign, ArrowRight } from "lucide-react";
 import { profileData } from "../../data/portfolio-data";
-import emailjs from "@emailjs/browser";
-
-// EmailJS credentials
-const EMAILJS_SERVICE_ID = "service_btav8bo";
-const EMAILJS_TEMPLATE_ID = "template_i3qw6sw";
-const EMAILJS_PUBLIC_KEY = "omkybeoZ5KgYPt0j6";
 
 export default function ContactSection() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current!,
-        EMAILJS_PUBLIC_KEY,
-      );
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-      // Reset status after 3 seconds
-      setTimeout(() => setStatus("idle"), 3000);
-    } catch (error) {
-      const detail =
-        error && typeof error === "object" && "text" in error
-          ? (error as { text: string }).text
-          : error instanceof Error
-            ? error.message
-            : String(error);
-      console.error("EmailJS error:", detail);
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 3000);
-    }
-  };
-
-  const characterCount = formData.message.length;
-  const maxCharacters = 500;
-
   return (
     <section className="mb-12">
       <m.h2
@@ -84,160 +29,7 @@ export default function ContactSection() {
       >
         I'm always eager to explore new opportunities and take on exciting
         projects. If you have a project in mind, or just want to say hi, feel
-        free to send me a message.
-      </m.p>
-
-      {/* Contact Form */}
-      <m.div
-        className="my-6 flex w-full border border-border bg-surface p-5"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        <form
-          ref={formRef}
-          className="relative flex w-full flex-col items-center justify-center"
-          onSubmit={handleSubmit}
-        >
-          <div className="block w-full items-center justify-center gap-4 text-left md:flex">
-            {/* Name Field */}
-            <label
-              htmlFor="name"
-              className="w-full text-left text-sm font-bold tracking-wide text-body"
-            >
-              Name
-              <span
-                aria-hidden="true"
-                className="cursor-help text-red-600 dark:text-red-500"
-                title="Required"
-              >
-                *
-              </span>
-              <input
-                id="name"
-                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full border p-2 font-normal outline-0 duration-200 bg-transparent"
-                type="text"
-                placeholder="Your Name"
-                name="name"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-              />
-            </label>
-
-            {/* Email Field */}
-            <label
-              htmlFor="email"
-              className="w-full text-left text-sm font-bold tracking-wide text-body"
-            >
-              Email
-              <span
-                aria-hidden="true"
-                className="cursor-help text-red-600 dark:text-red-500"
-                title="Required"
-              >
-                *
-              </span>
-              <input
-                id="email"
-                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong my-2 w-full border p-2 font-normal outline-0 duration-200 bg-transparent"
-                type="email"
-                placeholder="name@domain.com"
-                name="email"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                required
-              />
-            </label>
-          </div>
-
-          {/* Message Field */}
-          <div className="mt-2 flex w-full flex-col items-center justify-center gap-1.5">
-            <label
-              htmlFor="message"
-              className="w-full text-left text-sm font-bold tracking-wide text-body"
-            >
-              Message
-              <span
-                aria-hidden="true"
-                className="cursor-help text-red-600 dark:text-red-500"
-                title="Required"
-              >
-                *
-              </span>
-              <textarea
-                name="message"
-                id="message"
-                className="border-border text-foreground placeholder:text-subtle focus:border-border-strong mt-2 max-h-40 min-h-24 w-full border p-2 font-normal outline-0 duration-200 bg-transparent"
-                placeholder="Hello there, I would like to ask you about..."
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    message: e.target.value.slice(0, maxCharacters),
-                  })
-                }
-                required
-              />
-            </label>
-            <span className="text-muted ml-auto text-xs">
-              {characterCount}/{maxCharacters} characters
-            </span>
-          </div>
-
-          {/* Submit Button */}
-          <button
-            className="group flex w-fit items-center px-4 py-2 font-medium duration-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none bg-hover text-foreground hover:bg-hover-strong ml-auto mt-4"
-            type="submit"
-            disabled={
-              status === "loading" ||
-              !formData.name ||
-              !formData.email ||
-              !formData.message
-            }
-          >
-            {status === "loading" && (
-              <>
-                <Loader2 className="mr-2 size-4 animate-spin" />
-                Sending...
-              </>
-            )}
-            {status === "success" && (
-              <>
-                <CheckCircle className="mr-2 size-4 text-emerald-600 dark:text-emerald-400" />
-                Sent!
-              </>
-            )}
-            {status === "error" && (
-              <>
-                <XCircle className="mr-2 size-4 text-red-600 dark:text-red-400" />
-                Failed
-              </>
-            )}
-            {status === "idle" && (
-              <>
-                <Send className="mr-2 size-4" />
-                Send
-              </>
-            )}
-          </button>
-        </form>
-      </m.div>
-
-      {/* Alternative Contact Methods */}
-      <m.p
-        className="text-body"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3 }}
-      >
-        Or contact me with...
+        free to reach out.
       </m.p>
 
       <m.div
@@ -245,7 +37,7 @@ export default function ContactSection() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.2 }}
       >
         {/* Email */}
         <a
